@@ -8,5 +8,5 @@
    - async show
    - hide
    - toggle
-- Propertied
+- Properties
    - same as Modal in bootstrap
