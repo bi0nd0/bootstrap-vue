@@ -111,7 +111,6 @@ onMounted( () => {
 
 function onBackdropClicked(event: Event) {
     if(backdrop?.value==='static') return
-    console.log(event)
     // if(disableOutsideClick.value) return
     // hide(false)
 }
