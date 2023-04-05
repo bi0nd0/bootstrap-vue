@@ -1,17 +1,28 @@
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+  <div class="p-5">
+    <h1>Bootstrap Vue</h1>
+    <Modal ref="modal" body="Hello world" title="Warning">
+      <input type="file" />
+    </Modal>
+    <div class="d-flex flex-column gap-2">
+      <div>
+        <h3>Modal</h3>
+        <div>
+          <button class="btn btn-sm btn-primary" @click="openModal" >Open modal</button>
+        </div>
+      </div>
+
+      <div>
+        <h3>Tooltips</h3>
+        <div class="ms-5">
+          <div><span v-tooltip:top="`top`">top tooltip</span></div>
+          <div><span v-tooltip:left="`left`">left tooltip</span></div>
+          <div><span v-tooltip:right="`right`">right tooltip</span></div>
+          <div><span v-tooltip:bottom="`bottom`">bottom tooltip</span></div>
+        </div>
+      </div>
+    </div>
   </div>
-  <HelloWorld msg="Vite + Vue" />
-  <Modal ref="modal" body="asdasd" title="attenzione">
-    <input type="file" />
-  </Modal>
-  <button @click="openModal" >open</button>
 </template>
 
 <script setup lang="ts">
