@@ -1,6 +1,6 @@
-import { defineComponent as T, toRefs as B, computed as O, ref as _, onMounted as H, openBlock as u, createBlock as w, Teleport as E, createElementVNode as o, mergeProps as S, withModifiers as $, normalizeClass as A, unref as R, renderSlot as l, createElementBlock as j, createCommentVNode as N } from "vue";
+import { defineComponent as T, toRefs as B, computed as O, ref as _, onMounted as H, openBlock as u, createBlock as w, Teleport as E, createElementVNode as o, mergeProps as S, withModifiers as $, normalizeClass as A, unref as R, renderSlot as s, createElementBlock as j, createCommentVNode as N } from "vue";
 import { Modal as x } from "bootstrap";
-var i = /* @__PURE__ */ ((t) => (t.SMALL = "sm", t.STANDARD = "", t.LARGE = "lg", t.EXTRA_LARGE = "xl", t))(i || {});
+var r = /* @__PURE__ */ ((t) => (t.SMALL = "sm", t.STANDARD = "", t.LARGE = "lg", t.EXTRA_LARGE = "xl", t))(r || {});
 const z = ["onClick"], D = { class: "modal-content" }, G = { class: "modal-header" }, P = ["innerHTML"], V = { class: "modal-body" }, X = ["innerHTML"], q = { class: "modal-footer" }, F = ["innerHTML"], I = ["innerHTML"], W = /* @__PURE__ */ T({
   __name: "Modal",
   props: {
@@ -20,55 +20,55 @@ const z = ["onClick"], D = { class: "modal-content" }, G = { class: "modal-heade
       type: String,
       default: "",
       validator(t) {
-        return Object.values(i).includes(t);
+        return Object.values(r).includes(t);
       }
     }
   },
   setup(t, { expose: f }) {
-    const k = t, {
-      backdrop: r,
-      keyboard: b,
-      focus: p,
+    const m = t, {
+      backdrop: l,
+      keyboard: y,
+      focus: k,
       disableOutsideClick: J,
-      size: m
-    } = B(k), y = O(() => {
-      let e = m.value.toLowerCase();
-      return !Object.values(i).includes(e) || e == "" ? "" : `modal-${e}`;
+      size: b
+    } = B(m), p = O(() => {
+      let e = b.value.toLowerCase();
+      return !Object.values(r).includes(e) || e == "" ? "" : `modal-${e}`;
     }), d = _();
-    let n, a;
+    let n, i;
     function C() {
       return new Promise((c, K) => {
-        n == null || n.show(), a = c;
+        n == null || n.show(), i = c;
       });
     }
-    function s(e = !0) {
-      n == null || n.hide(), typeof a == "function" && a(e);
+    function a(e = !0) {
+      n == null || n.hide(), typeof i == "function" && i(e);
     }
     function v() {
       n == null || n.toggle();
     }
     H(() => {
       n = new x(d.value, {
-        backdrop: r.value,
-        keyboard: b.value,
-        focus: p.value
+        backdrop: l == null ? void 0 : l.value,
+        keyboard: y.value,
+        focus: k.value
       });
     });
     function h(e) {
-      r.value !== "static" && console.log(e);
+      (l == null ? void 0 : l.value) !== "static" && console.log(e);
     }
     function g() {
-      s(!1);
+      a(!1);
     }
     function L() {
-      s(!1);
+      a(!1);
     }
     function M() {
-      s(!0);
+      a(!0);
     }
     return f({
       show: C,
-      hide: s,
+      hide: a,
       toggle: v
     }), (e, c) => (u(), w(E, { to: "body" }, [
       o("div", S({
@@ -80,11 +80,11 @@ const z = ["onClick"], D = { class: "modal-content" }, G = { class: "modal-heade
         onClick: $(h, ["prevent"])
       }), [
         o("div", {
-          class: A(["modal-dialog", R(y)])
+          class: A(["modal-dialog", R(p)])
         }, [
           o("div", D, [
             o("div", G, [
-              l(e.$slots, "header", {}, () => [
+              s(e.$slots, "header", {}, () => [
                 o("h5", {
                   class: "modal-title",
                   innerHTML: t.title
@@ -98,19 +98,19 @@ const z = ["onClick"], D = { class: "modal-content" }, G = { class: "modal-heade
               })
             ]),
             o("div", V, [
-              l(e.$slots, "default", {}, () => [
+              s(e.$slots, "default", {}, () => [
                 o("span", { innerHTML: t.body }, null, 8, X)
               ])
             ]),
             o("div", q, [
-              l(e.$slots, "footer", {}, () => [
+              s(e.$slots, "footer", {}, () => [
                 t.okOnly ? N("", !0) : (u(), j("button", {
                   key: 0,
                   type: "button",
                   class: "btn btn-secondary",
                   onClick: L
                 }, [
-                  l(e.$slots, "button-cancel", {}, () => [
+                  s(e.$slots, "button-cancel", {}, () => [
                     o("span", { innerHTML: t.textCancel }, null, 8, F)
                   ])
                 ])),
@@ -119,7 +119,7 @@ const z = ["onClick"], D = { class: "modal-content" }, G = { class: "modal-heade
                   class: "btn btn-primary",
                   onClick: M
                 }, [
-                  l(e.$slots, "button-ok", {}, () => [
+                  s(e.$slots, "button-ok", {}, () => [
                     o("span", { innerHTML: t.textOk }, null, 8, I)
                   ])
                 ])

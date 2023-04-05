@@ -48,7 +48,7 @@ const props = defineProps({
     textOk: { type: [String, Boolean], default: 'Ok' },
     backdrop: {
         type: [String, Boolean] as PropType<BackdropType>,
-        default: undefined as boolean | "static" | undefined
+        default: undefined
     },
     keyboard: { type: Boolean, default: true },
     focus: { type: Boolean, default: true },
@@ -103,14 +103,14 @@ function toggle() {
 
 onMounted( () => {
      modal = new Modal(modalElement.value, {
-        backdrop: backdrop.value,
+        backdrop: backdrop?.value,
         keyboard: keyboard.value,
         focus: focus.value,
      })
 })
 
 function onBackdropClicked(event: Event) {
-    if(backdrop.value==='static') return
+    if(backdrop?.value==='static') return
     console.log(event)
     // if(disableOutsideClick.value) return
     // hide(false)
