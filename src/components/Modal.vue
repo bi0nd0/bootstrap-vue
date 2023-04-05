@@ -1,6 +1,6 @@
 <template>
     <Teleport to="body">
-        <div ref="modalElement" class="modal fade" tabindex="-1" v-bind="{...$attrs}" @click.prevent="onBackdropClicked">
+        <div ref="modalElement" class="modal fade" tabindex="-1" v-bind="{...$attrs}" @click.self="onBackdropClicked">
             <div class="modal-dialog" :class="sizeClass" >
                 <div class="modal-content">
                     <div class="modal-header">
@@ -112,7 +112,7 @@ onMounted( () => {
 function onBackdropClicked(event: Event) {
     if(backdrop?.value==='static') return
     // if(disableOutsideClick.value) return
-    // hide(false)
+    hide(false)
 }
 function onHeaderCloseClicked() { hide(false) }
 function onCancelClicked() { hide(false) }

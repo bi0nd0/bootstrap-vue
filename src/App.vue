@@ -8,7 +8,9 @@
     </a>
   </div>
   <HelloWorld msg="Vite + Vue" />
-  <Modal ref="modal" body="asdasd" title="attenzione"/>
+  <Modal ref="modal" body="asdasd" title="attenzione">
+    <input type="file" />
+  </Modal>
   <button @click="openModal" >open</button>
 </template>
 
