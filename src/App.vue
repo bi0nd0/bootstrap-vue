@@ -8,7 +8,7 @@
     </a>
   </div>
   <HelloWorld msg="Vite + Vue" />
-  <Modal ref="modal" :backdrop="true" body="asdasd" title="attenzione"/>
+  <Modal ref="modal" body="asdasd" title="attenzione"/>
   <button @click="openModal" >open</button>
 </template>
 

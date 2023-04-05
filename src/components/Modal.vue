@@ -48,7 +48,7 @@ const props = defineProps({
     textOk: { type: [String, Boolean], default: 'Ok' },
     backdrop: {
         type: [String, Boolean] as PropType<BackdropType>,
-        default: undefined
+        default: true
     },
     keyboard: { type: Boolean, default: true },
     focus: { type: Boolean, default: true },

@@ -10,7 +10,7 @@ const z = ["onClick"], D = { class: "modal-content" }, G = { class: "modal-heade
     textOk: { type: [String, Boolean], default: "Ok" },
     backdrop: {
       type: [String, Boolean],
-      default: void 0
+      default: !0
     },
     keyboard: { type: Boolean, default: !0 },
     focus: { type: Boolean, default: !0 },
