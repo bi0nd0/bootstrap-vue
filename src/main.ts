@@ -5,6 +5,7 @@ import App from './App.vue'
 
 const app = createApp(App)
 
+
 import { tooltip } from './directives'
 app.directive('tooltip', tooltip)
 
