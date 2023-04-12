@@ -1,9 +1,9 @@
-var oe = Object.defineProperty;
-var se = (e, n, s) => n in e ? oe(e, n, { enumerable: !0, configurable: !0, writable: !0, value: s }) : e[n] = s;
-var L = (e, n, s) => (se(e, typeof n != "symbol" ? n + "" : n, s), s);
-import { defineComponent as D, toRefs as V, ref as S, watch as ae, onMounted as K, openBlock as m, createElementBlock as $, normalizeClass as T, renderSlot as x, createElementVNode as a, toDisplayString as A, createBlock as O, Teleport as U, Fragment as E, renderList as P, mergeProps as R, computed as B, withModifiers as J, unref as C, createCommentVNode as j, createVNode as le, getCurrentInstance as Q, createTextVNode as G, createApp as W } from "vue";
-import { Toast as re, Modal as ue, Tooltip as ie } from "bootstrap";
-const ce = { class: "toast-header" }, de = ["textContent"], fe = ["textContent"], pe = { class: "toast-body" }, ve = ["textContent"], Y = /* @__PURE__ */ D({
+var le = Object.defineProperty;
+var re = (e, n, s) => n in e ? le(e, n, { enumerable: !0, configurable: !0, writable: !0, value: s }) : e[n] = s;
+var L = (e, n, s) => (re(e, typeof n != "symbol" ? n + "" : n, s), s);
+import { defineComponent as D, toRefs as V, ref as S, watch as ue, onMounted as K, openBlock as m, createElementBlock as $, normalizeClass as T, renderSlot as x, createElementVNode as a, toDisplayString as A, createBlock as O, Teleport as U, Fragment as E, renderList as P, mergeProps as R, computed as B, withModifiers as J, unref as C, createCommentVNode as j, createVNode as ie, getCurrentInstance as Q, createTextVNode as G, inject as W, createApp as Y } from "vue";
+import { Toast as ce, Modal as de, Tooltip as fe } from "bootstrap";
+const pe = { class: "toast-header" }, ve = ["textContent"], he = ["textContent"], me = { class: "toast-body" }, _e = ["textContent"], Z = /* @__PURE__ */ D({
   __name: "Toast",
   props: {
     visible: { type: Boolean, default: !1 },
@@ -18,7 +18,7 @@ const ce = { class: "toast-header" }, de = ["textContent"], fe = ["textContent"]
   emits: ["hide", "hidden", "show", "shown"],
   setup(e, { expose: n, emit: s }) {
     const l = e, { visible: i, animation: k, autohide: _, delay: o } = V(l), r = S(), f = S();
-    ae(i, (M) => {
+    ue(i, (M) => {
       d();
     }, { immediate: !0 });
     function y() {
@@ -55,12 +55,12 @@ const ce = { class: "toast-header" }, de = ["textContent"], fe = ["textContent"]
       s("shown", r.value);
     }
     return n({ show: y, hide: h, dispose: g, isShown: u, getOrCreateInstance: v, getInstance: t }), K(() => {
-      f.value.addEventListener("hide.bs.toast", b), f.value.addEventListener("hidden.bs.toast", c), f.value.addEventListener("show.bs.toast", p), f.value.addEventListener("shown.bs.toast", w), r.value = new re(f.value, {
+      f.value.addEventListener("hide.bs.toast", b), f.value.addEventListener("hidden.bs.toast", c), f.value.addEventListener("show.bs.toast", p), f.value.addEventListener("shown.bs.toast", w), r.value = new ce(f.value, {
         animation: k.value,
         autohide: _.value,
         delay: o.value
       }), d();
-    }), (M, ne) => (m(), $("div", {
+    }), (M, ae) => (m(), $("div", {
       ref_key: "toastRef",
       ref: f,
       class: T(["toast", [e.variant ? `text-bg-${e.variant}` : ""]]),
@@ -69,17 +69,17 @@ const ce = { class: "toast-header" }, de = ["textContent"], fe = ["textContent"]
       "aria-atomic": "true"
     }, [
       x(M.$slots, "header", {}, () => [
-        a("div", ce, [
+        a("div", pe, [
           x(M.$slots, "title", {}, () => [
             a("strong", {
               class: "me-auto",
               textContent: A(e.title)
-            }, null, 8, de)
+            }, null, 8, ve)
           ]),
           x(M.$slots, "subtitle", {}, () => [
             a("small", {
               textContent: A(e.subtitle)
-            }, null, 8, fe)
+            }, null, 8, he)
           ]),
           a("button", {
             type: "button",
@@ -90,27 +90,27 @@ const ce = { class: "toast-header" }, de = ["textContent"], fe = ["textContent"]
         ])
       ]),
       x(M.$slots, "body", {}, () => [
-        a("div", pe, [
+        a("div", me, [
           x(M.$slots, "default", {}, () => [
             a("span", {
               textContent: A(e.body)
-            }, null, 8, ve)
+            }, null, 8, _e)
           ])
         ])
       ])
     ], 2));
   }
 });
-function he() {
+function ye() {
   let e = (/* @__PURE__ */ new Date()).getTime();
   return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function(s) {
     const l = (e + Math.random() * 16) % 16 | 0;
     return e = Math.floor(e / 16), (s == "x" ? l : l & 3 | 8).toString(16);
   });
 }
-const me = { id: "toast-wrapper" };
+const be = { id: "toast-wrapper" };
 let X;
-const _e = /* @__PURE__ */ D({
+const ke = /* @__PURE__ */ D({
   __name: "Toaster",
   setup(e, { expose: n }) {
     const s = {
@@ -124,7 +124,7 @@ const _e = /* @__PURE__ */ D({
       variant: void 0
     }, l = S(/* @__PURE__ */ new Map());
     X = (k, _ = "top right") => {
-      const o = he(), r = { ...s, ...k, id: o };
+      const o = ye(), r = { ...s, ...k, id: o };
       let f = l.value.get(_);
       f instanceof Set || (f = /* @__PURE__ */ new Set()), f.add(r), l.value.set(_, f);
     };
@@ -133,12 +133,12 @@ const _e = /* @__PURE__ */ D({
       o == null || o.delete(_);
     }
     return n({ toast: X }), (k, _) => (m(), O(U, { to: "body" }, [
-      a("div", me, [
+      a("div", be, [
         (m(!0), $(E, null, P(l.value, ([o, r]) => (m(), $("div", {
           key: o,
           class: T(["toast-group", `${o}`])
         }, [
-          (m(!0), $(E, null, P(r, (f, y) => (m(), O(Y, R({
+          (m(!0), $(E, null, P(r, (f, y) => (m(), O(Z, R({
             key: f.id
           }, f, {
             onHidden: (h) => i(o, f)
@@ -153,9 +153,9 @@ const F = (e, n) => {
   for (const [l, i] of n)
     s[l] = i;
   return s;
-}, ye = /* @__PURE__ */ F(_e, [["__scopeId", "data-v-177f801e"]]);
+}, $e = /* @__PURE__ */ F(ke, [["__scopeId", "data-v-177f801e"]]);
 var z = /* @__PURE__ */ ((e) => (e.SMALL = "sm", e.STANDARD = "", e.LARGE = "lg", e.EXTRA_LARGE = "xl", e))(z || {});
-const be = ["onClick"], ke = { class: "modal-content" }, $e = { class: "modal-header" }, Ce = ["innerHTML"], xe = { class: "modal-body" }, ge = ["innerHTML"], we = { class: "modal-footer" }, Te = ["innerHTML"], Me = ["innerHTML"], Z = /* @__PURE__ */ D({
+const Ce = ["onClick"], xe = { class: "modal-content" }, ge = { class: "modal-header" }, we = ["innerHTML"], Te = { class: "modal-body" }, Me = ["innerHTML"], Le = { class: "modal-footer" }, Be = ["innerHTML"], Se = ["innerHTML"], ee = /* @__PURE__ */ D({
   __name: "Modal",
   props: {
     title: { default: "" },
@@ -193,7 +193,7 @@ const be = ["onClick"], ke = { class: "modal-content" }, $e = { class: "modal-he
       y == null || y.toggle();
     }
     K(() => {
-      y = new ue(f.value, {
+      y = new de(f.value, {
         backdrop: l == null ? void 0 : l.value,
         keyboard: i.value,
         focus: k.value
@@ -227,13 +227,13 @@ const be = ["onClick"], ke = { class: "modal-content" }, $e = { class: "modal-he
         a("div", {
           class: T(["modal-dialog", C(r)])
         }, [
-          a("div", ke, [
-            a("div", $e, [
+          a("div", xe, [
+            a("div", ge, [
               x(p.$slots, "header", {}, () => [
                 a("h5", {
                   class: "modal-title",
                   innerHTML: e.title
-                }, null, 8, Ce)
+                }, null, 8, we)
               ]),
               a("button", {
                 type: "button",
@@ -242,12 +242,12 @@ const be = ["onClick"], ke = { class: "modal-content" }, $e = { class: "modal-he
                 onClick: d
               })
             ]),
-            a("div", xe, [
+            a("div", Te, [
               x(p.$slots, "default", {}, () => [
-                a("span", { innerHTML: e.body }, null, 8, ge)
+                a("span", { innerHTML: e.body }, null, 8, Me)
               ])
             ]),
-            a("div", we, [
+            a("div", Le, [
               x(p.$slots, "footer", {}, () => [
                 e.okOnly ? j("", !0) : (m(), $("button", {
                   key: 0,
@@ -256,7 +256,7 @@ const be = ["onClick"], ke = { class: "modal-content" }, $e = { class: "modal-he
                   onClick: b
                 }, [
                   x(p.$slots, "button-cancel", {}, () => [
-                    a("span", { innerHTML: e.textCancel }, null, 8, Te)
+                    a("span", { innerHTML: e.textCancel }, null, 8, Be)
                   ])
                 ])),
                 a("button", {
@@ -265,17 +265,17 @@ const be = ["onClick"], ke = { class: "modal-content" }, $e = { class: "modal-he
                   onClick: c
                 }, [
                   x(p.$slots, "button-ok", {}, () => [
-                    a("span", { innerHTML: e.textOk }, null, 8, Me)
+                    a("span", { innerHTML: e.textOk }, null, 8, Se)
                   ])
                 ])
               ])
             ])
           ])
         ], 2)
-      ], 16, be)
+      ], 16, Ce)
     ]));
   }
-}), Le = /* @__PURE__ */ D({
+}), He = /* @__PURE__ */ D({
   __name: "ModalManager",
   setup(e, { expose: n }) {
     const s = S(void 0), l = S({});
@@ -288,13 +288,13 @@ const be = ["onClick"], ke = { class: "modal-content" }, $e = { class: "modal-he
       return _.okOnly = !0, l.value = _, (o = s.value) == null ? void 0 : o.show();
     }
     return n({ confirm: i, alert: k }), (_, o) => (m(), O(U, { to: "body" }, [
-      le(Z, R({
+      ie(ee, R({
         ref_key: "modalRef",
         ref: s
       }, { ...l.value }), null, 16)
     ]));
   }
-}), Be = { "data-first": "" }, Se = ["disabled", "innerHTML"], He = { "data-prev": "" }, Ee = ["disabled", "innerHTML"], Ae = { key: 0 }, De = ["innerHTML"], Ie = ["onClick"], Pe = { "data-next": "" }, Ve = ["disabled", "innerHTML"], Fe = { "data-last": "" }, Oe = ["disabled", "innerHTML"], Re = /* @__PURE__ */ D({
+}), Ee = { "data-first": "" }, Ae = ["disabled", "innerHTML"], De = { "data-prev": "" }, Ie = ["disabled", "innerHTML"], Pe = { key: 0 }, Ve = ["innerHTML"], Fe = ["onClick"], Oe = { "data-next": "" }, Re = ["disabled", "innerHTML"], Ne = { "data-last": "" }, je = ["disabled", "innerHTML"], Ge = /* @__PURE__ */ D({
   __name: "Pagination",
   props: {
     modelValue: { default: 1 },
@@ -350,29 +350,29 @@ const be = ["onClick"], ke = { class: "modal-content" }, $e = { class: "modal-he
     return (c, p) => (m(), $("ul", {
       class: T(["pagination", e.size])
     }, [
-      a("li", Be, [
+      a("li", Ee, [
         a("button", {
           class: "",
           disabled: C(f),
           innerHTML: e.firstText,
           onClick: v
-        }, null, 8, Se)
+        }, null, 8, Ae)
       ]),
-      a("li", He, [
+      a("li", De, [
         a("button", {
           class: "",
           disabled: C(f),
           innerHTML: e.prevText,
           onClick: d
-        }, null, 8, Ee)
+        }, null, 8, Ie)
       ]),
       (m(!0), $(E, null, P(C(r), (w, M) => (m(), $(E, null, [
-        g(M) ? (m(), $("li", Ae, [
+        g(M) ? (m(), $("li", Pe, [
           a("button", {
             disabled: "",
             class: "",
             innerHTML: e.ellipsisText
-          }, null, 8, De)
+          }, null, 8, Ve)
         ])) : (m(), $("li", {
           key: 1,
           "data-prev": "",
@@ -380,32 +380,32 @@ const be = ["onClick"], ke = { class: "modal-content" }, $e = { class: "modal-he
         }, [
           a("button", {
             class: "",
-            onClick: (ne) => u(w)
-          }, A(w), 9, Ie)
+            onClick: (ae) => u(w)
+          }, A(w), 9, Fe)
         ], 2))
       ], 64))), 256)),
-      a("li", Pe, [
+      a("li", Oe, [
         a("button", {
           class: "",
           disabled: C(y),
           innerHTML: e.nextText,
           onClick: b
-        }, null, 8, Ve)
+        }, null, 8, Re)
       ]),
-      a("li", Fe, [
+      a("li", Ne, [
         a("button", {
           class: "",
           disabled: C(y),
           innerHTML: e.lastText,
           onClick: t
-        }, null, 8, Oe)
+        }, null, 8, je)
       ])
     ], 2));
   }
 });
-const Ne = /* @__PURE__ */ F(Re, [["__scopeId", "data-v-30ea78d4"]]);
+const ze = /* @__PURE__ */ F(Ge, [["__scopeId", "data-v-30ea78d4"]]);
 var I = /* @__PURE__ */ ((e) => (e.ASC = "ASC", e.DESC = "DESC", e.IGNORE = "IGNORE", e))(I || {});
-class je {
+class Ke {
   constructor(n, s = "ASC", l) {
     L(this, "key");
     L(this, "direction");
@@ -427,13 +427,13 @@ const q = (e, n) => {
     }
     return f;
   }), _;
-}, Ge = ["onClick"], ze = { class: "th-wrapper" }, Ke = {
+}, Ue = ["onClick"], Xe = { class: "th-wrapper" }, qe = {
   key: 0,
   "data-sort-indicator": ""
-}, Ue = { class: "sort-index" }, Xe = { class: "sort-direction" }, qe = {
+}, Je = { class: "sort-index" }, Qe = { class: "sort-direction" }, We = {
   key: 0,
   class: "p-5 text-muted font-italic"
-}, Je = ["colspan"], Qe = ["innerHTML"];
+}, Ye = ["colspan"], Ze = ["innerHTML"];
 class N {
   constructor(n = "", s = "", l = !1, i) {
     L(this, "key");
@@ -451,7 +451,7 @@ class N {
     this.key = n, this.label = s, this.sortable = l, this.sortFn = i;
   }
 }
-const We = /* @__PURE__ */ D({
+const et = /* @__PURE__ */ D({
   __name: "Table",
   props: {
     fields: { default: () => [] },
@@ -502,7 +502,7 @@ const We = /* @__PURE__ */ D({
     function h(u) {
       const { key: v } = u, t = i.value.findIndex((d) => d.key === v);
       if (t < 0) {
-        const d = new je(v, I.ASC, u.sortFn);
+        const d = new Ke(v, I.ASC, u.sortFn);
         i.value.push(d);
       } else {
         const d = i.value[t], b = d.direction;
@@ -522,7 +522,7 @@ const We = /* @__PURE__ */ D({
           class: T({ sortable: t.sortable }),
           onClick: (d) => t.sortable && h(t)
         }, [
-          a("span", ze, [
+          a("span", Xe, [
             x(u.$slots, `head(${t.key})`, {
               field: t,
               data: C(g),
@@ -530,16 +530,16 @@ const We = /* @__PURE__ */ D({
             }, () => [
               G(A(t.label), 1)
             ], !0),
-            t.sortable ? (m(), $("span", Ke, [
-              a("span", Ue, A(f(t)), 1),
-              a("span", Xe, [
+            t.sortable ? (m(), $("span", qe, [
+              a("span", Je, A(f(t)), 1),
+              a("span", Qe, [
                 a("i", {
                   class: T(y(t))
                 }, null, 2)
               ])
             ])) : j("", !0)
           ])
-        ], 10, Ge))), 128))
+        ], 10, Ue))), 128))
       ]),
       a("tbody", null, [
         (m(!0), $(E, null, P(C(o), (t, d) => (m(), $(E, {
@@ -570,7 +570,7 @@ const We = /* @__PURE__ */ D({
       a("tfoot", null, [
         x(u.$slots, "footer", { data: C(g) }, void 0, !0)
       ]),
-      e.showEmpty && C(o).length === 0 ? (m(), $("tr", qe, [
+      e.showEmpty && C(o).length === 0 ? (m(), $("tr", We, [
         a("td", {
           colspan: C(r).length
         }, [
@@ -579,14 +579,14 @@ const We = /* @__PURE__ */ D({
             data: C(g),
             fields: C(r)
           }, () => [
-            a("span", { innerHTML: e.emptyText }, null, 8, Qe)
+            a("span", { innerHTML: e.emptyText }, null, 8, Ze)
           ], !0)
-        ], 8, Je)
+        ], 8, Ye)
       ])) : j("", !0)
     ], 16));
   }
 });
-const Ye = /* @__PURE__ */ F(We, [["__scopeId", "data-v-5556187e"]]), Ze = /* @__PURE__ */ D({
+const tt = /* @__PURE__ */ F(et, [["__scopeId", "data-v-5556187e"]]), nt = /* @__PURE__ */ D({
   __name: "Dropdown",
   props: {
     text: { default: "" },
@@ -647,7 +647,7 @@ const Ye = /* @__PURE__ */ F(We, [["__scopeId", "data-v-5556187e"]]), Ze = /* @_
       ], 2)
     ], 2));
   }
-}), et = ["data-prevent-close"], tt = ["onClick"], nt = /* @__PURE__ */ D({
+}), ot = ["data-prevent-close"], st = ["onClick"], at = /* @__PURE__ */ D({
   __name: "DropdownItem",
   props: {
     active: { type: Boolean },
@@ -669,83 +669,91 @@ const Ye = /* @__PURE__ */ F(We, [["__scopeId", "data-v-5556187e"]]), Ze = /* @_
         onClick: J(i, ["prevent"])
       }, [
         x(k.$slots, "default")
-      ], 10, tt)
-    ], 8, et));
+      ], 10, st)
+    ], 8, ot));
   }
-}), ot = {}, st = { "data-prevent-close": "" }, at = { class: "dropdown-header" };
-function lt(e, n) {
-  return m(), $("li", st, [
-    a("h6", at, [
+}), lt = {}, rt = { "data-prevent-close": "" }, ut = { class: "dropdown-header" };
+function it(e, n) {
+  return m(), $("li", rt, [
+    a("h6", ut, [
       x(e.$slots, "default")
     ])
   ]);
 }
-const rt = /* @__PURE__ */ F(ot, [["render", lt]]), ut = {}, it = /* @__PURE__ */ a("hr", { class: "dropdown-divider" }, null, -1), ct = [
-  it
+const ct = /* @__PURE__ */ F(lt, [["render", it]]), dt = {}, ft = /* @__PURE__ */ a("hr", { class: "dropdown-divider" }, null, -1), pt = [
+  ft
 ];
-function dt(e, n) {
-  return m(), $("li", null, ct);
+function vt(e, n) {
+  return m(), $("li", null, pt);
 }
-const ft = /* @__PURE__ */ F(ut, [["render", dt]]), pt = {
+const ht = /* @__PURE__ */ F(dt, [["render", vt]]), mt = {
   mounted(e, n, s, l) {
-    new ie(e, {
+    new fe(e, {
       title: n.value,
       placement: n.arg,
       trigger: "hover"
     });
   }
-}, H = "b", vt = "$toaster", ht = "$modalManager";
-class ee {
+}, H = "b", te = "$toaster", ne = "$modalManager";
+class oe {
   static getComponent() {
     if (!this.component) {
       const n = document.createElement("div");
       document.body.appendChild(n);
-      const l = W(Le).mount(n);
+      const l = Y(He).mount(n);
       this.component = l;
     }
     return this.component;
   }
 }
-L(ee, "component");
-class te {
+L(oe, "component");
+class se {
   static getComponent() {
     if (!this.component) {
       const n = document.createElement("div");
       document.body.appendChild(n);
-      const l = W(ye).mount(n);
+      const l = Y($e).mount(n);
       this.component = l;
     }
     return this.component;
   }
 }
-L(te, "component");
-function mt(e) {
-  e.component(`${H}-modal`, Z), e.component(`${H}-pagination`, Ne), e.component(`${H}-dropdown`, Ze), e.component(`${H}-dropdown-item`, nt), e.component(`${H}-dropdown-header`, rt), e.component(`${H}-dropdown-divider`, ft), e.component(`${H}-table`, Ye), e.component(`${H}-toast`, Y);
+L(se, "component");
+function Ct() {
+  return W(te);
+}
+function xt() {
+  return W(ne);
 }
 function _t(e) {
-  e.directive("tooltip", pt);
+  e.component(`${H}-modal`, ee), e.component(`${H}-pagination`, ze), e.component(`${H}-dropdown`, nt), e.component(`${H}-dropdown-item`, at), e.component(`${H}-dropdown-header`, ct), e.component(`${H}-dropdown-divider`, ht), e.component(`${H}-table`, tt), e.component(`${H}-toast`, Z);
 }
-const $t = {
+function yt(e) {
+  e.directive("tooltip", mt);
+}
+const gt = {
   install(e) {
-    mt(e), _t(e);
-    const n = te.getComponent();
-    e.provide(vt, n);
-    const s = ee.getComponent();
-    e.provide(ht, s);
+    _t(e), yt(e);
+    const n = se.getComponent();
+    e.provide(te, n);
+    const s = oe.getComponent();
+    e.provide(ne, s);
   }
 };
 export {
-  $t as BootstrapVue,
-  Ze as Dropdown,
-  ft as DropdownDivider,
-  rt as DropdownHeader,
-  nt as DropdownItem,
-  Z as Modal,
-  Le as ModalManager,
-  Ne as Pagination,
-  Ye as Table,
+  gt as BootstrapVue,
+  nt as Dropdown,
+  ht as DropdownDivider,
+  ct as DropdownHeader,
+  at as DropdownItem,
+  ee as Modal,
+  He as ModalManager,
+  ze as Pagination,
+  tt as Table,
   N as TableFieldDefinition,
-  Y as Toast,
-  ye as Toaster,
-  pt as tooltip
+  Z as Toast,
+  $e as Toaster,
+  mt as tooltip,
+  xt as useModal,
+  Ct as useToaster
 };

@@ -8,4 +8,4 @@ export { Dropdown, DropdownItem, DropdownHeader, DropdownDivider} from './compon
 
 export { default as tooltip } from './directives/tooltip'
 
-export { default as BootstrapVue } from './plugins/Plugin'
+export { default as BootstrapVue,  useToaster, useModal } from './plugins/Plugin'

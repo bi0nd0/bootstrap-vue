@@ -6,4 +6,4 @@ export { default as Pagination } from './components/Pagination.vue';
 export { Table, Field as TableFieldDefinition } from './components/Table/';
 export { Dropdown, DropdownItem, DropdownHeader, DropdownDivider } from './components/Dropdown/';
 export { default as tooltip } from './directives/tooltip';
-export { default as BootstrapVue } from './plugins/Plugin';
+export { default as BootstrapVue, useToaster, useModal } from './plugins/Plugin';
