@@ -2,7 +2,7 @@
 
 ## Installation
 ```sh
-yarn add https://github.com/bi0nd0/bootstrap5-vue3.git --name=bootstrap-vue
+yarn add bootstrap-vue@https://github.com/bi0nd0/bootstrap5-vue3.git#0.3.0
 ```
 
 ## Usage
