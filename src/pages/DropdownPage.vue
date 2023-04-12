@@ -1,18 +1,17 @@
 <template>
 
-    <Dropdown>
+    <b-dropdown>
       <template #button>select...</template>
-      <DropdownHeader>this is an header</DropdownHeader>
-      <DropdownItem>test</DropdownItem>
-      <DropdownItem active>this is active</DropdownItem>
-      <DropdownDivider/>
-      <DropdownItem prevent-close>do not close on click</DropdownItem>
-    </Dropdown>
+      <b-dropdown-header>this is an header</b-dropdown-header>
+      <b-dropdown-item>test</b-dropdown-item>
+      <b-dropdown-item active>this is active</b-dropdown-item>
+      <b-dropdown-divider/>
+      <b-dropdown-item prevent-close>do not close on click</b-dropdown-item>
+    </b-dropdown>
 
 </template>
 
 <script setup lang="ts">
-import { Dropdown, DropdownItem,DropdownHeader, DropdownDivider } from '../components'
 </script>
 
 <style scoped>

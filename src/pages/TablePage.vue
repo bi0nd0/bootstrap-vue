@@ -1,10 +1,9 @@
 <template>
-  <Table :fields="table.fields" :items="table.items" striped></Table>
+  <b-table :fields="table.fields" :items="table.items" striped></b-table>
 </template>
 
 <script setup lang="ts">
 import { reactive } from 'vue';
-import { Table } from '../components'
 import { Field } from '../components/Table';
 
 const table = reactive(

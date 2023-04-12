@@ -1,6 +1,6 @@
 <template>
 
-    <Toast visible title="Hello" subtitle="11 mins ago" body="Hello world!"/>
+    <b-toast visible title="Hello" subtitle="11 mins ago" body="Hello world!"/>
     <div class="mt-2">
       <button class="btn btn-sm btn-primary" @click="randomToast" >Rnadomly positioned Toast!</button>
     </div>
@@ -8,11 +8,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { Toast, Toaster } from '../components';
 import { TOAST_POSITION } from '../components/Toast/Toaster.vue';
 
-import {useToaster} from '../plugins/MyPlugin'
+import {useToaster} from '../plugins/Plugin'
 
 // get the toaster from the plugin
 const toaster = useToaster()
