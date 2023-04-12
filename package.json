@@ -25,6 +25,5 @@
   },
   "main": "dist/bootstrap-vue.umd.cjs",
   "module": "dist/bootstrap-vue.js",
-  "typings": "dist/bootstrap-vue.d.ts",
   "types": "dist/bootstrap-vue.d.ts"
 }
