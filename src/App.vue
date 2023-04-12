@@ -7,6 +7,7 @@
       <li><router-link :to="{ name: 'tooltips' }">tooltips</router-link></li>
       <li><router-link :to="{ name: 'dropdown' }">dropdown</router-link></li>
     </ul>
+
     <div class="p-2">
       <router-view></router-view>
     </div>

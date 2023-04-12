@@ -32,37 +32,41 @@
     </Teleport>
 </template>
 
+<script lang="ts">
+// define a custom type that can be used a prop type
+type BackdropType = boolean | "static"
+
+export interface Props {
+    title?: string, 
+    body?: string, 
+    textCancel?: string, 
+    textOk?: string | boolean, 
+    backdrop?: BackdropType,
+    keyboard?: boolean, 
+    focus?: boolean, 
+    disableOutsideClick?: boolean, 
+    okOnly?: boolean, 
+    size?: SIZE
+}
+</script>
+
 <script setup lang="ts">
-import { PropType, ref, toRefs, computed, onMounted } from 'vue'
+import { ref, toRefs, computed, onMounted } from 'vue'
 import { Modal } from 'bootstrap'
 
-import SIZE from '../enums/Size'
+import SIZE from '../../enums/Size'
 
-// define a custom type that can be used a prop type
-type BackdropType = boolean | "static" | undefined;
-
-const props = defineProps({
-    title: { type: String, default: '' },
-    body: { type: String, default: '' },
-    textCancel: { type: String, default: 'Cancel' },
-    textOk: { type: [String, Boolean], default: 'Ok' },
-    backdrop: {
-        type: [String, Boolean] as PropType<BackdropType>,
-        default: true
-    },
-    keyboard: { type: Boolean, default: true },
-    focus: { type: Boolean, default: true },
-    disableOutsideClick: { type: Boolean, default: false },
-    okOnly: { type: Boolean, default: false },
-    size: {
-        type: String,
-        default: '',
-        validator(value: string) {
-
-          // The value must match one of these strings
-          return Object.values(SIZE).includes(value as SIZE)
-        }
-    }
+const props = withDefaults(defineProps<Props>(), {
+    title: '',
+    body: '',
+    textCancel: 'Cancel',
+    textOk: 'Ok',
+    backdrop: true,
+    keyboard: true,
+    focus: true,
+    disableOutsideClick: false,
+    okOnly: false,
+    size: SIZE.STANDARD
 })
 
 const {

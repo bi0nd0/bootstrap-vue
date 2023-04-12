@@ -1,5 +1,5 @@
 <template>
-  <Table :fields="table.fields" :items="table.items"></Table>
+  <Table :fields="table.fields" :items="table.items" striped></Table>
 </template>
 
 <script setup lang="ts">

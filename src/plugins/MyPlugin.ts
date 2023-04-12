@@ -1,18 +1,42 @@
-import { App, createVNode, render, defineComponent, Component, createApp } from 'vue';
-import {default as Toaster, toast} from '../components/Toast/Toaster.vue';
+import { App, createApp, ComponentPublicInstance, inject } from 'vue';
+import { default as Toaster } from '../components/Toast/Toaster.vue';
+
+class ToastSingleton {
+  
+  static component:ComponentPublicInstance
+  
+  static getToaster() {
+    if(!ToastSingleton.component) {
+      // Create a virtual DOM node for the component
+      const target: HTMLDivElement = document.createElement('div')
+      document.body.appendChild(target)
+      const myApp = createApp(Toaster)
+      const mounted = myApp.mount(target)
+      ToastSingleton.component = mounted
+    }
+    return ToastSingleton.component
+  }
+  
+}
+
+const toasterKey = '$toaster'
+
+/**
+ * Returns the toaster instance. Equivalent to using `$toaster` inside
+ * templates.
+ */
+function useToaster(): typeof Toaster {
+  return inject(toasterKey)!
+}
+
 
 // Define the plugin object
 const MyPlugin = {
   install(app: App) {
-    // Create a virtual DOM node for the component
-    const target: HTMLDivElement = document.createElement('div')
-    document.body.appendChild(target)
-    const myApp = createApp(Toaster)
-    const component = myApp.mount(target)
-    app.config.globalProperties.toaster = component
-
-
+    const toaster = ToastSingleton.getToaster()
+    // app.config.globalProperties.$toaster = toaster
+    app.provide(toasterKey, toaster)
   }
 };
 
-export default MyPlugin;
+export {MyPlugin as default, useToaster};
