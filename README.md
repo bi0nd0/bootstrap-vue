@@ -10,6 +10,8 @@ yarn add bootstrap-vue@https://github.com/bi0nd0/bootstrap5-vue3.git#0.3.0
 //main.ts
 import App from './App.vue'
 import {BootstrapVue} from 'bootstrap-vue'
+// import the style
+import 'bootstrap-vue/dist/style.css'
 
 const app = createApp(App)
 app.use(BootstrapVue)
