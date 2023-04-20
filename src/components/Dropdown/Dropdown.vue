@@ -49,10 +49,10 @@ const buttonClasses = computed( () => {
 
 const dropdownClasses = computed( () => {
     const _classes:Array<string|object> = []
-    if(centered.value) _classes.push('dropdown-center')
-    if(dropup.value) _classes.push('dropup')
-    if(dropstart.value) _classes.push('dropstart')
-    if(!dropstart.value && dropend.value) _classes.push('dropend')
+    if(centered?.value) _classes.push('dropdown-center')
+    if(dropup?.value) _classes.push('dropup')
+    if(dropstart?.value) _classes.push('dropstart')
+    if(!dropstart?.value && dropend?.value) _classes.push('dropend')
     if(_classes.length===0) _classes.push('dropdown')
     else _classes.unshift('btn-group')
     return _classes
