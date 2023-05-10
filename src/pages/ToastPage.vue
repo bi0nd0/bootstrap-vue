@@ -2,7 +2,7 @@
 
     <b-toast visible title="Hello" subtitle="11 mins ago" body="Hello world!"/>
     <div class="mt-2">
-      <button class="btn btn-sm btn-primary" @click="randomToast" >Rnadomly positioned Toast!</button>
+      <button class="btn btn-sm btn-primary" @click="randomToast" >Randomly positioned Toast!</button>
     </div>
 
 </template>

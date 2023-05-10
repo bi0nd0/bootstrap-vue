@@ -48,10 +48,31 @@ export interface Props {
     okOnly?: boolean, 
     size?: SIZE
 }
+class ModalStack {
+    static modalStack: Array<Modal> = new Array<Modal>()
+
+    static addToStack(modalInstance:Modal|undefined) {
+        if(modalInstance==undefined) return
+        this.modalStack.push(modalInstance)
+    }
+    static removeFromStack(modalInstance:Modal|undefined) {
+        if(modalInstance==undefined) return
+        const index = this.modalStack.indexOf(modalInstance)
+        if(index<0) return
+        this.modalStack.splice(index, 1)
+        console.log(this.modalStack)
+    }
+
+    static getLast() {
+        const total = this.modalStack.length
+        if(total===0) return
+        return this.modalStack[total-1]
+    }
+}
 </script>
 
 <script setup lang="ts">
-import { ref, toRefs, computed, onMounted } from 'vue'
+import { ref, toRefs, computed, onMounted, getCurrentInstance, ComponentInternalInstance } from 'vue'
 import { Modal } from 'bootstrap'
 
 import SIZE from '../../enums/Size'
@@ -85,10 +106,15 @@ const sizeClass = computed(() => {
 const modalElement = ref()
 let modal: Modal | undefined = undefined
 
+const instance:ComponentInternalInstance|null = getCurrentInstance()
+
 let showResolve: Function | undefined = undefined
 let showReject: Function | undefined = undefined
 function show() {
     const promise = new Promise((resolve, reject) => {
+        const previous = ModalStack.getLast()
+        if(previous) previous.hide()
+        ModalStack.addToStack(modal)
         modal?.show()
         showResolve = resolve
         showReject = reject
@@ -97,7 +123,10 @@ function show() {
 }
 
 function hide(status=true) {
+    ModalStack.removeFromStack(modal)
     modal?.hide()
+    const previous = ModalStack.getLast()
+    if(previous) previous.show()
     if(typeof showResolve === 'function') showResolve(status)
 }
 
