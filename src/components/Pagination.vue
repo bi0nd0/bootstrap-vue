@@ -34,16 +34,16 @@ const emit = defineEmits(['update:modelValue'])
 interface Props {
     modelValue:number,
     perPage:number,
-    maxVisibleButtons:number,
+    maxVisibleButtons?:number,
     totalItems:number,
-    hideEllipsis: boolean,
-    hideGotoEndButtons: boolean,
-    firstText: string,
-    prevText: string,
-    nextText: string,
-    lastText: string,
-    ellipsisText: string,
-    size: SIZE,
+    hideEllipsis?: boolean,
+    hideGotoEndButtons?: boolean,
+    firstText?: string,
+    prevText?: string,
+    nextText?: string,
+    lastText?: string,
+    ellipsisText?: string,
+    size?: SIZE,
 }
 
 const props =  withDefaults(defineProps<Props>(), {
@@ -87,7 +87,10 @@ const totalPages = computed( () => {
 } )
 
 watchEffect( () => {
-    if(totalPages.value>0 && currentPage.value>totalPages.value) emit('update:modelValue', totalPages.value)
+    if(totalPages.value>0 && currentPage.value>totalPages.value) {
+        console.log('emitting')
+        emit('update:modelValue', totalPages.value)
+    }
 })
 
 function showEllipsis(index:number) {

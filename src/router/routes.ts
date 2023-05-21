@@ -4,6 +4,7 @@ import ToastPage from '../pages/ToastPage.vue'
 import TablePage from '../pages/TablePage.vue'
 import TooltipsPage from '../pages/TooltipsPage.vue'
 import DropdownPage from '../pages/DropdownPage.vue'
+import PaginationPage from '../pages/PaginationPage.vue'
 
 const routes = [
     { path: '/', component: MainLayout, children: [
@@ -13,6 +14,7 @@ const routes = [
         { path: 'table', name:'table', component: TablePage },
         { path: 'tooltips', name:'tooltips', component: TooltipsPage },
         { path: 'dropdown', name:'dropdown', component: DropdownPage },
+        { path: 'pagination', name:'pagination', component: PaginationPage },
     ] },
 ]
 

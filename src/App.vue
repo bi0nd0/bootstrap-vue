@@ -6,6 +6,7 @@
       <li><router-link :to="{ name: 'table' }">table</router-link></li>
       <li><router-link :to="{ name: 'tooltips' }">tooltips</router-link></li>
       <li><router-link :to="{ name: 'dropdown' }">dropdown</router-link></li>
+      <li><router-link :to="{ name: 'pagination' }">pagination</router-link></li>
     </ul>
 
     <div class="p-2">
