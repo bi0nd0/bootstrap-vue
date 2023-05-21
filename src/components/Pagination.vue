@@ -23,7 +23,7 @@ enum SIZE {
 }
 </script>
 <script setup lang="ts">
-import { toRefs, computed } from 'vue'
+import { toRefs, computed, watchEffect } from 'vue'
 
 function range(size:number, startAt = 0) {
     return [...Array(size).keys()].map(i => i + startAt);
@@ -85,6 +85,10 @@ const totalPages = computed( () => {
     const {perPage, totalItems} = props
     return Math.ceil(totalItems/perPage)
 } )
+
+watchEffect( () => {
+    if(totalPages.value>0 && currentPage.value>totalPages.value) emit('update:modelValue', totalPages.value)
+})
 
 function showEllipsis(index:number) {
     const lastIndex = maxVisibleButtons.value-1
