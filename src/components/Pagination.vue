@@ -1,6 +1,5 @@
 <template>
     <ul class="pagination" :class="size">
-        {{ totalPages }}
         <li data-first><button class="" :disabled="isFirstPage" v-html="firstText" @click="onFirstClicked"></button></li>
         <li data-prev><button class="" :disabled="isFirstPage" v-html="prevText" @click="onPrevClicked"></button></li>
         <template v-for="(page, index) in pages">
@@ -89,7 +88,6 @@ const totalPages = computed( () => {
 
 watchEffect( () => {
     if(totalPages.value>0 && currentPage.value>totalPages.value) {
-        console.log('emitting')
         emit('update:modelValue', totalPages.value)
     }
 })
