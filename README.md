@@ -7,6 +7,11 @@ yarn add https://github.com/bi0nd0/bootstrap-vue.git#0.3.0
 yarn add bootstrap-vue-library@https://github.com/bi0nd0/bootstrap-vue.git#0.3.0
 ```
 
+## Updates
+```sh
+yarn upgrade bootstrap-vue
+```
+
 ## Usage
 ```javascript
 //main.ts
