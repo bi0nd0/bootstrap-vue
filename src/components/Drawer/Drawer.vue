@@ -1,6 +1,6 @@
 <template>
 
-    <Transition>
+    <Transition @before-enter="onAnimation" @after-leave="onAnimation">
         <template v-if="open">
             <div ref="drawerElement" class="drawer" tabindex="-1" v-bind="{...$attrs}" @click.self="onBackdropClicked">
                 <div class="drawer-dialog" :class="sizeClass" >
@@ -107,8 +107,6 @@ let showReject: Function | undefined = undefined
 async function show() {
     if(open.value===true) return
     const promise = new Promise((resolve, reject) => {
-        Drawers.add(instance)
-        
         open.value = true
         showResolve = resolve
         showReject = reject
@@ -117,7 +115,6 @@ async function show() {
 }
 
 function hide(status=true) {
-    Drawers.delete(instance)
     open.value = false
     if(typeof showResolve === 'function') showResolve(status)
 }
@@ -135,6 +132,13 @@ function onBackdropClicked(event: Event) {
 function onHeaderCloseClicked() { hide(false) }
 function onCancelClicked() { hide(false) }
 function onOkCLicked() { hide(true) }
+function onAnimation() {
+    if(open.value===true) {
+        Drawers.add(instance)
+    }else {
+        Drawers.delete(instance)
+    }
+}
 
 defineExpose({
     show,hide,toggle,
@@ -155,8 +159,9 @@ body.drawer-open {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0 0 0 / .3);
-    --padding: 10px;
+    background-color: rgba(0 0 0 / 0.15);
+    --b-padding: 1rem;
+    --b-border-color: #dee2e6;
 }
 .drawer-dialog {
     max-width: 856px;
@@ -180,24 +185,25 @@ body.drawer-open {
 }
 .drawer-header {
     display: flex;
-    padding: var(--padding);
+    padding: var(--b-padding);
     vertical-align: center;
-    border-bottom: solid 1px #eaeaea;
+    border-bottom: solid 1px var(--b-border-color);
     position: relative;
 }
 .drawer-header .btn-close {
     margin-left: auto;
 }
+
 .drawer-body {
     flex: 1;
     overflow: auto;
-    padding: var(--padding);
+    padding: var(--b-padding);
 }
 .drawer-footer {
     display: flex;
-    padding: var(--padding);
+    padding: var(--b-padding);
     gap: 5px;
-    border-top: solid 1px #eaeaea;
+    border-top: solid 1px var(--b-border-color);
 }
 /* transitions */
 .v-enter-active,
@@ -218,7 +224,7 @@ body.drawer-open {
 .v-enter-from .drawer-dialog,
 .v-leave-to .drawer-dialog
 {
-    transform: translateX(10%);
+    transform: translateX(100px);
 }
 .v-enter-to .drawer-dialog,
 .v-leave-from .drawer-dialog
