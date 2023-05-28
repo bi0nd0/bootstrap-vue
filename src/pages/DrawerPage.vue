@@ -16,6 +16,35 @@
       </b-drawer>
       <button class="btn btn-sm btn-primary" @click="openDrawer" >Open drawer</button>
     </div>
+    <div>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia ipsa nesciunt voluptate, voluptas placeat veniam repellat obcaecati adipisci reiciendis voluptates error doloribus, accusantium nisi quas quo? Placeat, explicabo odio! Tenetur.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia ipsa nesciunt voluptate, voluptas placeat veniam repellat obcaecati adipisci reiciendis voluptates error doloribus, accusantium nisi quas quo? Placeat, explicabo odio! Tenetur.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia ipsa nesciunt voluptate, voluptas placeat veniam repellat obcaecati adipisci reiciendis voluptates error doloribus, accusantium nisi quas quo? Placeat, explicabo odio! Tenetur.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia ipsa nesciunt voluptate, voluptas placeat veniam repellat obcaecati adipisci reiciendis voluptates error doloribus, accusantium nisi quas quo? Placeat, explicabo odio! Tenetur.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia ipsa nesciunt voluptate, voluptas placeat veniam repellat obcaecati adipisci reiciendis voluptates error doloribus, accusantium nisi quas quo? Placeat, explicabo odio! Tenetur.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia ipsa nesciunt voluptate, voluptas placeat veniam repellat obcaecati adipisci reiciendis voluptates error doloribus, accusantium nisi quas quo? Placeat, explicabo odio! Tenetur.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia ipsa nesciunt voluptate, voluptas placeat veniam repellat obcaecati adipisci reiciendis voluptates error doloribus, accusantium nisi quas quo? Placeat, explicabo odio! Tenetur.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia ipsa nesciunt voluptate, voluptas placeat veniam repellat obcaecati adipisci reiciendis voluptates error doloribus, accusantium nisi quas quo? Placeat, explicabo odio! Tenetur.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia ipsa nesciunt voluptate, voluptas placeat veniam repellat obcaecati adipisci reiciendis voluptates error doloribus, accusantium nisi quas quo? Placeat, explicabo odio! Tenetur.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia ipsa nesciunt voluptate, voluptas placeat veniam repellat obcaecati adipisci reiciendis voluptates error doloribus, accusantium nisi quas quo? Placeat, explicabo odio! Tenetur.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia ipsa nesciunt voluptate, voluptas placeat veniam repellat obcaecati adipisci reiciendis voluptates error doloribus, accusantium nisi quas quo? Placeat, explicabo odio! Tenetur.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia ipsa nesciunt voluptate, voluptas placeat veniam repellat obcaecati adipisci reiciendis voluptates error doloribus, accusantium nisi quas quo? Placeat, explicabo odio! Tenetur.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia ipsa nesciunt voluptate, voluptas placeat veniam repellat obcaecati adipisci reiciendis voluptates error doloribus, accusantium nisi quas quo? Placeat, explicabo odio! Tenetur.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia ipsa nesciunt voluptate, voluptas placeat veniam repellat obcaecati adipisci reiciendis voluptates error doloribus, accusantium nisi quas quo? Placeat, explicabo odio! Tenetur.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia ipsa nesciunt voluptate, voluptas placeat veniam repellat obcaecati adipisci reiciendis voluptates error doloribus, accusantium nisi quas quo? Placeat, explicabo odio! Tenetur.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia ipsa nesciunt voluptate, voluptas placeat veniam repellat obcaecati adipisci reiciendis voluptates error doloribus, accusantium nisi quas quo? Placeat, explicabo odio! Tenetur.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia ipsa nesciunt voluptate, voluptas placeat veniam repellat obcaecati adipisci reiciendis voluptates error doloribus, accusantium nisi quas quo? Placeat, explicabo odio! Tenetur.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia ipsa nesciunt voluptate, voluptas placeat veniam repellat obcaecati adipisci reiciendis voluptates error doloribus, accusantium nisi quas quo? Placeat, explicabo odio! Tenetur.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia ipsa nesciunt voluptate, voluptas placeat veniam repellat obcaecati adipisci reiciendis voluptates error doloribus, accusantium nisi quas quo? Placeat, explicabo odio! Tenetur.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia ipsa nesciunt voluptate, voluptas placeat veniam repellat obcaecati adipisci reiciendis voluptates error doloribus, accusantium nisi quas quo? Placeat, explicabo odio! Tenetur.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia ipsa nesciunt voluptate, voluptas placeat veniam repellat obcaecati adipisci reiciendis voluptates error doloribus, accusantium nisi quas quo? Placeat, explicabo odio! Tenetur.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia ipsa nesciunt voluptate, voluptas placeat veniam repellat obcaecati adipisci reiciendis voluptates error doloribus, accusantium nisi quas quo? Placeat, explicabo odio! Tenetur.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia ipsa nesciunt voluptate, voluptas placeat veniam repellat obcaecati adipisci reiciendis voluptates error doloribus, accusantium nisi quas quo? Placeat, explicabo odio! Tenetur.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia ipsa nesciunt voluptate, voluptas placeat veniam repellat obcaecati adipisci reiciendis voluptates error doloribus, accusantium nisi quas quo? Placeat, explicabo odio! Tenetur.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia ipsa nesciunt voluptate, voluptas placeat veniam repellat obcaecati adipisci reiciendis voluptates error doloribus, accusantium nisi quas quo? Placeat, explicabo odio! Tenetur.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia ipsa nesciunt voluptate, voluptas placeat veniam repellat obcaecati adipisci reiciendis voluptates error doloribus, accusantium nisi quas quo? Placeat, explicabo odio! Tenetur.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia ipsa nesciunt voluptate, voluptas placeat veniam repellat obcaecati adipisci reiciendis voluptates error doloribus, accusantium nisi quas quo? Placeat, explicabo odio! Tenetur.</p>
+    </div>
 </template>
 
 <script setup lang="ts">

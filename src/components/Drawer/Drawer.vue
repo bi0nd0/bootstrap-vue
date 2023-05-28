@@ -55,8 +55,9 @@ export interface Props {
 </script>
 
 <script setup lang="ts">
-import { ref, Ref, toRefs, computed, onMounted, getCurrentInstance, ComponentInternalInstance } from 'vue'
+import { ref, Ref, toRefs, computed, getCurrentInstance, ComponentInternalInstance, watch } from 'vue'
 import SIZE from '../../enums/Size'
+import Drawers from './Drawers'
 
 const props = withDefaults(defineProps<Props>(), {
     title: '',
@@ -86,12 +87,28 @@ const sizeClass = computed(() => {
 const drawerElement = ref()
 
 const open:Ref<boolean> = ref(false)
+const instance:ComponentInternalInstance|null = getCurrentInstance()
+
+
+
+// if(Array.isArray(window.__DRAWERS)) drawerWindow.__DRAWERS = new Set()
+
+
+const applyBodyStyle = () => {
+    document.body.classList.add('drawer-open')
+}
+
+const removeBodyStyle = () => {
+    document.body.classList.remove('drawer-open')
+}
 
 let showResolve: Function | undefined = undefined
 let showReject: Function | undefined = undefined
 async function show() {
     if(open.value===true) return
     const promise = new Promise((resolve, reject) => {
+        Drawers.add(instance)
+        
         open.value = true
         showResolve = resolve
         showReject = reject
@@ -100,6 +117,7 @@ async function show() {
 }
 
 function hide(status=true) {
+    Drawers.delete(instance)
     open.value = false
     if(typeof showResolve === 'function') showResolve(status)
 }
@@ -123,6 +141,12 @@ defineExpose({
 })
 
 </script>
+
+<style>
+body.drawer-open {
+    overflow: hidden;
+}
+</style>
 
 <style scoped>
 .drawer {
@@ -175,7 +199,7 @@ defineExpose({
     gap: 5px;
     border-top: solid 1px #eaeaea;
 }
-
+/* transitions */
 .v-enter-active,
 .v-leave-active {
   transition: opacity 300ms ease;
