@@ -1,7 +1,18 @@
 <template>
     <div>
-      <b-modal ref="modalRef" body="Hello world" title="Warning">
+      <b-modal ref="modalRefInner">
+          <p>this is inner</p>
+        </b-modal>
+      <b-modal ref="modalRef" body="Hello world" title="Warning" backdrop="static">
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae facere nam facilis repudiandae adipisci perspiciatis consequatur dolore ad eveniet praesentium. Culpa eius vero laborum vel alias quaerat cum, ex in.</p>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+          <label class="form-check-label" for="flexCheckDefault">
+            Default checkbox
+          </label>
+        </div>
+        
+        <button class="btn btn-sm btn-primary" @click="openInner" >Open inner modal</button>
       </b-modal>
       <button class="btn btn-sm btn-primary" @click="openModal" >Open modal</button>
 
@@ -56,6 +67,12 @@ function openMultiple() {
   setTimeout( () => {
     modalRef2.value?.show()
   }, 1000)
+}
+
+const modalRefInner = ref<typeof Modal | null>(null)
+async function openInner() {
+  const response = await modalRefInner.value?.show()
+  console.log(response)
 }
 
 </script>

@@ -1,35 +1,35 @@
 <template>
-    <Teleport to="body">
-        <div ref="modalElement" class="modal fade" tabindex="-1" v-bind="{...$attrs}" @click.self="onBackdropClicked">
-            <div class="modal-dialog" :class="sizeClass" >
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <slot name="header">
-                            <h5 class="modal-title" v-html="title"></h5>
-                        </slot>
-                        <button type="button" class="btn-close" aria-label="Close" @click="onHeaderCloseClicked"></button>
-                    </div>
-                    <div class="modal-body">
-                        <slot>
-                            <span v-html="body"></span>
-                        </slot>
-                    </div>
-                    <div class="modal-footer">
-                        <slot name="footer">
-                            <template v-if="!okOnly">
-                                <button type="button" class="btn btn-secondary" @click="onCancelClicked">
-                                    <slot name="button-cancel"><span v-html="textCancel"></span></slot>
-                                </button>
-                            </template>
-                            <button type="button" class="btn btn-primary" @click="onOkCLicked">
-                                <slot name="button-ok"><span v-html="textOk"></span></slot>
+
+    <div ref="modalElement" class="modal fade" tabindex="-1" v-bind="{...$attrs}" @click.self="onBackdropClicked">
+        <div class="modal-dialog" :class="sizeClass" >
+            <div class="modal-content">
+                <div class="modal-header">
+                    <slot name="header">
+                        <h5 class="modal-title" v-html="title"></h5>
+                    </slot>
+                    <button type="button" class="btn-close" aria-label="Close" @click="onHeaderCloseClicked"></button>
+                </div>
+                <div class="modal-body">
+                    <slot>
+                        <span v-html="body"></span>
+                    </slot>
+                </div>
+                <div class="modal-footer">
+                    <slot name="footer">
+                        <template v-if="!okOnly">
+                            <button type="button" class="btn btn-secondary" @click="onCancelClicked">
+                                <slot name="button-cancel"><span v-html="textCancel"></span></slot>
                             </button>
-                        </slot>
-                    </div>
+                        </template>
+                        <button type="button" class="btn btn-primary" @click="onOkCLicked">
+                            <slot name="button-ok"><span v-html="textOk"></span></slot>
+                        </button>
+                    </slot>
                 </div>
             </div>
         </div>
-    </Teleport>
+    </div>
+
 </template>
 
 <script lang="ts">

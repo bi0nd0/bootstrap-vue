@@ -10,6 +10,7 @@ import { default as Toaster } from '../components/Toast/Toaster.vue'
 import { default as ModalManager } from '../components/Modal/ModalManager.vue'
 
 // components
+import Drawer from '../components/Drawer/Drawer.vue'
 import Modal from '../components/Modal/Modal.vue'
 import Pagination from '../components/Pagination.vue'
 import Dropdown from '../components/Dropdown/Dropdown.vue'
@@ -93,6 +94,7 @@ function useModal(): typeof ModalManager {
  * @param app 
  */
 function registerComponents(app: App) {
+  app.component(`${componentPrefix}-drawer`, Drawer)
   app.component(`${componentPrefix}-modal`, Modal)
   app.component(`${componentPrefix}-pagination`, Pagination)
   app.component(`${componentPrefix}-dropdown`, Dropdown)
