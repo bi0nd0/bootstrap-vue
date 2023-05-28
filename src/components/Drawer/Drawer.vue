@@ -49,7 +49,8 @@ export interface Props {
     focus?: boolean, 
     disableOutsideClick?: boolean, 
     okOnly?: boolean, 
-    size?: SIZE
+    size?: SIZE,
+    lazy?: boolean // not yet implemented
 }
 
 </script>
@@ -68,7 +69,8 @@ const props = withDefaults(defineProps<Props>(), {
     keyboard: true,
     focus: true,
     okOnly: false,
-    size: SIZE.STANDARD
+    size: SIZE.STANDARD,
+    lazy: false,
 })
 
 const {

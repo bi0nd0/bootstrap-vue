@@ -12,6 +12,7 @@ export interface Props {
     disableOutsideClick?: boolean;
     okOnly?: boolean;
     size?: SIZE;
+    lazy?: boolean;
 }
 declare const _sfc_main: import("vue").DefineComponent<{
     title: {
@@ -62,6 +63,11 @@ declare const _sfc_main: import("vue").DefineComponent<{
         type: __PropType<SIZE | undefined>;
         required: false;
         default: SIZE;
+    };
+    lazy: {
+        type: __PropType<boolean | undefined>;
+        required: false;
+        default: boolean;
     };
 }, {
     show: () => Promise<unknown>;
@@ -117,6 +123,11 @@ declare const _sfc_main: import("vue").DefineComponent<{
         required: false;
         default: SIZE;
     };
+    lazy: {
+        type: __PropType<boolean | undefined>;
+        required: false;
+        default: boolean;
+    };
 }>>, {
     size: SIZE | undefined;
     title: string | undefined;
@@ -127,5 +138,6 @@ declare const _sfc_main: import("vue").DefineComponent<{
     backdrop: BackdropType | undefined;
     keyboard: boolean | undefined;
     okOnly: boolean | undefined;
+    lazy: boolean | undefined;
 }>;
 export default _sfc_main;

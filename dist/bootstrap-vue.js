@@ -740,7 +740,8 @@ const Ct = ["onClick"], wt = { class: "drawer-content" }, gt = { class: "drawer-
     focus: { type: Boolean, default: !0 },
     disableOutsideClick: { type: Boolean },
     okOnly: { type: Boolean, default: !1 },
-    size: { default: z.STANDARD }
+    size: { default: z.STANDARD },
+    lazy: { type: Boolean, default: !1 }
   },
   setup(e, { expose: n }) {
     const s = e, {
@@ -851,7 +852,7 @@ const Ct = ["onClick"], wt = { class: "drawer-content" }, gt = { class: "drawer-
     }));
   }
 });
-const At = /* @__PURE__ */ F(Ht, [["__scopeId", "data-v-7fd4c298"]]), H = "b", se = "$toaster", ae = "$modalManager";
+const At = /* @__PURE__ */ F(Ht, [["__scopeId", "data-v-bdb8c958"]]), H = "b", se = "$toaster", ae = "$modalManager";
 class le {
   static getComponent() {
     if (!this.component) {
