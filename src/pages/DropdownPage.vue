@@ -1,5 +1,4 @@
 <template>
-
     <b-dropdown>
       <template #button>select...</template>
       <b-dropdown-header>this is an header</b-dropdown-header>

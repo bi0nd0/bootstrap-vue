@@ -8,7 +8,7 @@
             </div>
         </template>
         <template v-for="(option, index) in options" :key="option">
-            <b-dropdown-item @click="selected = option">{{ option }}</b-dropdown-item>
+            <b-dropdown-item @click="selected = option" :active="option===modelValue">{{ option }}</b-dropdown-item>
         </template>
     </b-dropdown>
 </template>
