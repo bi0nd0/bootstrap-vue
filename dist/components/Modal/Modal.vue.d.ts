@@ -120,7 +120,6 @@ declare const _sfc_main: import("vue").DefineComponent<{
         default: SIZE;
     };
 }>>, {
-    size: SIZE | undefined;
     title: string | undefined;
     focus: boolean | undefined;
     body: string | undefined;
@@ -130,5 +129,6 @@ declare const _sfc_main: import("vue").DefineComponent<{
     keyboard: boolean | undefined;
     disableOutsideClick: boolean | undefined;
     okOnly: boolean | undefined;
+    size: SIZE | undefined;
 }>;
 export default _sfc_main;

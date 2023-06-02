@@ -12,7 +12,9 @@ import { default as ModalManager } from '../components/Modal/ModalManager.vue'
 // components
 import Drawer from '../components/Drawer/Drawer.vue'
 import Modal from '../components/Modal/Modal.vue'
-import Pagination from '../components/Pagination.vue'
+import Pagination from '../components/Pagination/Pagination.vue'
+import PageSizeDropdown from '../components/Pagination/PageSizeDropdown.vue'
+import PageSizeSelect from '../components/Pagination/PageSizeSelect.vue'
 import Dropdown from '../components/Dropdown/Dropdown.vue'
 import DropdownItem from '../components/Dropdown/DropdownItem.vue'
 import DropdownHeader from '../components/Dropdown/DropdownHeader.vue'
@@ -97,6 +99,8 @@ function registerComponents(app: App) {
   app.component(`${componentPrefix}-drawer`, Drawer)
   app.component(`${componentPrefix}-modal`, Modal)
   app.component(`${componentPrefix}-pagination`, Pagination)
+  app.component(`${componentPrefix}-pagination-dropdown`, PageSizeDropdown)
+  app.component(`${componentPrefix}-pagination-select`, PageSizeSelect)
   app.component(`${componentPrefix}-dropdown`, Dropdown)
   app.component(`${componentPrefix}-dropdown-item`, DropdownItem)
   app.component(`${componentPrefix}-dropdown-header`, DropdownHeader)

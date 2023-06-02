@@ -129,6 +129,7 @@ declare const _sfc_main: import("vue").DefineComponent<{
 }>> & {
     "onUpdate:modelValue"?: ((...args: any[]) => any) | undefined;
 }, {
+    size: SIZE | undefined;
     modelValue: number;
     perPage: number;
     maxVisibleButtons: number | undefined;
@@ -140,6 +141,5 @@ declare const _sfc_main: import("vue").DefineComponent<{
     nextText: string | undefined;
     lastText: string | undefined;
     ellipsisText: string | undefined;
-    size: SIZE | undefined;
 }>;
 export default _sfc_main;

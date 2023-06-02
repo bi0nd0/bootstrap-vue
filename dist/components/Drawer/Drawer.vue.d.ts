@@ -129,7 +129,6 @@ declare const _sfc_main: import("vue").DefineComponent<{
         default: boolean;
     };
 }>>, {
-    size: SIZE | undefined;
     title: string | undefined;
     focus: boolean | undefined;
     body: string | undefined;
@@ -138,6 +137,7 @@ declare const _sfc_main: import("vue").DefineComponent<{
     backdrop: BackdropType | undefined;
     keyboard: boolean | undefined;
     okOnly: boolean | undefined;
+    size: SIZE | undefined;
     lazy: boolean | undefined;
 }>;
 export default _sfc_main;
