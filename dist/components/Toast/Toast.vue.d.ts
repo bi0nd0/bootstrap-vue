@@ -47,7 +47,7 @@ declare const _sfc_main: import("vue").DefineComponent<{
         default: number;
     };
     variant: {
-        type: __PropType<VARIANT>;
+        type: __PropType<VARIANT | undefined>;
         required: false;
     };
 }, {
@@ -94,7 +94,7 @@ declare const _sfc_main: import("vue").DefineComponent<{
         default: number;
     };
     variant: {
-        type: __PropType<VARIANT>;
+        type: __PropType<VARIANT | undefined>;
         required: false;
     };
 }>> & {

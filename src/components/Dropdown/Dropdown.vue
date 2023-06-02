@@ -1,6 +1,6 @@
 <template>
     <div :class="dropdownClasses">
-    <button class="btn dropdown-toggle" :class="buttonClasses" type="button" data-bs-toggle="aaaadropdown" aria-expanded="false" @click="onButtonClicked">
+    <button class="btn dropdown-toggle" :class="buttonClasses" type="button" aria-expanded="false" @click="onButtonClicked">
         <slot name="button">{{ text }}</slot>
     </button>
     <ul class="dropdown-menu" :class="{show: show}">
@@ -9,18 +9,10 @@
     </div>
 </template>
 
-<script lang="ts">
-enum Variant {
-    PRIMARY = 'primary',
-    SECONDARY = 'secondary',
-    WARNING = 'warning',
-    DANGER = 'danger',
-    INFO = 'info'
-}
-</script>
-
 <script setup lang="ts">
 import { ref, computed, toRefs } from 'vue';
+import SIZE from '../../enums/SIZE'
+import Variant from '../../enums/Variant'
 
 const props = withDefaults(defineProps<{
     text?:string,
@@ -31,11 +23,13 @@ const props = withDefaults(defineProps<{
     dropup?:boolean,
     dropend?:boolean,
     dropstart?:boolean,
+    size?: SIZE,
 }>(), {
     text: '',
     variant: Variant.PRIMARY,
     right: false,
     top: false,
+    size: SIZE.STANDARD
 })
 
 const { variant, centered, dropup, dropend, dropstart } = toRefs(props)
@@ -43,7 +37,8 @@ const show = ref(false)
 
 const buttonClasses = computed( () => {
     const _classes:Array<string|object> = []
-    if(variant.value) _classes.push(`btn-${variant.value}`)
+    if(variant?.value) _classes.push(`btn-${variant.value}`)
+    if(props.size) _classes.push(`btn-${props.size}`)
     return _classes
 } )
 

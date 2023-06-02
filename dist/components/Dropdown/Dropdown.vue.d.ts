@@ -1,11 +1,6 @@
 import type { PropType as __PropType } from 'vue';
-declare enum Variant {
-    PRIMARY = "primary",
-    SECONDARY = "secondary",
-    WARNING = "warning",
-    DANGER = "danger",
-    INFO = "info"
-}
+import SIZE from '../../enums/SIZE';
+import Variant from '../../enums/Variant';
 declare const _sfc_main: import("vue").DefineComponent<{
     text: {
         type: __PropType<string | undefined>;
@@ -42,6 +37,11 @@ declare const _sfc_main: import("vue").DefineComponent<{
     dropstart: {
         type: __PropType<boolean | undefined>;
         required: false;
+    };
+    size: {
+        type: __PropType<SIZE | undefined>;
+        required: false;
+        default: SIZE;
     };
 }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     text: {
@@ -80,9 +80,15 @@ declare const _sfc_main: import("vue").DefineComponent<{
         type: __PropType<boolean | undefined>;
         required: false;
     };
+    size: {
+        type: __PropType<SIZE | undefined>;
+        required: false;
+        default: SIZE;
+    };
 }>>, {
     top: boolean | undefined;
     right: boolean | undefined;
+    size: SIZE | undefined;
     text: string | undefined;
     variant: Variant | undefined;
 }>;

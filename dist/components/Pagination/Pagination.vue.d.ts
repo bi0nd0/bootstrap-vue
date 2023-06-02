@@ -1,9 +1,5 @@
 import type { PropType as __PropType } from 'vue';
-declare enum SIZE {
-    SMALL = "sm",
-    NORMAL = "",
-    LARGE = "lg"
-}
+import SIZE from '../../enums/SIZE';
 declare const _sfc_main: import("vue").DefineComponent<{
     modelValue: {
         type: __PropType<number>;

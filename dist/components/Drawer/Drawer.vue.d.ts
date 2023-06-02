@@ -1,5 +1,5 @@
 import type { PropType as __PropType } from 'vue';
-import SIZE from '../../enums/Size';
+import SIZE from '../../enums/SIZE';
 type BackdropType = boolean | "static";
 export interface Props {
     title?: string;

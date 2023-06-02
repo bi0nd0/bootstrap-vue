@@ -57,7 +57,7 @@ export interface Props {
 
 <script setup lang="ts">
 import { ref, Ref, toRefs, computed, getCurrentInstance, ComponentInternalInstance, watch } from 'vue'
-import SIZE from '../../enums/Size'
+import SIZE from '../../enums/SIZE'
 import Drawers from './Drawers'
 
 const props = withDefaults(defineProps<Props>(), {

@@ -1,6 +1,6 @@
 <template>
   <b-pagination v-model="page" :perPage="perPage" :totalItems="totalItems"/>
-  <b-pagination-dropdown v-model="perPage" :options="perPageOptions"/>
+  <b-pagination-dropdown v-model="perPage" :options="perPageOptions" size="sm"/>
   <b-pagination-select v-model="perPage" :options="perPageOptions"/>
 
 </template>

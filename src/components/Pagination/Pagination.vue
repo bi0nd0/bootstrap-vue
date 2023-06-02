@@ -15,15 +15,9 @@
     </ul>
 </template>
 
-<script lang="ts">
-enum SIZE {
-    SMALL = 'sm',
-    NORMAL = '',
-    LARGE = 'lg',
-}
-</script>
 <script setup lang="ts">
 import { toRefs, computed, watchEffect } from 'vue'
+import SIZE from '../../enums/SIZE'
 
 function range(size:number, startAt = 0) {
     return [...Array(size).keys()].map(i => i + startAt);
@@ -58,7 +52,7 @@ const props =  withDefaults(defineProps<Props>(), {
     nextText: '›' ,
     lastText: '»' ,
     ellipsisText: '…' ,
-    size: SIZE.NORMAL,
+    size: SIZE.STANDARD,
 })
 
 

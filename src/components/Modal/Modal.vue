@@ -75,7 +75,7 @@ class ModalStack {
 import { ref, toRefs, computed, onMounted, getCurrentInstance, ComponentInternalInstance } from 'vue'
 import { Modal } from 'bootstrap'
 
-import SIZE from '../../enums/Size'
+import SIZE from '../../enums/SIZE'
 
 const props = withDefaults(defineProps<Props>(), {
     title: '',

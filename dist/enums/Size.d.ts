@@ -1,7 +1,7 @@
-declare enum Size {
+declare enum SIZE {
     SMALL = "sm",
     STANDARD = "",
     LARGE = "lg",
     EXTRA_LARGE = "xl"
 }
-export default Size;
+export default SIZE;
