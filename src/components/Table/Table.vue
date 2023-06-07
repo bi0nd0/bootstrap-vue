@@ -18,12 +18,13 @@
         <tbody>
             <template v-for="(item, itemIndex) in sortedItems" :key="`trow-${item?.id ?? itemIndex}`">
                 <slot name="row" :item="item" :index="itemIndex" :colspan="mappedFields.length"></slot>
-                <tr @mouseover="onMouseOverRow($event, item, itemIndex)">
+                <tr>
                     <template v-for="field in mappedFields" :key="`tcell-${field.key + (item?.id ?? itemIndex)}`">
-                        <td :class="{ [`tcell-${field?.key}`]: true }"><slot :name="`cell(${field?.key})`"
+                        <td :class="{ [`tcell-${field?.key}`]: true }"
+                        @mouseover="onMouseOverCell($event, item, itemIndex, field)"
+                        ><slot :name="`cell(${field?.key})`"
                             :data="instance" :item="item" :field="field"
                             :value="item[field?.key]"
-                            @mouseover="onMouseOverCell($event, item, itemIndex, field)"
                         >{{item[field?.key]}}</slot></td>
                     </template>
                 </tr>
@@ -100,7 +101,7 @@ const extractKeysFromList = (items:any[]) => {
     return keys
 }
 
-const emit = defineEmits(['sort','onMouseOverRow','onMouseOverRow'])
+const emit = defineEmits(['sort','onMouseOverCell'])
 
 const props = withDefaults(defineProps<Props>(), {
     fields:() => [] as Array<TableField>,
@@ -174,12 +175,9 @@ function sortBy(field:Field) {
     emit('sort', sorts.value, multiSort)
 }
 
-function onMouseOverRow($event:Event, item:any, itemIndex:number) {
-    emit('onMouseOverRow', $event, item, itemIndex)
-}
 function onMouseOverCell($event:Event, item:any, itemIndex:number, field:Field)
 {
-    emit('onMouseOverRow', $event, item, itemIndex, field)
+    emit('onMouseOverCell', $event, item, itemIndex, field)
 }
 
 let instance:Ref<ComponentInternalInstance|null> = ref(null)

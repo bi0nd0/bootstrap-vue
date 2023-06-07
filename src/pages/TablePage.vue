@@ -1,5 +1,7 @@
 <template>
-  <b-table :fields="table.fields" :items="table.items" striped></b-table>
+  <b-table :fields="table.fields" :items="table.items" striped
+  @onMouseOverCell="onMouseOverCell"
+  ></b-table>
 </template>
 
 <script setup lang="ts">
@@ -24,6 +26,11 @@ const table = reactive(
     ],
   }
 )
+
+function onMouseOverCell($event:Event, item:any, itemIndex:number, field:Field) {
+  console.log('cell', $event.target)
+  console.log(($event.target as Element).closest('tr'))
+}
 </script>
 
 <style scoped>
