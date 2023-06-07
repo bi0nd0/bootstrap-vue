@@ -599,10 +599,10 @@ const kt = /* @__PURE__ */ O({
       t("sort", i.value, oe);
     }
     function k(s, p, r) {
-      t("onMouseOverRow", [s, p, r]);
+      t("onMouseOverRow", s, p, r);
     }
     function C(s, p, r, n) {
-      t("onMouseOverRow", [s, p, r, n]);
+      t("onMouseOverRow", s, p, r, n);
     }
     let T = D(null);
     return Z(() => {
@@ -683,7 +683,7 @@ const kt = /* @__PURE__ */ O({
     ], 16));
   }
 });
-const $t = /* @__PURE__ */ I(kt, [["__scopeId", "data-v-5ea41a13"]]);
+const $t = /* @__PURE__ */ I(kt, [["__scopeId", "data-v-81b88e08"]]);
 var ie = /* @__PURE__ */ ((e) => (e.PRIMARY = "primary", e.SECONDARY = "secondary", e.WARNING = "warning", e.DANGER = "danger", e.INFO = "info", e))(ie || {});
 const wt = /* @__PURE__ */ O({
   __name: "Dropdown",

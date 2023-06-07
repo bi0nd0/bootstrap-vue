@@ -175,11 +175,11 @@ function sortBy(field:Field) {
 }
 
 function onMouseOverRow($event:Event, item:any, itemIndex:number) {
-    emit('onMouseOverRow', [$event, item, itemIndex])
+    emit('onMouseOverRow', $event, item, itemIndex)
 }
 function onMouseOverCell($event:Event, item:any, itemIndex:number, field:Field)
 {
-    emit('onMouseOverRow', [$event, item, itemIndex, field])
+    emit('onMouseOverRow', $event, item, itemIndex, field)
 }
 
 let instance:Ref<ComponentInternalInstance|null> = ref(null)
