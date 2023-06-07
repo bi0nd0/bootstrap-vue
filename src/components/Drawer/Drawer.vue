@@ -19,11 +19,11 @@
                         <div class="drawer-footer">
                             <slot name="footer">
                                 <template v-if="!okOnly">
-                                    <button type="button" class="ms-auto btn btn-secondary" @click="onCancelClicked">
+                                    <button type="button" class="ms-auto btn btn-secondary" :class="btnSizeClass" @click="onCancelClicked">
                                         <slot name="button-cancel"><span v-html="textCancel"></span></slot>
                                     </button>
                                 </template>
-                                <button type="button" class="btn btn-primary" @click="onOkCLicked">
+                                <button type="button" class="btn btn-primary" :class="btnSizeClass" @click="onOkCLicked">
                                     <slot name="button-ok"><span v-html="textOk"></span></slot>
                                 </button>
                             </slot>
@@ -50,6 +50,7 @@ export interface Props {
     disableOutsideClick?: boolean, 
     okOnly?: boolean, 
     size?: SIZE,
+    btnSize?: SIZE,
     lazy?: boolean // not yet implemented
 }
 
@@ -57,7 +58,7 @@ export interface Props {
 
 <script setup lang="ts">
 import { ref, Ref, toRefs, computed, getCurrentInstance, ComponentInternalInstance, watch } from 'vue'
-import SIZE from '../../enums/SIZE'
+import SIZE, {useSize} from '../../enums/SIZE'
 import Drawers from './Drawers'
 
 const props = withDefaults(defineProps<Props>(), {
@@ -70,20 +71,22 @@ const props = withDefaults(defineProps<Props>(), {
     focus: true,
     okOnly: false,
     size: SIZE.STANDARD,
+    btnSize: SIZE.SMALL,
     lazy: false,
 })
 
 const {
     backdrop, keyboard,
     focus,
-    size,
+    size,btnSize,
 } = toRefs(props)
 
 const sizeClass = computed(() => {
-    let normalSize: string = size.value.toLowerCase()
-    if(!Object.values(SIZE).includes(normalSize as SIZE)) return ''
-    if(normalSize=='') return ''
-    return `drawer-${normalSize}`
+    return useSize(size.value, 'drawer-')
+})
+
+const btnSizeClass = computed(() => {
+    return useSize(btnSize.value, 'btn-')
 })
 
 const drawerElement = ref()
@@ -184,6 +187,7 @@ body.drawer-open {
     display: flex;
     flex-direction: column;
     height: 100%;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important
 }
 .drawer-header {
     display: flex;

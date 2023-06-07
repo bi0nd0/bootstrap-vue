@@ -12,6 +12,7 @@ export interface Props {
     disableOutsideClick?: boolean;
     okOnly?: boolean;
     size?: SIZE;
+    btnSize?: SIZE;
 }
 declare const _sfc_main: import("vue").DefineComponent<{
     title: {
@@ -60,6 +61,11 @@ declare const _sfc_main: import("vue").DefineComponent<{
         default: boolean;
     };
     size: {
+        type: __PropType<SIZE | undefined>;
+        required: false;
+        default: SIZE;
+    };
+    btnSize: {
         type: __PropType<SIZE | undefined>;
         required: false;
         default: SIZE;
@@ -119,6 +125,11 @@ declare const _sfc_main: import("vue").DefineComponent<{
         required: false;
         default: SIZE;
     };
+    btnSize: {
+        type: __PropType<SIZE | undefined>;
+        required: false;
+        default: SIZE;
+    };
 }>>, {
     title: string | undefined;
     focus: boolean | undefined;
@@ -130,5 +141,6 @@ declare const _sfc_main: import("vue").DefineComponent<{
     disableOutsideClick: boolean | undefined;
     okOnly: boolean | undefined;
     size: SIZE | undefined;
+    btnSize: SIZE | undefined;
 }>;
 export default _sfc_main;

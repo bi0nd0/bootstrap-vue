@@ -17,11 +17,11 @@
                 <div class="modal-footer">
                     <slot name="footer">
                         <template v-if="!okOnly">
-                            <button type="button" class="btn btn-secondary" @click="onCancelClicked">
+                            <button type="button" class="btn btn-secondary" :class="btnSizeClass" @click="onCancelClicked">
                                 <slot name="button-cancel"><span v-html="textCancel"></span></slot>
                             </button>
                         </template>
-                        <button type="button" class="btn btn-primary" @click="onOkCLicked">
+                        <button type="button" class="btn btn-primary" :class="btnSizeClass" @click="onOkCLicked">
                             <slot name="button-ok"><span v-html="textOk"></span></slot>
                         </button>
                     </slot>
@@ -46,7 +46,8 @@ export interface Props {
     focus?: boolean, 
     disableOutsideClick?: boolean, 
     okOnly?: boolean, 
-    size?: SIZE
+    size?: SIZE,
+    btnSize?: SIZE,
 }
 class ModalStack {
     static modalStack: Array<Modal> = new Array<Modal>()
@@ -75,7 +76,7 @@ class ModalStack {
 import { ref, toRefs, computed, onMounted, getCurrentInstance, ComponentInternalInstance } from 'vue'
 import { Modal } from 'bootstrap'
 
-import SIZE from '../../enums/SIZE'
+import SIZE, {useSize} from '../../enums/SIZE'
 
 const props = withDefaults(defineProps<Props>(), {
     title: '',
@@ -87,20 +88,22 @@ const props = withDefaults(defineProps<Props>(), {
     focus: true,
     disableOutsideClick: false,
     okOnly: false,
-    size: SIZE.STANDARD
+    size: SIZE.STANDARD,
+    btnSize: SIZE.SMALL
 })
 
 const {
     backdrop, keyboard,
     focus, disableOutsideClick,
-    size,
+    size, btnSize
 } = toRefs(props)
 
 const sizeClass = computed(() => {
-    let normalSize: string = size.value.toLowerCase()
-    if(!Object.values(SIZE).includes(normalSize as SIZE)) return ''
-    if(normalSize=='') return ''
-    return `modal-${normalSize}`
+    return useSize(size.value, 'modal-')
+})
+
+const btnSizeClass = computed(() => {
+    return useSize(btnSize.value, 'btn-')
 })
 
 const modalElement = ref()
