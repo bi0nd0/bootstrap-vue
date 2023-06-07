@@ -48,7 +48,7 @@ declare const _sfc_main: import("vue").DefineComponent<{
         required: false;
         default: string;
     };
-}, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, "sort"[], "sort", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+}, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("sort" | "onMouseOverRow")[], "sort" | "onMouseOverRow", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     fields: {
         type: __PropType<TableField[]>;
         required: true;
@@ -86,6 +86,7 @@ declare const _sfc_main: import("vue").DefineComponent<{
     };
 }>> & {
     onSort?: ((...args: any[]) => any) | undefined;
+    onOnMouseOverRow?: ((...args: any[]) => any) | undefined;
 }, {
     hover: boolean | undefined;
     fields: TableField[];
