@@ -8,7 +8,7 @@
 import { getCurrentInstance, toRefs } from 'vue';
 
 
-const emit = defineEmits(['click'])
+const emit = defineEmits(['click','item-click'])
 const props = withDefaults(defineProps<{
     active?:boolean,
     preventClose?:boolean
@@ -19,6 +19,7 @@ const {preventClose} = toRefs(props)
 function onClick() {
     const instance = getCurrentInstance()
     emit('click', instance)
+    emit('item-click', instance)
 }
 </script>
 

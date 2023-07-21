@@ -3,7 +3,7 @@
         <button class="btn dropdown-toggle" :class="buttonClasses" type="button" aria-expanded="false" @click="onButtonClicked">
             <slot name="button">{{ text }}</slot>
         </button>
-        <ul class="dropdown-menu" :class="{show: show}">
+        <ul class="dropdown-menu" :class="{show: show}" @click="onMenuClicked">
             <slot></slot>
         </ul>
     </div>
@@ -64,21 +64,13 @@ const preventCloseAttribute = 'data-prevent-close'
 
 let controller:AbortController
 function onButtonClicked(event:Event) {
-    const {currentTarget:button} = event
-    
     show.value ? close() : open()
-    if(show.value) {
-        controller = new AbortController()
-        setTimeout(() => {
-            window.addEventListener('click', (e:Event) => {
-                const { target } = e
-                const preventClose = (target as Element)?.closest(`[${preventCloseAttribute}],[${preventCloseAttribute}=true]`)
-                if(preventClose || (target === button)) return
-                close()
-                controller.abort()
-            }, {signal: controller.signal})
-        }, 0)
-    }
+}
+
+function onMenuClicked(event:Event) {
+    const { target } = event
+    const preventClose = (target as Element)?.closest(`[${preventCloseAttribute}],[${preventCloseAttribute}=true]`)
+    if (!preventClose) close()
 }
 
 </script>
