@@ -19,6 +19,9 @@
       <b-dropdown-item active>this is active</b-dropdown-item>
       <b-dropdown-divider/>
       <b-dropdown-item prevent-close>do not close on click</b-dropdown-item>
+      <b-dropdown-item prevent-close>
+        <input type="checkbox" name="" id="">
+      </b-dropdown-item>
     </b-dropdown>
   </div>
     
