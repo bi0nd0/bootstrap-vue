@@ -1,11 +1,11 @@
 <template>
     <div :class="dropdownClasses">
-    <button class="btn dropdown-toggle" :class="buttonClasses" type="button" aria-expanded="false" @click="onButtonClicked">
-        <slot name="button">{{ text }}</slot>
-    </button>
-    <ul class="dropdown-menu" :class="{show: show}">
-        <slot></slot>
-    </ul>
+        <button class="btn dropdown-toggle" :class="buttonClasses" type="button" aria-expanded="false" @click="onButtonClicked">
+            <slot name="button">{{ text }}</slot>
+        </button>
+        <ul class="dropdown-menu" :class="{show: show}">
+            <slot></slot>
+        </ul>
     </div>
 </template>
 

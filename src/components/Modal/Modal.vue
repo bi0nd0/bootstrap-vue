@@ -61,7 +61,6 @@ class ModalStack {
         const index = this.modalStack.indexOf(modalInstance)
         if(index<0) return
         this.modalStack.splice(index, 1)
-        console.log(this.modalStack)
     }
 
     static getLast() {

@@ -167,7 +167,7 @@ class j {
     if (t == null)
       return;
     const n = this.modalStack.indexOf(t);
-    n < 0 || (this.modalStack.splice(n, 1), console.log(this.modalStack));
+    n < 0 || this.modalStack.splice(n, 1);
   }
   static getLast() {
     const t = this.modalStack.length;
