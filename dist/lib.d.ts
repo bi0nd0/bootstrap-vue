@@ -8,4 +8,5 @@ export { default as PageSizeSelect } from './components/Pagination/PageSizeSelec
 export { Table, Field as TableFieldDefinition } from './components/Table/';
 export { Dropdown, DropdownItem, DropdownHeader, DropdownDivider } from './components/Dropdown/';
 export { default as tooltip } from './directives/tooltip';
+export { default as clickOutside } from './directives/clickOutside';
 export { default as BootstrapVue, useToaster, useModal } from './plugins/Plugin';

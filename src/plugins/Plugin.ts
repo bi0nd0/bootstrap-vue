@@ -24,6 +24,7 @@ import Toast from '../components/Toast/Toast.vue'
 
 // directives
 import tooltip from '../directives/tooltip'
+import clickOutside from '../directives/clickOutside'
 
 // constants
 const componentPrefix = 'b'
@@ -115,6 +116,7 @@ function registerComponents(app: App) {
  */
 function registerDirectives(app: App) {
   app.directive('tooltip', tooltip)
+  app.directive('click-outside', clickOutside)
 }
 
 // Define the plugin object

@@ -1,11 +1,13 @@
 <template>
     <div :class="dropdownClasses">
-        <button class="btn dropdown-toggle" :class="buttonClasses" type="button" aria-expanded="false" @click="onButtonClicked">
-            <slot name="button">{{ text }}</slot>
-        </button>
-        <ul class="dropdown-menu" :class="{show: show}" @click="onMenuClicked">
-            <slot></slot>
-        </ul>
+        <div class="d-inline-block" v-click-outside="onClickOutside">
+            <button class="btn dropdown-toggle" :class="buttonClasses" type="button" aria-expanded="false" @click="onButtonClicked">
+                <slot name="button">{{ text }}</slot>
+            </button>
+            <ul class="dropdown-menu" :class="{show: show}" @click="onMenuClicked">
+                <slot></slot>
+            </ul>
+        </div>
     </div>
 </template>
 
@@ -62,7 +64,6 @@ function close() {
 
 const preventCloseAttribute = 'data-prevent-close'
 
-let controller:AbortController
 function onButtonClicked(event:Event) {
     show.value ? close() : open()
 }
@@ -73,8 +74,12 @@ function onMenuClicked(event:Event) {
     if (!preventClose) close()
 }
 
+function onClickOutside() {
+    if(!show.value) return
+    close()
+}
+
 </script>
 
 <style scoped>
-
 </style>

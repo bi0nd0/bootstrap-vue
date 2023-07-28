@@ -131,8 +131,8 @@ declare const _sfc_main: import("vue").DefineComponent<{
         default: SIZE;
     };
 }>>, {
-    title: string | undefined;
     focus: boolean | undefined;
+    title: string | undefined;
     body: string | undefined;
     textCancel: string | undefined;
     textOk: string | boolean | undefined;
