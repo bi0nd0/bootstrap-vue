@@ -680,7 +680,7 @@ const $t = /* @__PURE__ */ O({
 });
 const Ct = /* @__PURE__ */ N($t, [["__scopeId", "data-v-7828e531"]]);
 var ce = /* @__PURE__ */ ((e) => (e.PRIMARY = "primary", e.SECONDARY = "secondary", e.WARNING = "warning", e.DANGER = "danger", e.INFO = "info", e))(ce || {});
-const wt = { class: "d-inline-block" }, gt = /* @__PURE__ */ O({
+const wt = { class: "d-inline-block" }, gt = ["disabled"], xt = /* @__PURE__ */ O({
   __name: "Dropdown",
   props: {
     text: { default: "" },
@@ -691,7 +691,8 @@ const wt = { class: "d-inline-block" }, gt = /* @__PURE__ */ O({
     dropup: { type: Boolean },
     dropend: { type: Boolean },
     dropstart: { type: Boolean },
-    size: { default: P.STANDARD }
+    size: { default: P.STANDARD },
+    disabled: { type: Boolean }
   },
   setup(e) {
     const t = e, n = A(), { variant: r, centered: i, dropup: v, dropend: m, dropstart: o } = z(t), c = A(!1), f = L(() => {
@@ -730,12 +731,13 @@ const wt = { class: "d-inline-block" }, gt = /* @__PURE__ */ O({
             class: T(["btn dropdown-toggle", y(f)]),
             type: "button",
             "aria-expanded": "false",
-            onClick: _
+            onClick: _,
+            disabled: e.disabled
           }, [
             w(u.$slots, "button", {}, () => [
               U(H(e.text), 1)
             ], !0)
-          ], 2),
+          ], 10, gt),
           l("ul", {
             class: T(["dropdown-menu", { show: c.value }]),
             onClick: d
@@ -749,7 +751,7 @@ const wt = { class: "d-inline-block" }, gt = /* @__PURE__ */ O({
     };
   }
 });
-const xt = /* @__PURE__ */ N(gt, [["__scopeId", "data-v-5997732e"]]), St = ["data-prevent-close"], Tt = /* @__PURE__ */ O({
+const St = /* @__PURE__ */ N(xt, [["__scopeId", "data-v-7cb957c7"]]), Tt = ["data-prevent-close"], Mt = /* @__PURE__ */ O({
   __name: "DropdownItem",
   props: {
     active: { type: Boolean },
@@ -767,23 +769,23 @@ const xt = /* @__PURE__ */ N(gt, [["__scopeId", "data-v-5997732e"]]), St = ["dat
       }, [
         w(i.$slots, "default")
       ], 2)
-    ], 8, St));
+    ], 8, Tt));
   }
-}), Mt = {}, Lt = { "data-prevent-close": "" }, Bt = { class: "dropdown-header" };
-function At(e, t) {
-  return h(), b("li", Lt, [
-    l("h6", Bt, [
+}), Lt = {}, Bt = { "data-prevent-close": "" }, At = { class: "dropdown-header" };
+function Dt(e, t) {
+  return h(), b("li", Bt, [
+    l("h6", At, [
       w(e.$slots, "default")
     ])
   ]);
 }
-const Dt = /* @__PURE__ */ N(Mt, [["render", At]]), Ht = {}, Ot = /* @__PURE__ */ l("hr", { class: "dropdown-divider" }, null, -1), Et = [
-  Ot
+const Ht = /* @__PURE__ */ N(Lt, [["render", Dt]]), Ot = {}, Et = /* @__PURE__ */ l("hr", { class: "dropdown-divider" }, null, -1), zt = [
+  Et
 ];
-function zt(e, t) {
-  return h(), b("li", null, Et);
+function Rt(e, t) {
+  return h(), b("li", null, zt);
 }
-const Rt = /* @__PURE__ */ N(Ht, [["render", zt]]), Pt = {
+const Pt = /* @__PURE__ */ N(Ot, [["render", Rt]]), Vt = {
   mounted(e, t, n, r) {
     new Se(e, {
       title: t.value,
@@ -791,7 +793,7 @@ const Rt = /* @__PURE__ */ N(Ht, [["render", zt]]), Pt = {
       trigger: "hover"
     });
   }
-}, Vt = (e, t) => {
+}, Nt = (e, t) => {
   function n(v, m) {
     for (; v !== null; ) {
       if (v === m)
@@ -808,10 +810,10 @@ const Rt = /* @__PURE__ */ N(Ht, [["render", zt]]), Pt = {
     }, { signal: r.signal });
   }
   return i(e, t), r;
-}, Nt = {
+}, Ft = {
   mounted(e, t, n, r) {
     const i = t.value;
-    Vt(e, i);
+    Nt(e, i);
   }
 };
 class J {
@@ -823,7 +825,7 @@ class J {
   }
 }
 B(J, "list", /* @__PURE__ */ new Set());
-const Ft = ["onClick"], It = { class: "drawer-content" }, jt = { class: "drawer-header" }, Gt = ["innerHTML"], Kt = { class: "drawer-body" }, Ut = ["innerHTML"], Yt = { class: "drawer-footer" }, Wt = ["innerHTML"], Xt = ["innerHTML"], qt = /* @__PURE__ */ O({
+const It = ["onClick"], jt = { class: "drawer-content" }, Gt = { class: "drawer-header" }, Kt = ["innerHTML"], Ut = { class: "drawer-body" }, Yt = ["innerHTML"], Wt = { class: "drawer-footer" }, Xt = ["innerHTML"], qt = ["innerHTML"], Jt = /* @__PURE__ */ O({
   __name: "Drawer",
   props: {
     title: { default: "" },
@@ -895,13 +897,13 @@ const Ft = ["onClick"], It = { class: "drawer-content" }, jt = { class: "drawer-
           l("div", {
             class: T(["drawer-dialog", y(c)])
           }, [
-            l("div", It, [
-              l("div", jt, [
+            l("div", jt, [
+              l("div", Gt, [
                 w(S.$slots, "header", {}, () => [
                   l("h5", {
                     class: "drawer-title",
                     innerHTML: e.title
-                  }, null, 8, Gt)
+                  }, null, 8, Kt)
                 ], !0),
                 l("button", {
                   type: "button",
@@ -910,12 +912,12 @@ const Ft = ["onClick"], It = { class: "drawer-content" }, jt = { class: "drawer-
                   onClick: s
                 })
               ]),
-              l("div", Kt, [
+              l("div", Ut, [
                 w(S.$slots, "default", {}, () => [
-                  l("span", { innerHTML: e.body }, null, 8, Ut)
+                  l("span", { innerHTML: e.body }, null, 8, Yt)
                 ], !0)
               ]),
-              l("div", Yt, [
+              l("div", Wt, [
                 w(S.$slots, "footer", {}, () => [
                   e.okOnly ? G("", !0) : (h(), b("button", {
                     key: 0,
@@ -924,7 +926,7 @@ const Ft = ["onClick"], It = { class: "drawer-content" }, jt = { class: "drawer-
                     onClick: C
                   }, [
                     w(S.$slots, "button-cancel", {}, () => [
-                      l("span", { innerHTML: e.textCancel }, null, 8, Wt)
+                      l("span", { innerHTML: e.textCancel }, null, 8, Xt)
                     ], !0)
                   ], 2)),
                   l("button", {
@@ -933,20 +935,20 @@ const Ft = ["onClick"], It = { class: "drawer-content" }, jt = { class: "drawer-
                     onClick: M
                   }, [
                     w(S.$slots, "button-ok", {}, () => [
-                      l("span", { innerHTML: e.textOk }, null, 8, Xt)
+                      l("span", { innerHTML: e.textOk }, null, 8, qt)
                     ], !0)
                   ], 2)
                 ], !0)
               ])
             ])
           ], 2)
-        ], 16, Ft)) : G("", !0)
+        ], 16, It)) : G("", !0)
       ]),
       _: 3
     }));
   }
 });
-const Jt = /* @__PURE__ */ N(qt, [["__scopeId", "data-v-2e49e8cb"]]), D = "b", de = "$toaster", fe = "$modalManager";
+const Qt = /* @__PURE__ */ N(Jt, [["__scopeId", "data-v-2e49e8cb"]]), D = "b", de = "$toaster", fe = "$modalManager";
 class ve {
   static getComponent() {
     if (!this.component) {
@@ -971,21 +973,21 @@ class pe {
   }
 }
 B(pe, "component");
-function on() {
+function sn() {
   return le(de);
 }
-function sn() {
+function an() {
   return le(fe);
 }
-function Qt(e) {
-  e.component(`${D}-drawer`, Jt), e.component(`${D}-modal`, ue), e.component(`${D}-pagination`, st), e.component(`${D}-pagination-dropdown`, it), e.component(`${D}-pagination-select`, ct), e.component(`${D}-dropdown`, xt), e.component(`${D}-dropdown-item`, Tt), e.component(`${D}-dropdown-header`, Dt), e.component(`${D}-dropdown-divider`, Rt), e.component(`${D}-table`, Ct), e.component(`${D}-toast`, ie);
-}
 function Zt(e) {
-  e.directive("tooltip", Pt), e.directive("click-outside", Nt);
+  e.component(`${D}-drawer`, Qt), e.component(`${D}-modal`, ue), e.component(`${D}-pagination`, st), e.component(`${D}-pagination-dropdown`, it), e.component(`${D}-pagination-select`, ct), e.component(`${D}-dropdown`, St), e.component(`${D}-dropdown-item`, Mt), e.component(`${D}-dropdown-header`, Ht), e.component(`${D}-dropdown-divider`, Pt), e.component(`${D}-table`, Ct), e.component(`${D}-toast`, ie);
 }
-const an = {
+function en(e) {
+  e.directive("tooltip", Vt), e.directive("click-outside", Ft);
+}
+const ln = {
   install(e) {
-    Qt(e), Zt(e);
+    Zt(e), en(e);
     const t = pe.getComponent();
     e.provide(de, t);
     const n = ve.getComponent();
@@ -993,11 +995,11 @@ const an = {
   }
 };
 export {
-  an as BootstrapVue,
-  xt as Dropdown,
-  Rt as DropdownDivider,
-  Dt as DropdownHeader,
-  Tt as DropdownItem,
+  ln as BootstrapVue,
+  St as Dropdown,
+  Pt as DropdownDivider,
+  Ht as DropdownHeader,
+  Mt as DropdownItem,
   ue as Modal,
   Ke as ModalManager,
   it as PageSizeDropdown,
@@ -1007,8 +1009,8 @@ export {
   q as TableFieldDefinition,
   ie as Toast,
   Ee as Toaster,
-  Nt as clickOutside,
-  Pt as tooltip,
-  sn as useModal,
-  on as useToaster
+  Ft as clickOutside,
+  Vt as tooltip,
+  an as useModal,
+  sn as useToaster
 };

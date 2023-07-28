@@ -1,7 +1,7 @@
 <template>
     <div ref="dropDownRef" :class="dropdownClasses">
         <div class="d-inline-block" v-click-outside="onClickOutside">
-            <button class="btn dropdown-toggle" :class="buttonClasses" type="button" aria-expanded="false" @click="onButtonClicked">
+            <button class="btn dropdown-toggle" :class="buttonClasses" type="button" aria-expanded="false" @click="onButtonClicked" :disabled="disabled">
                 <slot name="button">{{ text }}</slot>
             </button>
             <ul class="dropdown-menu" :class="{show: show}" @click="onMenuClicked">
@@ -26,6 +26,7 @@ const props = withDefaults(defineProps<{
     dropend?:boolean,
     dropstart?:boolean,
     size?: SIZE,
+    disabled?:boolean,
 }>(), {
     text: '',
     variant: Variant.PRIMARY,
