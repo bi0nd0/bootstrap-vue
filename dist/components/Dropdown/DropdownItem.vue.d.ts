@@ -8,7 +8,7 @@ declare const _sfc_main: import("vue").DefineComponent<{
         type: __PropType<boolean | undefined>;
         required: false;
     };
-}, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("click" | "item-click")[], "click" | "item-click", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+}, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     active: {
         type: __PropType<boolean | undefined>;
         required: false;
@@ -17,8 +17,5 @@ declare const _sfc_main: import("vue").DefineComponent<{
         type: __PropType<boolean | undefined>;
         required: false;
     };
-}>> & {
-    onClick?: ((...args: any[]) => any) | undefined;
-    "onItem-click"?: ((...args: any[]) => any) | undefined;
-}, {}>;
+}>>, {}>;
 export default _sfc_main;

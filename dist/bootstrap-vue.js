@@ -1,7 +1,7 @@
 var _e = Object.defineProperty;
 var he = (e, t, n) => t in e ? _e(e, t, { enumerable: !0, configurable: !0, writable: !0, value: n }) : e[t] = n;
 var B = (e, t, n) => (he(e, typeof t != "symbol" ? t + "" : t, n), n);
-import { defineComponent as O, toRefs as z, ref as A, watch as me, onMounted as Q, openBlock as h, createElementBlock as b, normalizeClass as T, renderSlot as w, createElementVNode as l, toDisplayString as H, createBlock as F, Teleport as oe, Fragment as E, renderList as R, mergeProps as I, computed as L, getCurrentInstance as Z, withModifiers as se, unref as y, createCommentVNode as G, createVNode as ye, watchEffect as be, resolveComponent as ee, withCtx as K, createTextVNode as U, withDirectives as ae, isRef as ke, vModelSelect as $e, resolveDirective as Ce, Transition as we, inject as le, createApp as re } from "vue";
+import { defineComponent as O, toRefs as z, ref as A, watch as me, onMounted as Q, openBlock as h, createElementBlock as b, normalizeClass as T, renderSlot as w, createElementVNode as l, toDisplayString as H, createBlock as F, Teleport as se, Fragment as E, renderList as R, mergeProps as I, computed as L, getCurrentInstance as Z, withModifiers as ee, unref as y, createCommentVNode as G, createVNode as ye, watchEffect as be, resolveComponent as te, withCtx as K, createTextVNode as U, withDirectives as ae, isRef as ke, vModelSelect as $e, resolveDirective as Ce, Transition as we, inject as le, createApp as re } from "vue";
 import { Toast as ge, Modal as xe, Tooltip as Se } from "bootstrap";
 const Te = { class: "toast-header" }, Me = ["textContent"], Le = ["textContent"], Be = { class: "toast-body" }, Ae = ["textContent"], ie = /* @__PURE__ */ O({
   __name: "Toast",
@@ -109,7 +109,7 @@ function De() {
   });
 }
 const He = { id: "toast-wrapper" };
-let te;
+let ne;
 const Oe = /* @__PURE__ */ O({
   __name: "Toaster",
   setup(e, { expose: t }) {
@@ -123,7 +123,7 @@ const Oe = /* @__PURE__ */ O({
       delay: 5e3,
       variant: void 0
     }, r = A(/* @__PURE__ */ new Map());
-    te = (v, m = "top right") => {
+    ne = (v, m = "top right") => {
       const o = De(), c = { ...n, ...v, id: o };
       let f = r.value.get(m);
       f instanceof Set || (f = /* @__PURE__ */ new Set()), f.add(c), r.value.set(m, f);
@@ -132,7 +132,7 @@ const Oe = /* @__PURE__ */ O({
       const o = r.value.get(v);
       o == null || o.delete(m);
     }
-    return t({ toast: te }), (v, m) => (h(), F(oe, { to: "body" }, [
+    return t({ toast: ne }), (v, m) => (h(), F(se, { to: "body" }, [
       l("div", He, [
         (h(!0), b(E, null, R(r.value, ([o, c]) => (h(), b("div", {
           key: o,
@@ -246,7 +246,7 @@ const ue = /* @__PURE__ */ O({
       class: "modal fade",
       tabindex: "-1"
     }, { ...g.$attrs }, {
-      onClick: se(u, ["self"])
+      onClick: ee(u, ["self"])
     }), [
       l("div", {
         class: T(["modal-dialog", y(f)])
@@ -310,7 +310,7 @@ const ue = /* @__PURE__ */ O({
       var o;
       return m.okOnly = !0, r.value = m, (o = n.value) == null ? void 0 : o.show();
     }
-    return t({ confirm: i, alert: v }), (m, o) => (h(), F(oe, { to: "body" }, [
+    return t({ confirm: i, alert: v }), (m, o) => (h(), F(se, { to: "body" }, [
       ye(ue, I({
         ref_key: "modalRef",
         ref: n
@@ -439,7 +439,7 @@ const st = /* @__PURE__ */ N(ot, [["__scopeId", "data-v-2bfd7085"]]), at = { cla
       set: (v) => t("update:modelValue", v)
     });
     return (v, m) => {
-      const o = ee("b-dropdown-item"), c = ee("b-dropdown");
+      const o = te("b-dropdown-item"), c = te("b-dropdown");
       return h(), F(c, I({
         variant: "outline-primary",
         size: "sm"
@@ -501,7 +501,7 @@ class dt {
     this.key = t, this.direction = n, this.sortFn = r;
   }
 }
-const ne = (e, t) => {
+const oe = (e, t) => {
   const n = (o, c) => {
     let f = typeof o, x = typeof c;
     return f == "number" && f == x;
@@ -561,7 +561,7 @@ const $t = /* @__PURE__ */ O({
       if (n.externalSort || i.value.length == 0)
         return n.items;
       const _ = [...n.items];
-      return ne(i.value, _);
+      return oe(i.value, _);
     }), c = L(() => {
       let _ = v.value, d = [];
       return _.length === 0 && (_ = r([...m.value])), _.reduce((a, u, s) => {
@@ -596,7 +596,7 @@ const $t = /* @__PURE__ */ O({
         const u = i.value[a], s = u.direction;
         s === V.ASC ? u.direction = V.DESC : s === V.DESC && i.value.splice(a, 1);
       }
-      t("sort", i.value, ne);
+      t("sort", i.value, oe);
     }
     function k(_, d, a, u) {
       t("onMouseOverCell", _, d, a, u);
@@ -757,17 +757,18 @@ const St = /* @__PURE__ */ N(xt, [["__scopeId", "data-v-7cb957c7"]]), Tt = ["dat
     active: { type: Boolean },
     preventClose: { type: Boolean }
   },
-  emits: ["click", "item-click"],
-  setup(e, { emit: t }) {
-    const n = e, { preventClose: r } = z(n);
-    return (i, v) => (h(), b("li", {
-      "data-prevent-close": y(r) ? "" : null
+  setup(e) {
+    const t = e, { preventClose: n } = z(t);
+    return (r, i) => (h(), b("li", {
+      "data-prevent-close": y(n) ? "" : null
     }, [
       l("a", {
         class: T(["dropdown-item", { active: e.active }]),
-        href: "#"
+        href: "#",
+        onClick: i[0] || (i[0] = ee(() => {
+        }, ["prevent"]))
       }, [
-        w(i.$slots, "default")
+        w(r.$slots, "default")
       ], 2)
     ], 8, Tt));
   }
@@ -892,7 +893,7 @@ const It = ["onClick"], jt = { class: "drawer-content" }, Gt = { class: "drawer-
           class: "drawer",
           tabindex: "-1"
         }, { ...S.$attrs }, {
-          onClick: se(u, ["self"])
+          onClick: ee(u, ["self"])
         }), [
           l("div", {
             class: T(["drawer-dialog", y(c)])

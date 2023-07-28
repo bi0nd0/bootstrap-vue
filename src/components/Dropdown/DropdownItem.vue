@@ -1,28 +1,18 @@
 <template>
-    <li :data-prevent-close="preventClose ? '' : null"><a class="dropdown-item" :class="{active:active}" href="#" ><slot></slot></a></li>
+    <li :data-prevent-close="preventClose ? '' : null"><a class="dropdown-item" :class="{active:active}" href="#" @click.prevent><slot></slot></a></li>
 </template>
 
 
 
 <script setup lang="ts">
-import { getCurrentInstance, toRefs } from 'vue';
+import { toRefs } from 'vue';
 
-
-const emit = defineEmits(['click','item-click'])
 const props = withDefaults(defineProps<{
     active?:boolean,
     preventClose?:boolean
 }>(), {})
 
 const {preventClose} = toRefs(props)
-
-function onClick() {
-    const instance = getCurrentInstance()
-    emit('click', instance)
-    emit('item-click', instance)
-}
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
