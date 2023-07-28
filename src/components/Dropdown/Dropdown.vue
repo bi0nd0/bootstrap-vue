@@ -1,5 +1,5 @@
 <template>
-    <div :class="dropdownClasses">
+    <div ref="dropDownRef" :class="dropdownClasses">
         <div class="d-inline-block" v-click-outside="onClickOutside">
             <button class="btn dropdown-toggle" :class="buttonClasses" type="button" aria-expanded="false" @click="onButtonClicked">
                 <slot name="button">{{ text }}</slot>
@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, toRefs } from 'vue';
+import { ref, computed, toRefs, onMounted } from 'vue';
 import SIZE from '../../enums/SIZE'
 import Variant from '../../enums/Variant'
 
@@ -34,6 +34,7 @@ const props = withDefaults(defineProps<{
     size: SIZE.STANDARD
 })
 
+const dropDownRef = ref()
 const { variant, centered, dropup, dropend, dropstart } = toRefs(props)
 const show = ref(false)
 
@@ -82,4 +83,18 @@ function onClickOutside() {
 </script>
 
 <style scoped>
+.dropstart .dropdown-menu {
+    position: absolute;
+    right:100%;
+    top: 0;
+}
+.dropend .dropdown-menu {
+    position: absolute;
+    left:100%;
+    top: 0;
+}
+.dropup .dropdown-menu {
+    position: absolute;
+    bottom: 100%;
+}
 </style>
