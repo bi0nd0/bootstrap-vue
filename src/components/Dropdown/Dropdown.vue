@@ -4,7 +4,7 @@
             <button class="btn dropdown-toggle" :class="buttonClasses" type="button" aria-expanded="false" @click="onButtonClicked" :disabled="disabled">
                 <slot name="button">{{ text }}</slot>
             </button>
-            <ul class="dropdown-menu" :class="{show: show}" @click="onMenuClicked">
+            <ul ref="menuRef" class="dropdown-menu" :class="{show: show}" @click="onMenuClicked">
                 <slot></slot>
             </ul>
         </div>
@@ -81,6 +81,59 @@ function onClickOutside() {
     close()
 }
 
+const useIntersectionObserver = (targetElement:Element, callback:Function, options={}) => {
+    const intersectionObserver = new IntersectionObserver((entries, options) => {
+        entries.forEach(entry => {
+            console.log(entry)
+            callback(entry)
+        });
+    });
+
+    intersectionObserver.observe(targetElement);
+    return intersectionObserver
+}
+
+const menuRef = ref()
+let observer
+onMounted(() =>{
+    observer = useIntersectionObserver(menuRef.value, (entry:IntersectionObserverEntry) => {
+        // console.log(entry)
+        if (entry.isIntersecting) {
+            // The target element is intersecting the viewport
+            console.log('Element is intersecting!');
+            if(entry.intersectionRatio<1) {
+                const rect1 = entry.boundingClientRect
+                const rect2 = entry.intersectionRect
+
+                const overlap = {
+                    top: Math.max(0, rect1.top - rect2.top),
+                    right: Math.max(0, rect1.right - rect2.right),
+                    bottom: Math.max(0, rect1.bottom - rect2.bottom),
+                    left: Math.max(0, rect1.left - rect2.left),
+                }
+                let x = 0
+                if(overlap.left !== 0) x = overlap.left
+                else if(overlap.right !== 0) x = -overlap.right
+                let y = 0
+                if(overlap.top !== 0) x = overlap.top
+                else if(overlap.bottom !== 0) x = -overlap.bottom
+                
+                
+                menuRef.value.style.transform = `translate(${x}px, ${y}px)`
+                console.log(x, y, overlap)
+                /* let rect = menuRef.value.parentNode?.getBoundingClientRect();
+                console.log('overlapping', rect, entry.intersectionRect)
+                const adjustment = rect.right - entry.intersectionRect.right
+                console.log(adjustment)
+                const delta = entry.intersectionRect.width - entry.boundingClientRect.width + adjustment
+                menuRef.value.style.transform = `translateX(${delta}px)` */
+            }
+        } else {
+            // The target element is NOT intersecting the viewport
+            console.log('Element is not intersecting!');
+        }
+    })
+})
 </script>
 
 <style scoped>
