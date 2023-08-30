@@ -1,9 +1,11 @@
 <template>
     <div ref="dropDownRef" :class="dropdownClasses">
         <div class="d-inline-block" v-click-outside="onClickOutside">
-            <button class="btn dropdown-toggle" :class="buttonClasses" type="button" aria-expanded="false" @click="onButtonClicked" :disabled="disabled">
-                <slot name="button">{{ text }}</slot>
-            </button>
+            <slot name="header" v-bind="{ buttonClasses, onButtonClicked, disabled }">
+                <button class="btn dropdown-toggle" :class="buttonClasses" type="button" aria-expanded="false" @click="onButtonClicked" :disabled="disabled">
+                    <slot name="button">{{ text }}</slot>
+                </button>
+            </slot>
             <ul class="dropdown-menu" :class="{show: show}" @click="onMenuClicked">
                 <slot></slot>
             </ul>

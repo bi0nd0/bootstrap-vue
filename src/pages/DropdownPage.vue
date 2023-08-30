@@ -8,6 +8,19 @@
       <b-dropdown-divider/>
       <b-dropdown-item prevent-close>do not close on click</b-dropdown-item>
     </b-dropdown>
+
+    <b-dropdown>
+      <template #header="{ onButtonClicked, disabled, buttonClasses}">
+        <button @click="onButtonClicked" :disabled="disabled" :class="buttonClasses">
+          select...
+        </button>
+      </template>
+      <b-dropdown-header>this is an header</b-dropdown-header>
+      <b-dropdown-item>test</b-dropdown-item>
+      <b-dropdown-item active>this is active</b-dropdown-item>
+      <b-dropdown-divider/>
+      <b-dropdown-item prevent-close>do not close on click</b-dropdown-item>
+    </b-dropdown>
     
     <b-dropdown variant="success" size="sm">
       <template #button>
