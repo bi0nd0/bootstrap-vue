@@ -764,7 +764,7 @@ const Mt = /* @__PURE__ */ N(Tt, [["__scopeId", "data-v-44fcc34b"]]), Lt = ["dat
     return (r, i) => (_(), b("li", {
       "data-prevent-close": y(n) ? "" : null
     }, [
-      l("a", {
+      l("span", {
         class: T(["dropdown-item", { active: e.active }]),
         role: "button",
         tabindex: "0"

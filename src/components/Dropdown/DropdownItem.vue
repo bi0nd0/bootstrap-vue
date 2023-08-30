@@ -1,5 +1,5 @@
 <template>
-    <li :data-prevent-close="preventClose ? '' : null"><a class="dropdown-item" :class="{active:active}" role="button" tabindex="0"><slot></slot></a></li>
+    <li :data-prevent-close="preventClose ? '' : null"><span class="dropdown-item" :class="{active:active}" role="button" tabindex="0"><slot></slot></span></li>
 </template>
 
 
