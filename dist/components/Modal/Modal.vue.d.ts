@@ -71,9 +71,13 @@ declare const _sfc_main: import("vue").DefineComponent<{
         default: SIZE;
     };
 }, {
+    modal: undefined;
     show: () => Promise<unknown>;
     hide: (status?: boolean) => void;
     toggle: () => void;
+    onHeaderCloseClicked: () => void;
+    onCancelClicked: () => void;
+    onOkCLicked: () => void;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     title: {
         type: __PropType<string | undefined>;

@@ -4,25 +4,25 @@
         <div class="modal-dialog" :class="sizeClass" >
             <div class="modal-content">
                 <div class="modal-header">
-                    <slot name="header">
+                    <slot name="header" v-bind="{ ...slotData }">
                         <h5 class="modal-title" v-html="title"></h5>
                     </slot>
                     <button type="button" class="btn-close" aria-label="Close" @click="onHeaderCloseClicked"></button>
                 </div>
                 <div class="modal-body">
-                    <slot>
+                    <slot  v-bind="{ ...slotData }">
                         <span v-html="body"></span>
                     </slot>
                 </div>
                 <div class="modal-footer">
-                    <slot name="footer">
+                    <slot name="footer" v-bind="{ ...slotData }" >
                         <template v-if="!okOnly">
                             <button type="button" class="btn btn-secondary" :class="btnSizeClass" @click="onCancelClicked">
-                                <slot name="button-cancel"><span v-html="textCancel"></span></slot>
+                                <slot name="button-cancel"  v-bind="{ ...slotData }"><span v-html="textCancel"></span></slot>
                             </button>
                         </template>
                         <button type="button" class="btn btn-primary" :class="btnSizeClass" @click="onOkCLicked">
-                            <slot name="button-ok"><span v-html="textOk"></span></slot>
+                            <slot name="button-ok"  v-bind="{ ...slotData }"><span v-html="textOk"></span></slot>
                         </button>
                     </slot>
                 </div>
@@ -154,8 +154,14 @@ function onCancelClicked() { hide(false) }
 function onOkCLicked() { hide(true) }
 
 defineExpose({
+    modal,
     show,hide,toggle,
+    onHeaderCloseClicked,
+    onCancelClicked,
+    onOkCLicked,
 })
+
+const slotData = {show,hide,toggle, modal}
 
 </script>
 
