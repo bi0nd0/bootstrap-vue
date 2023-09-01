@@ -1,7 +1,7 @@
 <template>
     <div ref="dropDownRef" :class="dropdownClasses">
         <div class="d-inline-block" v-click-outside="onClickOutside">
-            <slot name="header" v-bind="{ buttonClasses, onButtonClicked, disabled }">
+            <slot name="header" v-bind="{ ...slotData }">
                 <button class="btn dropdown-toggle" :class="buttonClasses" type="button" aria-expanded="false" @click="onButtonClicked" :disabled="disabled">
                     <slot name="button">{{ text }}</slot>
                 </button>
@@ -81,6 +81,17 @@ function onMenuClicked(event:Event) {
 function onClickOutside() {
     if(!show.value) return
     close()
+}
+
+const slotData = {
+    show,
+    disabled: props.disabled,
+    buttonClasses,
+    onButtonClicked,
+    onMenuClicked,
+    onClickOutside,
+    open,
+    close,
 }
 
 </script>
