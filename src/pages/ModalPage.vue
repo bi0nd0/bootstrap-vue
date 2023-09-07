@@ -1,5 +1,8 @@
 <template>
     <div>
+      <b-modal title="Auto open" visible>
+        <p>This opened automatically</p>
+      </b-modal>
       <b-modal ref="modalRefInner">
           <p>this is inner</p>
         </b-modal>

@@ -13,6 +13,7 @@ export interface Props {
     okOnly?: boolean;
     size?: SIZE;
     btnSize?: SIZE;
+    visible?: boolean;
 }
 declare const _sfc_main: import("vue").DefineComponent<{
     title: {
@@ -69,6 +70,11 @@ declare const _sfc_main: import("vue").DefineComponent<{
         type: __PropType<SIZE | undefined>;
         required: false;
         default: SIZE;
+    };
+    visible: {
+        type: __PropType<boolean | undefined>;
+        required: false;
+        default: boolean;
     };
 }, {
     modal: undefined;
@@ -134,6 +140,11 @@ declare const _sfc_main: import("vue").DefineComponent<{
         required: false;
         default: SIZE;
     };
+    visible: {
+        type: __PropType<boolean | undefined>;
+        required: false;
+        default: boolean;
+    };
 }>>, {
     focus: boolean | undefined;
     title: string | undefined;
@@ -146,5 +157,6 @@ declare const _sfc_main: import("vue").DefineComponent<{
     okOnly: boolean | undefined;
     size: SIZE | undefined;
     btnSize: SIZE | undefined;
+    visible: boolean | undefined;
 }>;
 export default _sfc_main;

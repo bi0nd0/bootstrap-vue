@@ -48,6 +48,7 @@ export interface Props {
     okOnly?: boolean, 
     size?: SIZE,
     btnSize?: SIZE,
+    visible?: boolean, 
 }
 class ModalStack {
     static modalStack: Array<Modal> = new Array<Modal>()
@@ -72,7 +73,7 @@ class ModalStack {
 </script>
 
 <script setup lang="ts">
-import { ref, toRefs, computed, onMounted, getCurrentInstance, ComponentInternalInstance } from 'vue'
+import { ref, toRefs, computed, onMounted, getCurrentInstance, ComponentInternalInstance, watchEffect } from 'vue'
 import { Modal } from 'bootstrap'
 
 import SIZE, {useSize} from '../../enums/SIZE'
@@ -88,7 +89,8 @@ const props = withDefaults(defineProps<Props>(), {
     disableOutsideClick: false,
     okOnly: false,
     size: SIZE.STANDARD,
-    btnSize: SIZE.SMALL
+    btnSize: SIZE.SMALL,
+    visible: false,
 })
 
 const {
@@ -136,12 +138,17 @@ function toggle() {
     modal?.toggle()
 }
 
+
 onMounted( () => {
-     modal = new Modal(modalElement.value, {
+    modal = new Modal(modalElement.value, {
         backdrop: backdrop?.value,
         keyboard: keyboard.value,
         focus: focus.value,
-     })
+    })
+    watchEffect(() => {
+        if (props?.visible === true) modal?.show()
+        else modal?.hide()
+    })
 })
 
 function onBackdropClicked(event: Event) {
