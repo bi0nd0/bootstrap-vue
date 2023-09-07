@@ -100,5 +100,8 @@ onMounted( () => {
 </script>
 
 <style scoped>
-
+.toast {
+    position: relative;
+    z-index: 9999;
+}
 </style>
