@@ -29,7 +29,7 @@ const props = withDefaults(defineProps<{
     dropup?:boolean,
     dropend?:boolean,
     dropstart?:boolean,
-    dropdownMenuEnd?:boolean,
+    menuEnd?:boolean,
     size?: SIZE,
     disabled?:boolean,
 }>(), {
@@ -37,12 +37,12 @@ const props = withDefaults(defineProps<{
     variant: Variant.PRIMARY,
     right: false,
     top: false,
-    dropdownMenuEnd: false,
+    menuEnd: false,
     size: SIZE.STANDARD
 })
 
 const dropDownRef = ref()
-const { variant, centered, dropup, dropend, dropstart, dropdownMenuEnd } = toRefs(props)
+const { variant, centered, dropup, dropend, dropstart, menuEnd } = toRefs(props)
 const show = ref(false)
 
 const buttonClasses = computed( () => {
@@ -66,7 +66,7 @@ const dropdownClasses = computed( () => {
 const dropdownMenuClasses = computed( () => {
     const _classes:Array<string|object> = []
     if(show.value) _classes.push('show')
-    if(dropdownMenuEnd.value) _classes.push('dropdown-menu-end')
+    if(menuEnd.value) _classes.push('dropdown-menu-end')
     return _classes
 } )
 

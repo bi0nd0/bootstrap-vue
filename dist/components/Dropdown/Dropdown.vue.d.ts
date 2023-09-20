@@ -38,7 +38,7 @@ declare const _sfc_main: import("vue").DefineComponent<{
         type: __PropType<boolean | undefined>;
         required: false;
     };
-    dropdownMenuEnd: {
+    menuEnd: {
         type: __PropType<boolean | undefined>;
         required: false;
         default: boolean;
@@ -89,7 +89,7 @@ declare const _sfc_main: import("vue").DefineComponent<{
         type: __PropType<boolean | undefined>;
         required: false;
     };
-    dropdownMenuEnd: {
+    menuEnd: {
         type: __PropType<boolean | undefined>;
         required: false;
         default: boolean;
@@ -109,6 +109,6 @@ declare const _sfc_main: import("vue").DefineComponent<{
     size: SIZE | undefined;
     text: string | undefined;
     variant: Variant | undefined;
-    dropdownMenuEnd: boolean | undefined;
+    menuEnd: boolean | undefined;
 }>;
 export default _sfc_main;
