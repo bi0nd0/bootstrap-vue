@@ -1,12 +1,12 @@
 <template>
     <div ref="dropDownRef" :class="dropdownClasses">
-        <div class="d-inline-block" v-click-outside="onClickOutside">
+        <div class="d-inline-block position-relative" v-click-outside="onClickOutside">
             <slot name="header" v-bind="{ ...slotData }">
                 <button class="btn dropdown-toggle" :class="buttonClasses" type="button" aria-expanded="false" @click="onButtonClicked" :disabled="disabled">
                     <slot name="button">{{ text }}</slot>
                 </button>
             </slot>
-            <ul class="dropdown-menu" :class="{show: show}" @click="onMenuClicked">
+            <ul ref="dropDownMenuRef" class="dropdown-menu" :class="dropdownMenuClasses" @click="onMenuClicked">
                 <slot></slot>
             </ul>
         </div>
@@ -18,6 +18,8 @@ import { ref, computed, toRefs, onMounted } from 'vue';
 import SIZE from '../../enums/SIZE'
 import Variant from '../../enums/Variant'
 
+const dropDownMenuRef = ref()
+
 const props = withDefaults(defineProps<{
     text?:string,
     variant?:Variant,
@@ -27,6 +29,7 @@ const props = withDefaults(defineProps<{
     dropup?:boolean,
     dropend?:boolean,
     dropstart?:boolean,
+    dropdownMenuEnd?:boolean,
     size?: SIZE,
     disabled?:boolean,
 }>(), {
@@ -34,11 +37,12 @@ const props = withDefaults(defineProps<{
     variant: Variant.PRIMARY,
     right: false,
     top: false,
+    dropdownMenuEnd: false,
     size: SIZE.STANDARD
 })
 
 const dropDownRef = ref()
-const { variant, centered, dropup, dropend, dropstart } = toRefs(props)
+const { variant, centered, dropup, dropend, dropstart, dropdownMenuEnd } = toRefs(props)
 const show = ref(false)
 
 const buttonClasses = computed( () => {
@@ -56,6 +60,13 @@ const dropdownClasses = computed( () => {
     if(!dropstart?.value && dropend?.value) _classes.push('dropend')
     if(_classes.length===0) _classes.push('dropdown')
     else _classes.unshift('btn-group')
+    return _classes
+} )
+
+const dropdownMenuClasses = computed( () => {
+    const _classes:Array<string|object> = []
+    if(show.value) _classes.push('show')
+    if(dropdownMenuEnd.value) _classes.push('dropdown-menu-end')
     return _classes
 } )
 
@@ -101,6 +112,9 @@ const slotData = {
     position: absolute;
     right:100%;
     top: 0;
+}
+.dropdown-menu.dropdown-menu-end {
+    right: 0;
 }
 .dropend .dropdown-menu {
     position: absolute;

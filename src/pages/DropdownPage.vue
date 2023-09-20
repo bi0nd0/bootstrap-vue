@@ -38,7 +38,7 @@
     </b-dropdown>
   </div>
   <div class="d-flex justify-content-end">
-    <b-dropdown variant="success" size="sm" dropstart>
+    <b-dropdown variant="success" size="sm" dropdown-menu-end>
       <template #button>
         <i class="fas fa-trash fa-fw"></i>
         <span>hello world</span>
