@@ -1,19 +1,20 @@
 <template>
     <div ref="toastRef" class="toast" :class="[variant ? `text-bg-${variant}` : '']" role="alert" aria-live="assertive" aria-atomic="true">
-        <slot name="header">
+        <slot name="header" v-bind="{...slotData}">
             <div class="toast-header">
-                <slot name="title">
+                <slot name="title" v-bind="{...slotData}">
+                    {{ slotData }}
                     <strong class="me-auto" v-text="title"></strong>
                 </slot>
-                <slot name="subtitle">
+                <slot name="subtitle" v-bind="{...slotData}">
                     <small v-text="subtitle"></small>
                 </slot>
                 <button type="button" class="btn-close" aria-label="Close" @click="hide"></button>
             </div>
         </slot>
-        <slot name="body">
+        <slot name="body" v-bind="{...slotData}">
             <div class="toast-body">
-                <slot>
+                <slot v-bind="{...slotData}">
                     <span v-text="body"></span>
                 </slot>
             </div>
@@ -24,9 +25,9 @@
 <script lang="ts">
 export interface Props {
     visible?: boolean,
-    title: string,
-    subtitle: string,
-    body: string,
+    title?: string,
+    subtitle?: string,
+    body?: string,
     animation?: boolean,
     autohide?: boolean,
     delay?: number,
@@ -73,15 +74,14 @@ function shouldShow() {
     else hide()
 }
 
-
-
-
 function onHide() { emit('hide', toast.value) }
 function onHidden() { emit('hidden', toast.value)}
 function onShow() { emit('show', toast.value)}
 async function onShown() { emit('shown', toast.value)}
 
-defineExpose({show,hide,dispose,isShown,getOrCreateInstance,getInstance,})
+const slotData = {show,hide,dispose,isShown,getOrCreateInstance,getInstance}
+
+defineExpose({...slotData})
 
 onMounted( () => {
     toastRef.value.addEventListener('hide.bs.toast', onHide)

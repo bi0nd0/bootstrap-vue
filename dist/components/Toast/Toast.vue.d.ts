@@ -2,9 +2,9 @@ import type { PropType as __PropType } from 'vue';
 import VARIANT from '../../enums/Variant';
 export interface Props {
     visible?: boolean;
-    title: string;
-    subtitle: string;
-    body: string;
+    title?: string;
+    subtitle?: string;
+    body?: string;
     animation?: boolean;
     autohide?: boolean;
     delay?: number;
@@ -17,18 +17,18 @@ declare const _sfc_main: import("vue").DefineComponent<{
         default: boolean;
     };
     title: {
-        type: __PropType<string>;
-        required: true;
+        type: __PropType<string | undefined>;
+        required: false;
         default: string;
     };
     subtitle: {
-        type: __PropType<string>;
-        required: true;
+        type: __PropType<string | undefined>;
+        required: false;
         default: string;
     };
     body: {
-        type: __PropType<string>;
-        required: true;
+        type: __PropType<string | undefined>;
+        required: false;
         default: string;
     };
     animation: {
@@ -64,18 +64,18 @@ declare const _sfc_main: import("vue").DefineComponent<{
         default: boolean;
     };
     title: {
-        type: __PropType<string>;
-        required: true;
+        type: __PropType<string | undefined>;
+        required: false;
         default: string;
     };
     subtitle: {
-        type: __PropType<string>;
-        required: true;
+        type: __PropType<string | undefined>;
+        required: false;
         default: string;
     };
     body: {
-        type: __PropType<string>;
-        required: true;
+        type: __PropType<string | undefined>;
+        required: false;
         default: string;
     };
     animation: {
@@ -105,10 +105,10 @@ declare const _sfc_main: import("vue").DefineComponent<{
 }, {
     animation: boolean | undefined;
     delay: number | undefined;
-    title: string;
-    body: string;
+    title: string | undefined;
+    body: string | undefined;
     visible: boolean | undefined;
-    subtitle: string;
+    subtitle: string | undefined;
     autohide: boolean | undefined;
 }>;
 export default _sfc_main;
