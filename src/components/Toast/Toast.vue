@@ -1,18 +1,14 @@
 <template>
     <div ref="toastRef" class="toast" :class="[variant ? `text-bg-${variant}` : '']" role="alert" aria-live="assertive" aria-atomic="true">
         <slot name="header">
-            <div class="toast-header d-flex align-items-start">
-                <div>
-                    <slot name="title">
-                        <strong class="d-block" v-text="title"></strong>
-                    </slot>
-                    <slot name="subtitle">
-                        <small v-text="subtitle"></small>
-                    </slot>
-                </div>
-                <div class="ms-auto">
-                    <button type="button" class="btn-close" aria-label="Close" @click="hide"></button>
-                </div>
+            <div class="toast-header">
+                <slot name="title">
+                    <strong class="me-auto" v-text="title"></strong>
+                </slot>
+                <slot name="subtitle">
+                    <small v-text="subtitle"></small>
+                </slot>
+                <button type="button" class="btn-close" aria-label="Close" @click="hide"></button>
             </div>
         </slot>
         <slot name="body">
