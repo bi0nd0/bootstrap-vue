@@ -3,7 +3,6 @@
         <slot name="header" v-bind="{...slotData}">
             <div class="toast-header">
                 <slot name="title" v-bind="{...slotData}">
-                    {{ slotData }}
                     <strong class="me-auto" v-text="title"></strong>
                 </slot>
                 <slot name="subtitle" v-bind="{...slotData}">
