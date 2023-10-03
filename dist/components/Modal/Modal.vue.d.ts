@@ -76,15 +76,7 @@ declare const _sfc_main: import("vue").DefineComponent<{
         required: false;
         default: boolean;
     };
-}, {
-    modal: undefined;
-    show: () => Promise<unknown>;
-    hide: (status?: boolean) => void;
-    toggle: () => void;
-    onHeaderCloseClicked: () => void;
-    onCancelClicked: () => void;
-    onOkCLicked: () => void;
-}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+}, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     title: {
         type: __PropType<string | undefined>;
         required: false;
@@ -158,5 +150,5 @@ declare const _sfc_main: import("vue").DefineComponent<{
     size: SIZE | undefined;
     btnSize: SIZE | undefined;
     visible: boolean | undefined;
-}>;
+}, {}>;
 export default _sfc_main;

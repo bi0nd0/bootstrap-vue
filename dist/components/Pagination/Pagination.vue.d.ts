@@ -137,5 +137,5 @@ declare const _sfc_main: import("vue").DefineComponent<{
     nextText: string | undefined;
     lastText: string | undefined;
     ellipsisText: string | undefined;
-}>;
+}, {}>;
 export default _sfc_main;

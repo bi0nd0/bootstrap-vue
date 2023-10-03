@@ -30,5 +30,5 @@ declare const _sfc_main: import("vue").DefineComponent<{
 }, {
     modelValue: number;
     options: number[];
-}>;
+}, {}>;
 export default _sfc_main;

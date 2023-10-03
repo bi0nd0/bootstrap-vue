@@ -110,5 +110,5 @@ declare const _sfc_main: import("vue").DefineComponent<{
     text: string | undefined;
     variant: Variant | undefined;
     menuEnd: boolean | undefined;
-}>;
+}, {}>;
 export default _sfc_main;

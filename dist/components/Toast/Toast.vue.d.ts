@@ -50,14 +50,7 @@ declare const _sfc_main: import("vue").DefineComponent<{
         type: __PropType<VARIANT | undefined>;
         required: false;
     };
-}, {
-    show: () => void;
-    hide: () => void;
-    dispose: () => void;
-    isShown: () => void;
-    getOrCreateInstance: () => void;
-    getInstance: () => void;
-}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("show" | "hide" | "hidden" | "shown")[], "show" | "hide" | "hidden" | "shown", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+}, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("hide" | "hidden" | "show" | "shown")[], "hide" | "hidden" | "show" | "shown", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     visible: {
         type: __PropType<boolean | undefined>;
         required: false;
@@ -98,9 +91,9 @@ declare const _sfc_main: import("vue").DefineComponent<{
         required: false;
     };
 }>> & {
-    onShow?: ((...args: any[]) => any) | undefined;
     onHide?: ((...args: any[]) => any) | undefined;
     onHidden?: ((...args: any[]) => any) | undefined;
+    onShow?: ((...args: any[]) => any) | undefined;
     onShown?: ((...args: any[]) => any) | undefined;
 }, {
     animation: boolean | undefined;
@@ -110,5 +103,5 @@ declare const _sfc_main: import("vue").DefineComponent<{
     visible: boolean | undefined;
     subtitle: string | undefined;
     autohide: boolean | undefined;
-}>;
+}, {}>;
 export default _sfc_main;

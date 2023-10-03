@@ -132,7 +132,7 @@ const mappedFields = computed( () => {
     if(_fields.length===0) {
         _fields = extractKeysFromList([...items.value])
     }
-    return _fields.reduce((carry, field, index) => {
+    return _fields.reduce((carry: Field[], field: string | Field | { key: string; label: string; sortable?: boolean; sortFn?: Function }, index: number) => {
         if(typeof field == 'string') {
             carry.push(new Field(field, field))
         }else if(field instanceof Field){

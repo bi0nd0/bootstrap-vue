@@ -17,5 +17,5 @@ declare const _sfc_main: import("vue").DefineComponent<{
         type: __PropType<boolean | undefined>;
         required: false;
     };
-}>>, {}>;
+}>>, {}, {}>;
 export default _sfc_main;

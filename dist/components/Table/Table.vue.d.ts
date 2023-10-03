@@ -95,5 +95,5 @@ declare const _sfc_main: import("vue").DefineComponent<{
     externalSort: boolean | undefined;
     showEmpty: boolean | undefined;
     emptyText: string | undefined;
-}>;
+}, {}>;
 export default _sfc_main;
