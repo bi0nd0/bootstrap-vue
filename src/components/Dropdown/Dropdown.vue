@@ -3,11 +3,11 @@
         <div class="d-inline-block position-relative" v-click-outside="onClickOutside">
             <slot name="header" v-bind="{ ...slotData }">
                 <button class="btn dropdown-toggle" :class="buttonClasses" type="button" aria-expanded="false" @click="onButtonClicked" :disabled="disabled">
-                    <slot name="button">{{ text }}</slot>
+                    <slot name="button" v-bind="{ ...slotData }">{{ text }}</slot>
                 </button>
             </slot>
             <ul ref="dropDownMenuRef" class="dropdown-menu" :class="dropdownMenuClasses" @click="onMenuClicked">
-                <slot></slot>
+                <slot v-bind="{ ...slotData }"></slot>
             </ul>
         </div>
     </div>

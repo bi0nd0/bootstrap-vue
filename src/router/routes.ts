@@ -1,4 +1,6 @@
 import MainLayout from '../layouts/MainLayout.vue'
+import HomePage from '../pages/HomePage.vue'
+import MenuPage from '../pages/MenuPage.vue'
 import ModalPage from '../pages/ModalPage.vue'
 import DrawerPage from '../pages/DrawerPage.vue'
 import ToastPage from '../pages/ToastPage.vue'
@@ -9,7 +11,8 @@ import PaginationPage from '../pages/PaginationPage.vue'
 
 const routes = [
     { path: '/', component: MainLayout, children: [
-        { path: '', component: ModalPage },
+        { path: '', component: HomePage },
+        { path: 'menu', name:'menu', component: MenuPage },
         { path: 'drawer', name:'drawer', component: DrawerPage },
         { path: 'modal', name:'modal', component: ModalPage },
         { path: 'toast', name:'toast', component: ToastPage },

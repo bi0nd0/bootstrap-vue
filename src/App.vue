@@ -1,6 +1,7 @@
 <template>
     <h1>Bootstrap Vue</h1>
     <ul>
+      <li><router-link :to="{ name: 'menu' }">menu</router-link></li>
       <li><router-link :to="{ name: 'drawer' }">drawer</router-link></li>
       <li><router-link :to="{ name: 'modal' }">modal</router-link></li>
       <li><router-link :to="{ name: 'toast' }">toast</router-link></li>
