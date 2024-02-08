@@ -99,6 +99,8 @@ const {
     size, btnSize
 } = toRefs(props)
 
+const emit = defineEmits(['onShown','onHidden'])
+
 const sizeClass = computed(() => {
     return useSize(size.value, 'modal-')
 })
@@ -122,6 +124,7 @@ function show() {
         modal?.show()
         showResolve = resolve
         showReject = reject
+        emit('onShown', modal)
     })
     return promise
 }
@@ -132,6 +135,7 @@ function hide(status=true) {
     const previous = ModalStack.getLast()
     if(previous) previous.show()
     if(typeof showResolve === 'function') showResolve(status)
+    emit('onHidden', modal)
 }
 
 function toggle() {

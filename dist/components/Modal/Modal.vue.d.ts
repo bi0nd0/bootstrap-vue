@@ -76,7 +76,7 @@ declare const _sfc_main: import("vue").DefineComponent<{
         required: false;
         default: boolean;
     };
-}, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+}, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("onShown" | "onHidden")[], "onShown" | "onHidden", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     title: {
         type: __PropType<string | undefined>;
         required: false;
@@ -137,7 +137,10 @@ declare const _sfc_main: import("vue").DefineComponent<{
         required: false;
         default: boolean;
     };
-}>>, {
+}>> & {
+    onOnShown?: ((...args: any[]) => any) | undefined;
+    onOnHidden?: ((...args: any[]) => any) | undefined;
+}, {
     focus: boolean | undefined;
     title: string | undefined;
     body: string | undefined;

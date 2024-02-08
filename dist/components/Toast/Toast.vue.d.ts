@@ -91,10 +91,10 @@ declare const _sfc_main: import("vue").DefineComponent<{
         required: false;
     };
 }>> & {
-    onHide?: ((...args: any[]) => any) | undefined;
-    onHidden?: ((...args: any[]) => any) | undefined;
-    onShow?: ((...args: any[]) => any) | undefined;
     onShown?: ((...args: any[]) => any) | undefined;
+    onHidden?: ((...args: any[]) => any) | undefined;
+    onHide?: ((...args: any[]) => any) | undefined;
+    onShow?: ((...args: any[]) => any) | undefined;
 }, {
     animation: boolean | undefined;
     delay: number | undefined;
