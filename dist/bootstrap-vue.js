@@ -1,7 +1,7 @@
 var ke = Object.defineProperty;
 var $e = (e, t, n) => t in e ? ke(e, t, { enumerable: !0, configurable: !0, writable: !0, value: n }) : e[t] = n;
 var H = (e, t, n) => ($e(e, typeof t != "symbol" ? t + "" : t, n), n);
-import { defineComponent as z, toRefs as P, ref as A, watch as we, onMounted as ee, openBlock as k, createElementBlock as $, normalizeClass as M, renderSlot as C, normalizeProps as B, guardReactiveProps as D, createElementVNode as r, toDisplayString as E, createBlock as K, Teleport as re, Fragment as R, renderList as V, mergeProps as U, computed as L, getCurrentInstance as te, watchEffect as ue, withModifiers as ie, createCommentVNode as W, createVNode as Ce, resolveComponent as oe, withCtx as X, unref as j, createTextVNode as q, withDirectives as de, vModelSelect as ge, resolveDirective as Se, Transition as Te, inject as ce, createApp as pe } from "vue";
+import { defineComponent as z, toRefs as P, ref as A, watch as Ce, onMounted as ee, openBlock as k, createElementBlock as $, normalizeClass as M, renderSlot as w, normalizeProps as B, guardReactiveProps as D, createElementVNode as r, toDisplayString as E, createBlock as K, Teleport as re, Fragment as R, renderList as V, mergeProps as U, computed as L, getCurrentInstance as te, watchEffect as ue, withModifiers as ie, createCommentVNode as W, createVNode as we, resolveComponent as oe, withCtx as X, unref as j, createTextVNode as q, withDirectives as de, vModelSelect as ge, resolveDirective as Se, Transition as Te, inject as ce, createApp as pe } from "vue";
 import { Toast as Me, Modal as xe, Tooltip as Le } from "bootstrap";
 const Be = { class: "toast-header" }, De = ["textContent"], Ae = ["textContent"], He = { class: "toast-body" }, Oe = ["textContent"], Ee = /* @__PURE__ */ z({
   __name: "Toast",
@@ -18,7 +18,7 @@ const Be = { class: "toast-header" }, De = ["textContent"], Ae = ["textContent"]
   emits: ["hide", "hidden", "show", "shown"],
   setup(e, { expose: t, emit: n }) {
     const i = e, { visible: a, animation: _, autohide: b, delay: l } = P(i), u = A(), f = A();
-    we(a, (m) => {
+    Ce(a, (m) => {
       s();
     }, { immediate: !0 });
     function g() {
@@ -48,7 +48,7 @@ const Be = { class: "toast-header" }, De = ["textContent"], Ae = ["textContent"]
     function o() {
       n("hidden", u.value);
     }
-    function w() {
+    function C() {
       n("show", u.value);
     }
     async function v() {
@@ -56,7 +56,7 @@ const Be = { class: "toast-header" }, De = ["textContent"], Ae = ["textContent"]
     }
     const S = { show: g, hide: h, dispose: x, isShown: c, getOrCreateInstance: d, getInstance: p };
     return t({ ...S }), ee(() => {
-      f.value.addEventListener("hide.bs.toast", y), f.value.addEventListener("hidden.bs.toast", o), f.value.addEventListener("show.bs.toast", w), f.value.addEventListener("shown.bs.toast", v), u.value = new Me(f.value, {
+      f.value.addEventListener("hide.bs.toast", y), f.value.addEventListener("hidden.bs.toast", o), f.value.addEventListener("show.bs.toast", C), f.value.addEventListener("shown.bs.toast", v), u.value = new Me(f.value, {
         animation: _.value,
         autohide: b.value,
         delay: l.value
@@ -69,15 +69,15 @@ const Be = { class: "toast-header" }, De = ["textContent"], Ae = ["textContent"]
       "aria-live": "assertive",
       "aria-atomic": "true"
     }, [
-      C(m.$slots, "header", B(D({ ...S })), () => [
+      w(m.$slots, "header", B(D({ ...S })), () => [
         r("div", Be, [
-          C(m.$slots, "title", B(D({ ...S })), () => [
+          w(m.$slots, "title", B(D({ ...S })), () => [
             r("strong", {
               class: "me-auto",
               textContent: E(m.title)
             }, null, 8, De)
           ], !0),
-          C(m.$slots, "subtitle", B(D({ ...S })), () => [
+          w(m.$slots, "subtitle", B(D({ ...S })), () => [
             r("small", {
               textContent: E(m.subtitle)
             }, null, 8, Ae)
@@ -90,9 +90,9 @@ const Be = { class: "toast-header" }, De = ["textContent"], Ae = ["textContent"]
           })
         ])
       ], !0),
-      C(m.$slots, "body", B(D({ ...S })), () => [
+      w(m.$slots, "body", B(D({ ...S })), () => [
         r("div", He, [
-          C(m.$slots, "default", B(D({ ...S })), () => [
+          w(m.$slots, "default", B(D({ ...S })), () => [
             r("span", {
               textContent: E(m.body)
             }, null, 8, Oe)
@@ -233,7 +233,7 @@ const ve = /* @__PURE__ */ z({
     function o(T) {
       (a == null ? void 0 : a.value) !== "static" && s(!1);
     }
-    function w() {
+    function C() {
       s(!1);
     }
     function v() {
@@ -247,7 +247,7 @@ const ve = /* @__PURE__ */ z({
       show: p,
       hide: s,
       toggle: y,
-      onHeaderCloseClicked: w,
+      onHeaderCloseClicked: C,
       onCancelClicked: v,
       onOkCLicked: S
     });
@@ -265,7 +265,7 @@ const ve = /* @__PURE__ */ z({
       }, [
         r("div", Ie, [
           r("div", Fe, [
-            C(T.$slots, "header", B(D({ ...m })), () => [
+            w(T.$slots, "header", B(D({ ...m })), () => [
               r("h5", {
                 class: "modal-title",
                 innerHTML: T.title
@@ -275,23 +275,23 @@ const ve = /* @__PURE__ */ z({
               type: "button",
               class: "btn-close",
               "aria-label": "Close",
-              onClick: w
+              onClick: C
             })
           ]),
           r("div", Ge, [
-            C(T.$slots, "default", B(D({ ...m })), () => [
+            w(T.$slots, "default", B(D({ ...m })), () => [
               r("span", { innerHTML: T.body }, null, 8, Ke)
             ])
           ]),
           r("div", Ue, [
-            C(T.$slots, "footer", B(D({ ...m })), () => [
+            w(T.$slots, "footer", B(D({ ...m })), () => [
               T.okOnly ? W("", !0) : (k(), $("button", {
                 key: 0,
                 type: "button",
                 class: M(["btn btn-secondary", h.value]),
                 onClick: v
               }, [
-                C(T.$slots, "button-cancel", B(D({ ...m })), () => [
+                w(T.$slots, "button-cancel", B(D({ ...m })), () => [
                   r("span", { innerHTML: T.textCancel }, null, 8, Ye)
                 ])
               ], 2)),
@@ -300,7 +300,7 @@ const ve = /* @__PURE__ */ z({
                 class: M(["btn btn-primary", h.value]),
                 onClick: S
               }, [
-                C(T.$slots, "button-ok", B(D({ ...m })), () => [
+                w(T.$slots, "button-ok", B(D({ ...m })), () => [
                   r("span", { innerHTML: T.textOk }, null, 8, We)
                 ])
               ], 2)
@@ -323,7 +323,7 @@ const ve = /* @__PURE__ */ z({
       return b.okOnly = !0, i.value = b, (l = n.value) == null ? void 0 : l.show();
     }
     return t({ confirm: a, alert: _ }), (b, l) => (k(), K(re, { to: "body" }, [
-      Ce(ve, U({
+      we(ve, U({
         ref_key: "modalRef",
         ref: n
       }, { ...i.value }), null, 16)
@@ -348,22 +348,22 @@ const ve = /* @__PURE__ */ z({
   emits: ["update:modelValue"],
   setup(e, { emit: t }) {
     const n = e;
-    function i(o, w = 0) {
-      return [...Array(o).keys()].map((v) => v + w);
+    function i(o, C = 0) {
+      return [...Array(o).keys()].map((v) => v + C);
     }
     const { modelValue: a, maxVisibleButtons: _, hideEllipsis: b } = P(n), l = Math.floor(_.value / 2), u = L(() => {
-      let o = _.value, w = a.value <= l ? 1 : a.value - l;
-      return a.value >= h.value - l && (w = h.value - o + 1), w < 1 && (w = 1), h.value < o && (o = h.value), i(o, w);
+      let o = _.value, C = a.value <= l ? 1 : a.value - l;
+      return a.value >= h.value - l && (C = h.value - o + 1), C < 1 && (C = 1), h.value < o && (o = h.value), i(o, C);
     }), f = L(() => a.value <= 1), g = L(() => a.value >= h.value), h = L(() => {
-      const { perPage: o, totalItems: w } = n;
-      return Math.ceil(w / o);
+      const { perPage: o, totalItems: C } = n;
+      return Math.ceil(C / o);
     });
     ue(() => {
       h.value > 0 && a.value > h.value && t("update:modelValue", h.value);
     });
     function x(o) {
-      const w = _.value - 1;
-      return !(b.value === !0 || o === 0 && a.value - l - 1 <= 0 || o === w && a.value + l >= h.value || o > 0 && o < w);
+      const C = _.value - 1;
+      return !(b.value === !0 || o === 0 && a.value - l - 1 <= 0 || o === C && a.value + l >= h.value || o > 0 && o < C);
     }
     function c(o) {
       o < 1 && (o = 1), o > h.value && (o = h.value), t("update:modelValue", o);
@@ -382,7 +382,7 @@ const ve = /* @__PURE__ */ z({
       let o = a.value + 1;
       o > h.value && (o = h.value), t("update:modelValue", o);
     }
-    return (o, w) => (k(), $("ul", {
+    return (o, C) => (k(), $("ul", {
       class: M(["pagination", o.size])
     }, [
       r("li", qe, [
@@ -458,7 +458,7 @@ const ut = /* @__PURE__ */ I(rt, [["__scopeId", "data-v-2bfd7085"]]), it = { cla
       }, { ..._.$attrs }), {
         button: X(() => [
           r("div", it, [
-            C(_.$slots, "default", { selected: a.value }, () => [
+            w(_.$slots, "default", { selected: a.value }, () => [
               dt,
               r("span", ct, E(a.value), 1)
             ])
@@ -530,10 +530,10 @@ const ae = (e, t) => {
 }, ht = ["onClick"], mt = { class: "th-wrapper" }, yt = {
   key: 0,
   "data-sort-indicator": ""
-}, bt = { class: "sort-index" }, kt = { class: "sort-direction" }, $t = ["onMouseover"], wt = {
+}, bt = { class: "sort-index" }, kt = { class: "sort-direction" }, $t = ["onMouseover"], Ct = {
   key: 0,
   class: "p-5 text-muted font-italic"
-}, Ct = ["colspan"], gt = ["innerHTML"];
+}, wt = ["colspan"], gt = ["innerHTML"];
 class Q {
   constructor(t = "", n = "", i = !1, a) {
     H(this, "key");
@@ -582,8 +582,8 @@ const St = /* @__PURE__ */ z({
         else if (y instanceof Q)
           s.push(y);
         else if (typeof y == "object") {
-          const { key: w, label: v, sortable: S, sortFn: m } = y;
-          s.push(new Q(w, v, S, m));
+          const { key: C, label: v, sortable: S, sortFn: m } = y;
+          s.push(new Q(C, v, S, m));
         }
         return s;
       }, p);
@@ -626,7 +626,7 @@ const St = /* @__PURE__ */ z({
           onClick: (y) => s.sortable && h(s)
         }, [
           r("span", mt, [
-            C(d.$slots, `head(${s.key})`, {
+            w(d.$slots, `head(${s.key})`, {
               field: s,
               data: j(c),
               value: s.label
@@ -648,7 +648,7 @@ const St = /* @__PURE__ */ z({
         (k(!0), $(R, null, V(l.value, (s, y) => (k(), $(R, {
           key: `trow-${(s == null ? void 0 : s.id) ?? y}`
         }, [
-          C(d.$slots, "row", {
+          w(d.$slots, "row", {
             item: s,
             index: y,
             colspan: u.value.length
@@ -657,9 +657,9 @@ const St = /* @__PURE__ */ z({
             (k(!0), $(R, null, V(u.value, (o) => (k(), $("td", {
               key: `tcell-${o.key + ((s == null ? void 0 : s.id) ?? y)}`,
               class: M({ [`tcell-${o == null ? void 0 : o.key}`]: !0 }),
-              onMouseover: (w) => x(w, s, y, o)
+              onMouseover: (C) => x(C, s, y, o)
             }, [
-              C(d.$slots, `cell(${o == null ? void 0 : o.key})`, {
+              w(d.$slots, `cell(${o == null ? void 0 : o.key})`, {
                 data: j(c),
                 item: s,
                 field: o,
@@ -672,20 +672,20 @@ const St = /* @__PURE__ */ z({
         ], 64))), 128))
       ]),
       r("tfoot", null, [
-        C(d.$slots, "footer", { data: j(c) }, void 0, !0)
+        w(d.$slots, "footer", { data: j(c) }, void 0, !0)
       ]),
-      d.showEmpty && l.value.length === 0 ? (k(), $("tr", wt, [
+      d.showEmpty && l.value.length === 0 ? (k(), $("tr", Ct, [
         r("td", {
           colspan: u.value.length
         }, [
-          C(d.$slots, "empty", {
+          w(d.$slots, "empty", {
             items: l.value,
             data: j(c),
             fields: u.value
           }, () => [
             r("span", { innerHTML: d.emptyText }, null, 8, gt)
           ], !0)
-        ], 8, Ct)
+        ], 8, wt)
       ])) : W("", !0)
     ], 16));
   }
@@ -734,7 +734,7 @@ const Mt = { class: "d-inline-block position-relative" }, xt = ["disabled"], le 
     function o() {
       g.value && p();
     }
-    const w = {
+    const C = {
       show: g,
       disabled: t.disabled,
       buttonClasses: h,
@@ -752,7 +752,7 @@ const Mt = { class: "d-inline-block position-relative" }, xt = ["disabled"], le 
         class: M(x.value)
       }, [
         de((k(), $("div", Mt, [
-          C(v.$slots, "header", B(D({ ...w })), () => [
+          w(v.$slots, "header", B(D({ ...C })), () => [
             r("button", {
               class: M(["btn dropdown-toggle", h.value]),
               type: "button",
@@ -760,7 +760,7 @@ const Mt = { class: "d-inline-block position-relative" }, xt = ["disabled"], le 
               onClick: s,
               disabled: v.disabled
             }, [
-              C(v.$slots, "button", B(D({ ...w })), () => [
+              w(v.$slots, "button", B(D({ ...C })), () => [
                 q(E(v.text), 1)
               ], !0)
             ], 10, xt)
@@ -771,7 +771,7 @@ const Mt = { class: "d-inline-block position-relative" }, xt = ["disabled"], le 
             class: M(["dropdown-menu", c.value]),
             onClick: y
           }, [
-            C(v.$slots, "default", B(D({ ...w })), void 0, !0)
+            w(v.$slots, "default", B(D({ ...C })), void 0, !0)
           ], 2)
         ])), [
           [m, o]
@@ -796,7 +796,7 @@ const Bt = /* @__PURE__ */ I(Lt, [["__scopeId", "data-v-f9658383"]]), Dt = ["dat
         role: "button",
         tabindex: "0"
       }, [
-        C(i.$slots, "default")
+        w(i.$slots, "default")
       ], 2)
     ], 8, Dt));
   }
@@ -804,7 +804,7 @@ const Bt = /* @__PURE__ */ I(Lt, [["__scopeId", "data-v-f9658383"]]), Dt = ["dat
 function zt(e, t) {
   return k(), $("li", Ot, [
     r("h6", Et, [
-      C(e.$slots, "default")
+      w(e.$slots, "default")
     ])
   ]);
 }
@@ -896,7 +896,7 @@ const Ut = ["onClick"], Yt = { class: "drawer-content" }, Wt = { class: "drawer-
     function o() {
       p(!1);
     }
-    function w() {
+    function C() {
       p(!1);
     }
     function v() {
@@ -928,7 +928,7 @@ const Ut = ["onClick"], Yt = { class: "drawer-content" }, Wt = { class: "drawer-
           }, [
             r("div", Yt, [
               r("div", Wt, [
-                C(m.$slots, "header", {}, () => [
+                w(m.$slots, "header", {}, () => [
                   r("h5", {
                     class: "drawer-title",
                     innerHTML: m.title
@@ -942,19 +942,19 @@ const Ut = ["onClick"], Yt = { class: "drawer-content" }, Wt = { class: "drawer-
                 })
               ]),
               r("div", qt, [
-                C(m.$slots, "default", {}, () => [
+                w(m.$slots, "default", {}, () => [
                   r("span", { innerHTML: m.body }, null, 8, Jt)
                 ], !0)
               ]),
               r("div", Qt, [
-                C(m.$slots, "footer", {}, () => [
+                w(m.$slots, "footer", {}, () => [
                   m.okOnly ? W("", !0) : (k(), $("button", {
                     key: 0,
                     type: "button",
                     class: M(["ms-auto btn btn-secondary", f.value]),
-                    onClick: w
+                    onClick: C
                   }, [
-                    C(m.$slots, "button-cancel", {}, () => [
+                    w(m.$slots, "button-cancel", {}, () => [
                       r("span", { innerHTML: m.textCancel }, null, 8, Zt)
                     ], !0)
                   ], 2)),
@@ -963,7 +963,7 @@ const Ut = ["onClick"], Yt = { class: "drawer-content" }, Wt = { class: "drawer-
                     class: M(["btn btn-primary", f.value]),
                     onClick: v
                   }, [
-                    C(m.$slots, "button-ok", {}, () => [
+                    w(m.$slots, "button-ok", {}, () => [
                       r("span", { innerHTML: m.textOk }, null, 8, en)
                     ], !0)
                   ], 2)
@@ -1017,10 +1017,10 @@ function sn(e) {
 const pn = {
   install(e) {
     on(e), sn(e);
-    const t = be.getComponent();
-    e.provide(he, t);
-    const n = ye.getComponent();
-    e.provide(me, n);
+    const t = be.getComponent(), n = ye.getComponent();
+    e.runWithContext(() => {
+      e.provide(he, t), e.provide(me, n);
+    });
   }
 };
 export {

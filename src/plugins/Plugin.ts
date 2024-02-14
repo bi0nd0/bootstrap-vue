@@ -126,10 +126,13 @@ const MyPlugin = {
     registerDirectives(app)
 
     const toaster = ToasterSingleton.getComponent()
-    app.provide(toasterKey, toaster)
-
     const modalManager = ModalManagerSingleton.getComponent()
-    app.provide(modalKey, modalManager)
+    
+    app.runWithContext(() => {
+      app.provide(toasterKey, toaster)
+      app.provide(modalKey, modalManager)
+    })
+
 
   }
 };
