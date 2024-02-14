@@ -48,7 +48,7 @@ declare const _sfc_main: import("vue").DefineComponent<{
         required: false;
         default: string;
     };
-}, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("sort" | "onMouseOverCell")[], "sort" | "onMouseOverCell", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+}, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("sort" | "onMouseOverCell")[], "sort" | "onMouseOverCell", import("vue").PublicProps, Readonly<import("vue").ExtractPropTypes<{
     fields: {
         type: __PropType<TableField[]>;
         required: true;

@@ -75,7 +75,7 @@ declare const _sfc_main: import("vue").DefineComponent<{
         required: false;
         default: boolean;
     };
-}, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+}, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<import("vue").ExtractPropTypes<{
     title: {
         type: __PropType<string | undefined>;
         required: false;
@@ -139,12 +139,12 @@ declare const _sfc_main: import("vue").DefineComponent<{
     focus: boolean | undefined;
     title: string | undefined;
     body: string | undefined;
+    size: SIZE | undefined;
     textCancel: string | undefined;
     textOk: string | boolean | undefined;
     backdrop: BackdropType | undefined;
     keyboard: boolean | undefined;
     okOnly: boolean | undefined;
-    size: SIZE | undefined;
     btnSize: SIZE | undefined;
     lazy: boolean | undefined;
 }, {}>;

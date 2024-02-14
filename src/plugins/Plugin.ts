@@ -127,12 +127,9 @@ const MyPlugin = {
 
     const toaster = ToasterSingleton.getComponent()
     const modalManager = ModalManagerSingleton.getComponent()
-    
-    app.runWithContext(() => {
-      app.provide(toasterKey, toaster)
-      app.provide(modalKey, modalManager)
-    })
 
+    app.provide(toasterKey, toaster)
+    app.provide(modalKey, modalManager)
 
   }
 };
