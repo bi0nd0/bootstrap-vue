@@ -2,7 +2,7 @@
  * this plugin exposes components, features, and directive
  * to the app
  */
-import { App } from 'vue';
+import { Plugin } from 'vue';
 import { default as Toaster } from '../components/Toast/Toaster.vue';
 import { default as ModalManager } from '../components/Modal/ModalManager.vue';
 /**
@@ -15,7 +15,5 @@ declare function useToaster(): typeof Toaster;
  * templates.
  */
 declare function useModal(): typeof ModalManager;
-declare const MyPlugin: {
-    install(app: App, options?: any): void;
-};
+declare const MyPlugin: Plugin;
 export { MyPlugin as default, useToaster, useModal };

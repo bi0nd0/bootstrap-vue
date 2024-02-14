@@ -3,7 +3,7 @@
  * to the app
  */
 
-import { App, createApp, ComponentPublicInstance, inject } from 'vue'
+import { App, Plugin, createApp, ComponentPublicInstance, inject } from 'vue'
 
 // component managers
 import { default as Toaster } from '../components/Toast/Toaster.vue'
@@ -120,8 +120,8 @@ function registerDirectives(app: App) {
 }
 
 // Define the plugin object
-const MyPlugin = {
-  install(app: App, options?: any):void {
+const MyPlugin:Plugin = {
+  install(app: App): any {
     registerComponents(app)
     registerDirectives(app)
 
