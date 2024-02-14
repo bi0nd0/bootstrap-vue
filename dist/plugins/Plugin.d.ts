@@ -16,6 +16,6 @@ declare function useToaster(): typeof Toaster;
  */
 declare function useModal(): typeof ModalManager;
 declare const MyPlugin: {
-    install(app: App): void;
+    install(app: App, options?: any): void;
 };
 export { MyPlugin as default, useToaster, useModal };

@@ -17,9 +17,9 @@ const De = { class: "toast-header" }, Ae = ["textContent"], He = ["textContent"]
   },
   emits: ["hide", "hidden", "show", "shown"],
   setup(e, { expose: t, emit: o }) {
-    const a = e, f = o, { visible: r, animation: v, autohide: d, delay: u } = V(a), p = H(), b = H();
+    const s = e, f = o, { visible: r, animation: v, autohide: d, delay: u } = V(s), p = H(), b = H();
     Ce(r, (S) => {
-      s();
+      a();
     }, { immediate: !0 });
     function g() {
       p.value.show();
@@ -39,7 +39,7 @@ const De = { class: "toast-header" }, Ae = ["textContent"], He = ["textContent"]
     function y() {
       p.value.getInstance();
     }
-    function s() {
+    function a() {
       p.value && (r.value === !0 ? g() : $());
     }
     function h() {
@@ -60,7 +60,7 @@ const De = { class: "toast-header" }, Ae = ["textContent"], He = ["textContent"]
         animation: v.value,
         autohide: d.value,
         delay: u.value
-      }), s();
+      }), a();
     }), (S, x) => (m(), w("div", {
       ref_key: "toastRef",
       ref: b,
@@ -104,15 +104,15 @@ const De = { class: "toast-header" }, Ae = ["textContent"], He = ["textContent"]
 });
 const F = (e, t) => {
   const o = e.__vccOpts || e;
-  for (const [a, f] of t)
-    o[a] = f;
+  for (const [s, f] of t)
+    o[s] = f;
   return o;
 }, ve = /* @__PURE__ */ F(ze, [["__scopeId", "data-v-c0cdbae8"]]);
 function Re() {
   let e = (/* @__PURE__ */ new Date()).getTime();
   return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function(o) {
-    const a = (e + Math.random() * 16) % 16 | 0;
-    return e = Math.floor(e / 16), (o == "x" ? a : a & 3 | 8).toString(16);
+    const s = (e + Math.random() * 16) % 16 | 0;
+    return e = Math.floor(e / 16), (o == "x" ? s : s & 3 | 8).toString(16);
   });
 }
 const Pe = { id: "toast-wrapper" };
@@ -129,19 +129,19 @@ const Ve = /* @__PURE__ */ R({
       autohide: !0,
       delay: 5e3,
       variant: void 0
-    }, a = H(/* @__PURE__ */ new Map());
+    }, s = H(/* @__PURE__ */ new Map());
     ae = (r, v = "top right") => {
       const d = Re(), u = { ...o, ...r, id: d };
-      let p = a.value.get(v);
-      p instanceof Set || (p = /* @__PURE__ */ new Set()), p.add(u), a.value.set(v, p);
+      let p = s.value.get(v);
+      p instanceof Set || (p = /* @__PURE__ */ new Set()), p.add(u), s.value.set(v, p);
     };
     function f(r, v) {
-      const d = a.value.get(r);
+      const d = s.value.get(r);
       d == null || d.delete(v);
     }
     return t({ toast: ae }), (r, v) => (m(), K(ie, { to: "body" }, [
       l("div", Pe, [
-        (m(!0), w(P, null, N(a.value, ([d, u]) => (m(), w("div", {
+        (m(!0), w(P, null, N(s.value, ([d, u]) => (m(), w("div", {
           key: d,
           class: L(["toast-group", `${d}`])
         }, [
@@ -196,14 +196,14 @@ const _e = /* @__PURE__ */ R({
   },
   emits: ["onShown", "onHidden"],
   setup(e, { expose: t, emit: o }) {
-    const a = e, {
+    const s = e, {
       backdrop: f,
       keyboard: r,
       focus: v,
       disableOutsideClick: d,
       size: u,
       btnSize: p
-    } = V(a), b = o, g = B(() => Q(u.value, "modal-")), $ = B(() => Q(p.value, "btn-")), M = H();
+    } = V(s), b = o, g = B(() => Q(u.value, "modal-")), $ = B(() => Q(p.value, "btn-")), M = H();
     let _;
     ne();
     let i;
@@ -213,7 +213,7 @@ const _e = /* @__PURE__ */ R({
         oe && oe.hide(), W.addToStack(_), _ == null || _.show(), i = Y, b("onShown", _);
       });
     }
-    function s(x = !0) {
+    function a(x = !0) {
       W.removeFromStack(_), _ == null || _.hide();
       const Y = W.getLast();
       Y && Y.show(), typeof i == "function" && i(x), b("onHidden", _);
@@ -227,31 +227,31 @@ const _e = /* @__PURE__ */ R({
         keyboard: r.value,
         focus: v.value
       }), ue(() => {
-        (a == null ? void 0 : a.visible) === !0 ? _ == null || _.show() : _ == null || _.hide();
+        (s == null ? void 0 : s.visible) === !0 ? _ == null || _.show() : _ == null || _.hide();
       });
     });
     function n(x) {
-      (f == null ? void 0 : f.value) !== "static" && s(!1);
+      (f == null ? void 0 : f.value) !== "static" && a(!1);
     }
     function c() {
-      s(!1);
+      a(!1);
     }
     function T() {
-      s(!1);
+      a(!1);
     }
     function k() {
-      s(!0);
+      a(!0);
     }
     t({
       modal: _,
       show: y,
-      hide: s,
+      hide: a,
       toggle: h,
       onHeaderCloseClicked: c,
       onCancelClicked: T,
       onOkCLicked: k
     });
-    const S = { show: y, hide: s, toggle: h, modal: _ };
+    const S = { show: y, hide: a, toggle: h, modal: _ };
     return (x, Y) => (m(), w("div", U({
       ref_key: "modalElement",
       ref: M,
@@ -313,20 +313,20 @@ const _e = /* @__PURE__ */ R({
 }), Xe = /* @__PURE__ */ R({
   __name: "ModalManager",
   setup(e, { expose: t }) {
-    const o = H(void 0), a = H({});
+    const o = H(void 0), s = H({});
     function f(v = {}) {
       var d;
-      return v.okOnly = !1, a.value = v, (d = o.value) == null ? void 0 : d.show();
+      return v.okOnly = !1, s.value = v, (d = o.value) == null ? void 0 : d.show();
     }
     function r(v = {}) {
       var d;
-      return v.okOnly = !0, a.value = v, (d = o.value) == null ? void 0 : d.show();
+      return v.okOnly = !0, s.value = v, (d = o.value) == null ? void 0 : d.show();
     }
     return t({ confirm: f, alert: r }), (v, d) => (m(), K(ie, { to: "body" }, [
       ge(_e, U({
         ref_key: "modalRef",
         ref: o
-      }, { ...a.value }), null, 16)
+      }, { ...s.value }), null, 16)
     ]));
   }
 }), qe = { "data-first": "" }, Je = ["disabled", "innerHTML"], Qe = { "data-prev": "" }, Ze = ["disabled", "innerHTML"], et = { key: 0 }, tt = ["innerHTML"], nt = ["onClick"], ot = { "data-next": "" }, st = ["disabled", "innerHTML"], at = { "data-last": "" }, lt = ["disabled", "innerHTML"], rt = /* @__PURE__ */ R({
@@ -350,7 +350,7 @@ const _e = /* @__PURE__ */ R({
     function o(n, c = 0) {
       return [...Array(n).keys()].map((T) => T + c);
     }
-    const a = t, f = e, { modelValue: r, maxVisibleButtons: v, hideEllipsis: d } = V(f), u = Math.floor(v.value / 2), p = B(() => {
+    const s = t, f = e, { modelValue: r, maxVisibleButtons: v, hideEllipsis: d } = V(f), u = Math.floor(v.value / 2), p = B(() => {
       let n = v.value, c = r.value <= u ? 1 : r.value - u;
       return r.value >= $.value - u && (c = $.value - n + 1), c < 1 && (c = 1), $.value < n && (n = $.value), o(n, c);
     }), b = B(() => r.value <= 1), g = B(() => r.value >= $.value), $ = B(() => {
@@ -358,28 +358,28 @@ const _e = /* @__PURE__ */ R({
       return Math.ceil(c / n);
     });
     ue(() => {
-      $.value > 0 && r.value > $.value && a("update:modelValue", $.value);
+      $.value > 0 && r.value > $.value && s("update:modelValue", $.value);
     });
     function M(n) {
       const c = v.value - 1;
       return !(d.value === !0 || n === 0 && r.value - u - 1 <= 0 || n === c && r.value + u >= $.value || n > 0 && n < c);
     }
     function _(n) {
-      n < 1 && (n = 1), n > $.value && (n = $.value), a("update:modelValue", n);
+      n < 1 && (n = 1), n > $.value && (n = $.value), s("update:modelValue", n);
     }
     function i() {
-      a("update:modelValue", 1);
+      s("update:modelValue", 1);
     }
     function y() {
-      a("update:modelValue", $.value);
+      s("update:modelValue", $.value);
     }
-    function s() {
+    function a() {
       let n = r.value - 1;
-      n < 1 && (n = 1), a("update:modelValue", n);
+      n < 1 && (n = 1), s("update:modelValue", n);
     }
     function h() {
       let n = r.value + 1;
-      n > $.value && (n = $.value), a("update:modelValue", n);
+      n > $.value && (n = $.value), s("update:modelValue", n);
     }
     return (n, c) => (m(), w("ul", {
       class: L(["pagination", n.size])
@@ -397,7 +397,7 @@ const _e = /* @__PURE__ */ R({
           class: "",
           disabled: b.value,
           innerHTML: n.prevText,
-          onClick: s
+          onClick: a
         }, null, 8, Ze)
       ]),
       (m(!0), w(P, null, N(p.value, (T, k) => (m(), w(P, null, [
@@ -445,9 +445,9 @@ const it = /* @__PURE__ */ F(rt, [["__scopeId", "data-v-2bfd7085"]]), ut = { cla
   },
   emits: ["update:modelValue"],
   setup(e, { emit: t }) {
-    const o = e, a = t, { options: f } = V(o), r = B({
+    const o = e, s = t, { options: f } = V(o), r = B({
       get: () => o.modelValue,
-      set: (v) => a("update:modelValue", v)
+      set: (v) => s("update:modelValue", v)
     });
     return (v, d) => {
       const u = se("b-dropdown-item"), p = se("b-dropdown");
@@ -487,9 +487,9 @@ const it = /* @__PURE__ */ F(rt, [["__scopeId", "data-v-2bfd7085"]]), ut = { cla
   },
   emits: ["update:modelValue"],
   setup(e, { emit: t }) {
-    const o = e, a = t, { options: f } = V(o), r = B({
+    const o = e, s = t, { options: f } = V(o), r = B({
       get: () => o.modelValue,
-      set: (v) => a("update:modelValue", v)
+      set: (v) => s("update:modelValue", v)
     });
     return (v, d) => de((m(), w("select", {
       "onUpdate:modelValue": d[0] || (d[0] = (u) => r.value = u)
@@ -505,18 +505,18 @@ const it = /* @__PURE__ */ F(rt, [["__scopeId", "data-v-2bfd7085"]]), ut = { cla
 });
 var j = /* @__PURE__ */ ((e) => (e.ASC = "ASC", e.DESC = "DESC", e.IGNORE = "IGNORE", e))(j || {});
 class _t {
-  constructor(t, o = "ASC", a) {
+  constructor(t, o = "ASC", s) {
     O(this, "key");
     O(this, "direction");
     O(this, "sortFn");
-    this.key = t, this.direction = o, this.sortFn = a;
+    this.key = t, this.direction = o, this.sortFn = s;
   }
 }
 const le = (e, t) => {
   const o = (d, u) => {
     let p = typeof d, b = typeof u;
     return p == "number" && p == b;
-  }, a = (d, u) => d - u, f = (d, u) => (d = d ?? "", u = u ?? "", d.localeCompare(u)), r = (d, u) => o(d, u) ? a : f, v = [...t];
+  }, s = (d, u) => d - u, f = (d, u) => (d = d ?? "", u = u ?? "", d.localeCompare(u)), r = (d, u) => o(d, u) ? s : f, v = [...t];
   return v.sort((d, u) => {
     let p = 0;
     for (let b of e) {
@@ -534,7 +534,7 @@ const le = (e, t) => {
   class: "p-5 text-muted font-italic"
 }, Ct = ["colspan"], gt = ["innerHTML"];
 class Z {
-  constructor(t = "", o = "", a = !1, f) {
+  constructor(t = "", o = "", s = !1, f) {
     O(this, "key");
     // age
     O(this, "label");
@@ -547,7 +547,7 @@ class Z {
      * and follows the sorting rules
      */
     O(this, "sortFn");
-    this.key = t, this.label = o, this.sortable = a, this.sortFn = f;
+    this.key = t, this.label = o, this.sortable = s, this.sortFn = f;
   }
 }
 const St = /* @__PURE__ */ R({
@@ -565,52 +565,52 @@ const St = /* @__PURE__ */ R({
   setup(e, { emit: t }) {
     const o = (i) => {
       let y = [];
-      for (const s of i)
-        y = y.concat(Object.keys(s));
-      return y = y.filter((s, h) => y.indexOf(s) == h), y;
-    }, a = t, f = e, r = H([]), { fields: v, items: d } = V(f), u = B(() => {
+      for (const a of i)
+        y = y.concat(Object.keys(a));
+      return y = y.filter((a, h) => y.indexOf(a) == h), y;
+    }, s = t, f = e, r = H([]), { fields: v, items: d } = V(f), u = B(() => {
       if (f.externalSort || r.value.length == 0)
         return f.items;
       const i = [...f.items];
       return le(r.value, i);
     }), p = B(() => {
       let i = v.value, y = [];
-      return i.length === 0 && (i = o([...d.value])), i.reduce((s, h, n) => {
+      return i.length === 0 && (i = o([...d.value])), i.reduce((a, h, n) => {
         if (typeof h == "string")
-          s.push(new Z(h, h));
+          a.push(new Z(h, h));
         else if (h instanceof Z)
-          s.push(h);
+          a.push(h);
         else if (typeof h == "object") {
           const { key: c, label: T, sortable: k, sortFn: S } = h;
-          s.push(new Z(c, T, k, S));
+          a.push(new Z(c, T, k, S));
         }
-        return s;
+        return a;
       }, y);
     });
     function b(i) {
-      const y = r.value.findIndex((s) => s.key === i.key);
+      const y = r.value.findIndex((a) => a.key === i.key);
       return y < 0 ? "" : y + 1;
     }
     function g(i) {
       const y = r.value.findIndex((h) => h.key === i.key);
       if (y < 0)
         return "fas fa-sort";
-      const s = r.value[y];
-      return s.direction === j.ASC ? "fas fa-sort-up" : s.direction === j.DESC ? "fas fa-sort-down" : "far fa-exclamation-triangle";
+      const a = r.value[y];
+      return a.direction === j.ASC ? "fas fa-sort-up" : a.direction === j.DESC ? "fas fa-sort-down" : "far fa-exclamation-triangle";
     }
     function $(i) {
-      const { key: y } = i, s = r.value.findIndex((h) => h.key === y);
-      if (s < 0) {
+      const { key: y } = i, a = r.value.findIndex((h) => h.key === y);
+      if (a < 0) {
         const h = new _t(y, j.ASC, i.sortFn);
         r.value.push(h);
       } else {
-        const h = r.value[s], n = h.direction;
-        n === j.ASC ? h.direction = j.DESC : n === j.DESC && r.value.splice(s, 1);
+        const h = r.value[a], n = h.direction;
+        n === j.ASC ? h.direction = j.DESC : n === j.DESC && r.value.splice(a, 1);
       }
-      a("sort", r.value, le);
+      s("sort", r.value, le);
     }
-    function M(i, y, s, h) {
-      a("onMouseOverCell", i, y, s, h);
+    function M(i, y, a, h) {
+      s("onMouseOverCell", i, y, a, h);
     }
     let _ = H(null);
     return te(() => {
@@ -619,24 +619,24 @@ const St = /* @__PURE__ */ R({
       class: { striped: i.striped, hover: i.hover }
     }), [
       l("thead", null, [
-        (m(!0), w(P, null, N(p.value, (s) => (m(), w("th", {
-          key: `thead-${s.key}`,
-          class: L({ sortable: s.sortable }),
-          onClick: (h) => s.sortable && $(s)
+        (m(!0), w(P, null, N(p.value, (a) => (m(), w("th", {
+          key: `thead-${a.key}`,
+          class: L({ sortable: a.sortable }),
+          onClick: (h) => a.sortable && $(a)
         }, [
           l("span", mt, [
-            C(i.$slots, `head(${s.key})`, {
-              field: s,
+            C(i.$slots, `head(${a.key})`, {
+              field: a,
               data: G(_),
-              value: s.label
+              value: a.label
             }, () => [
-              J(z(s.label), 1)
+              J(z(a.label), 1)
             ], !0),
-            s.sortable ? (m(), w("span", yt, [
-              l("span", bt, z(b(s)), 1),
+            a.sortable ? (m(), w("span", yt, [
+              l("span", bt, z(b(a)), 1),
               l("span", kt, [
                 l("i", {
-                  class: L(g(s))
+                  class: L(g(a))
                 }, null, 2)
               ])
             ])) : X("", !0)
@@ -644,27 +644,27 @@ const St = /* @__PURE__ */ R({
         ], 10, ht))), 128))
       ]),
       l("tbody", null, [
-        (m(!0), w(P, null, N(u.value, (s, h) => (m(), w(P, {
-          key: `trow-${(s == null ? void 0 : s.id) ?? h}`
+        (m(!0), w(P, null, N(u.value, (a, h) => (m(), w(P, {
+          key: `trow-${(a == null ? void 0 : a.id) ?? h}`
         }, [
           C(i.$slots, "row", {
-            item: s,
+            item: a,
             index: h,
             colspan: p.value.length
           }, void 0, !0),
           l("tr", null, [
             (m(!0), w(P, null, N(p.value, (n) => (m(), w("td", {
-              key: `tcell-${n.key + ((s == null ? void 0 : s.id) ?? h)}`,
+              key: `tcell-${n.key + ((a == null ? void 0 : a.id) ?? h)}`,
               class: L({ [`tcell-${n == null ? void 0 : n.key}`]: !0 }),
-              onMouseover: (c) => M(c, s, h, n)
+              onMouseover: (c) => M(c, a, h, n)
             }, [
               C(i.$slots, `cell(${n == null ? void 0 : n.key})`, {
                 data: G(_),
-                item: s,
+                item: a,
                 field: n,
-                value: s[n == null ? void 0 : n.key]
+                value: a[n == null ? void 0 : n.key]
               }, () => [
-                J(z(s[n == null ? void 0 : n.key]), 1)
+                J(z(a[n == null ? void 0 : n.key]), 1)
               ], !0)
             ], 42, $t))), 128))
           ])
@@ -707,7 +707,7 @@ const Mt = { class: "d-inline-block position-relative" }, xt = ["disabled"], re 
     disabled: { type: Boolean }
   },
   setup(e) {
-    const t = H(), o = e, a = H(), { variant: f, centered: r, dropup: v, dropend: d, dropstart: u, menuEnd: p } = V(o), b = H(!1), g = B(() => {
+    const t = H(), o = e, s = H(), { variant: f, centered: r, dropup: v, dropend: d, dropstart: u, menuEnd: p } = V(o), b = H(!1), g = B(() => {
       const c = [];
       return f != null && f.value && c.push(`btn-${f.value}`), o.size && c.push(`btn-${o.size}`), c;
     }), $ = B(() => {
@@ -726,7 +726,7 @@ const Mt = { class: "d-inline-block position-relative" }, xt = ["disabled"], re 
     function y(c) {
       b.value ? i() : _();
     }
-    function s(c) {
+    function a(c) {
       const { target: T } = c;
       (T == null ? void 0 : T.closest(`[${re}],[${re}=true]`)) || i();
     }
@@ -738,7 +738,7 @@ const Mt = { class: "d-inline-block position-relative" }, xt = ["disabled"], re 
       disabled: o.disabled,
       buttonClasses: g,
       onButtonClicked: y,
-      onMenuClicked: s,
+      onMenuClicked: a,
       onClickOutside: h,
       open: _,
       close: i
@@ -747,7 +747,7 @@ const Mt = { class: "d-inline-block position-relative" }, xt = ["disabled"], re 
       const k = Te("click-outside");
       return m(), w("div", {
         ref_key: "dropDownRef",
-        ref: a,
+        ref: s,
         class: L($.value)
       }, [
         de((m(), w("div", Mt, [
@@ -768,7 +768,7 @@ const Mt = { class: "d-inline-block position-relative" }, xt = ["disabled"], re 
             ref_key: "dropDownMenuRef",
             ref: t,
             class: L(["dropdown-menu", M.value]),
-            onClick: s
+            onClick: a
           }, [
             C(c.$slots, "default", D(A({ ...n })), void 0, !0)
           ], 2)
@@ -787,15 +787,15 @@ const Bt = /* @__PURE__ */ F(Lt, [["__scopeId", "data-v-f9658383"]]), Dt = ["dat
   },
   setup(e) {
     const t = e, { preventClose: o } = V(t);
-    return (a, f) => (m(), w("li", {
+    return (s, f) => (m(), w("li", {
       "data-prevent-close": G(o) ? "" : null
     }, [
       l("span", {
-        class: L(["dropdown-item", { active: a.active }]),
+        class: L(["dropdown-item", { active: s.active }]),
         role: "button",
         tabindex: "0"
       }, [
-        C(a.$slots, "default")
+        C(s.$slots, "default")
       ], 2)
     ], 8, Dt));
   }
@@ -814,7 +814,7 @@ function It(e, t) {
   return m(), w("li", null, Nt);
 }
 const Ft = /* @__PURE__ */ F(Pt, [["render", It]]), jt = {
-  mounted(e, t, o, a) {
+  mounted(e, t, o, s) {
     new Be(e, {
       title: t.value,
       placement: t.arg,
@@ -830,16 +830,16 @@ const Ft = /* @__PURE__ */ F(Pt, [["render", It]]), jt = {
     }
     return !1;
   }
-  const a = new AbortController();
+  const s = new AbortController();
   function f(r, v) {
     document.addEventListener("click", function(d) {
       const u = d.target;
       r && (o(u, r) || v());
-    }, { signal: a.signal });
+    }, { signal: s.signal });
   }
-  return f(e, t), a;
+  return f(e, t), s;
 }, Kt = {
-  mounted(e, t, o, a) {
+  mounted(e, t, o, s) {
     const f = t.value;
     Gt(e, f);
   }
@@ -871,7 +871,7 @@ const Ut = { class: "drawer-content" }, Yt = { class: "drawer-header" }, Wt = ["
   },
   setup(e, { expose: t }) {
     const o = e, {
-      backdrop: a,
+      backdrop: s,
       keyboard: f,
       focus: r,
       size: v,
@@ -889,8 +889,8 @@ const Ut = { class: "drawer-content" }, Yt = { class: "drawer-header" }, Wt = ["
     function y() {
       g.value === !0 ? _() : i(!1);
     }
-    function s(k) {
-      (a == null ? void 0 : a.value) !== "static" && i(!1);
+    function a(k) {
+      (s == null ? void 0 : s.value) !== "static" && i(!1);
     }
     function h() {
       i(!1);
@@ -920,7 +920,7 @@ const Ut = { class: "drawer-content" }, Yt = { class: "drawer-header" }, Wt = ["
           class: "drawer",
           tabindex: "-1"
         }, { ...k.$attrs }, {
-          onClick: ce(s, ["self"])
+          onClick: ce(a, ["self"])
         }), [
           l("div", {
             class: L(["drawer-dialog", u.value])
@@ -982,8 +982,8 @@ class be {
     if (!this.component) {
       const t = document.createElement("div");
       document.body.appendChild(t);
-      const a = fe(Xe).mount(t);
-      this.component = a;
+      const s = fe(Xe).mount(t);
+      this.component = s;
     }
     return this.component;
   }
@@ -994,8 +994,8 @@ class ke {
     if (!this.component) {
       const t = document.createElement("div");
       document.body.appendChild(t);
-      const a = fe(Ne).mount(t);
-      this.component = a;
+      const s = fe(Ne).mount(t);
+      this.component = s;
     }
     return this.component;
   }
@@ -1014,10 +1014,10 @@ function on(e) {
   e.directive("tooltip", jt), e.directive("click-outside", Kt);
 }
 const dn = {
-  install(e) {
+  install(e, t) {
     nn(e), on(e);
-    const t = ke.getComponent(), o = be.getComponent();
-    e.provide(me, t), e.provide(ye, o);
+    const o = ke.getComponent(), s = be.getComponent();
+    e.provide(me, o), e.provide(ye, s);
   }
 };
 export {
