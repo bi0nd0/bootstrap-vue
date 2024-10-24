@@ -105,6 +105,7 @@ const opening = ref(false);
 const closing = ref(false);
 const isOpen = ref(false);
 const dialog = ref();
+const staticClass = ref(false)
 
 const sizeClass = computed(() => {
     return useSize(size.value, 'modal-')
@@ -118,6 +119,7 @@ const classes = computed(() => ({
   opening: opening.value,
   closing: closing.value,
   'no-backdrop': backdrop.value === false,
+  'static': staticClass.value,
 }));
 
 let resolve: ((value: boolean) => void) | null = null;
@@ -175,27 +177,31 @@ const toggle = async () => {
   else show();
 };
 
+const showNoCloseAnimation = () => {
+  staticClass.value = true
+    setTimeout(() => {
+      staticClass.value = false
+    }, 200);
+}
+
 const onBackdropClicked = () => {
-  if(backdrop.value === 'static' || disableOutsideClick.value === true) return
+  if(backdrop.value === 'static' || disableOutsideClick.value === true) {
+    showNoCloseAnimation()
+    return
+  }
   // The backdrop was clicked
   hide(false); // Or handle it in another way, such as resolving the promise
 }
-
-const slotData = { show, hide, toggle, dialog };
-
-defineExpose({
-  show,
-  hide,
-  toggle,
-});
-
 
 /**
  * handle when it behaves like a modal and has a ::backdrop
  */
 if(modal.value === true) {
   function handleBackdropClick(event: Event) {
-    if(backdrop.value === 'static' || disableOutsideClick.value === true) return
+    if(backdrop.value === 'static' || disableOutsideClick.value === true) {
+      showNoCloseAnimation()
+      return
+    }
     if (event.target === dialog.value) {
       // The backdrop was clicked
       hide(false); // Or handle it in another way, such as resolving the promise
@@ -213,6 +219,14 @@ if(modal.value === true) {
     backdropController.abort()
   })
 }
+
+const slotData = { show, hide, toggle, dialog };
+
+defineExpose({
+  show,
+  hide,
+  toggle,
+});
 </script>
 
 <style scoped>
@@ -238,6 +252,7 @@ dialog {
     padding: 0;
     top: 30px;
     overflow: visible;
+    transition: transform 300ms ease-in-out;
   }
   
   .content::before {
@@ -247,7 +262,7 @@ dialog {
     display: block;
   }
 
-  dialog .content {
+dialog .content {
     max-width: 500px;
     border: 1px solid rgba(0, 0, 0, 0.175);
     border-radius: 0.5rem;
@@ -257,6 +272,10 @@ dialog {
     padding: 0;
     margin: auto;
 }
+dialog.static {
+  transform: scale(1.02);
+}
+
 div:has(>dialog[open]:not(.no-backdrop)) .backdrop {
   position: fixed;
   inset: 0;
