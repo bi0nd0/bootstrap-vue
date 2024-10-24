@@ -118,9 +118,6 @@ let showResolve: Function | undefined = undefined
 let showReject: Function | undefined = undefined
 function show() {
     const promise = new Promise((resolve, reject) => {
-        const previous = ModalStack.getLast()
-        if(previous) previous.hide()
-        ModalStack.addToStack(modal)
         modal?.show()
         showResolve = resolve
         showReject = reject
@@ -130,10 +127,7 @@ function show() {
 }
 
 function hide(status=true) {
-    ModalStack.removeFromStack(modal)
     modal?.hide()
-    const previous = ModalStack.getLast()
-    if(previous) previous.show()
     if(typeof showResolve === 'function') showResolve(status)
     emit('onHidden', modal)
 }

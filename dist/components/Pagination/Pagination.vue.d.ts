@@ -1,141 +1,34 @@
-import type { PropType as __PropType } from 'vue';
-import SIZE from '../../enums/SIZE';
-declare const _sfc_main: import("vue").DefineComponent<{
-    modelValue: {
-        type: __PropType<number>;
-        required: true;
-        default: number;
-    };
-    perPage: {
-        type: __PropType<number>;
-        required: true;
-        default: number;
-    };
-    maxVisibleButtons: {
-        type: __PropType<number | undefined>;
-        required: false;
-        default: number;
-    };
-    totalItems: {
-        type: __PropType<number>;
-        required: true;
-        default: number;
-    };
-    hideEllipsis: {
-        type: __PropType<boolean | undefined>;
-        required: false;
-        default: boolean;
-    };
-    hideGotoEndButtons: {
-        type: __PropType<boolean | undefined>;
-        required: false;
-        default: boolean;
-    };
-    firstText: {
-        type: __PropType<string | undefined>;
-        required: false;
-        default: string;
-    };
-    prevText: {
-        type: __PropType<string | undefined>;
-        required: false;
-        default: string;
-    };
-    nextText: {
-        type: __PropType<string | undefined>;
-        required: false;
-        default: string;
-    };
-    lastText: {
-        type: __PropType<string | undefined>;
-        required: false;
-        default: string;
-    };
-    ellipsisText: {
-        type: __PropType<string | undefined>;
-        required: false;
-        default: string;
-    };
-    size: {
-        type: __PropType<SIZE | undefined>;
-        required: false;
-        default: SIZE;
-    };
-}, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, "update:modelValue"[], "update:modelValue", import("vue").PublicProps, Readonly<import("vue").ExtractPropTypes<{
-    modelValue: {
-        type: __PropType<number>;
-        required: true;
-        default: number;
-    };
-    perPage: {
-        type: __PropType<number>;
-        required: true;
-        default: number;
-    };
-    maxVisibleButtons: {
-        type: __PropType<number | undefined>;
-        required: false;
-        default: number;
-    };
-    totalItems: {
-        type: __PropType<number>;
-        required: true;
-        default: number;
-    };
-    hideEllipsis: {
-        type: __PropType<boolean | undefined>;
-        required: false;
-        default: boolean;
-    };
-    hideGotoEndButtons: {
-        type: __PropType<boolean | undefined>;
-        required: false;
-        default: boolean;
-    };
-    firstText: {
-        type: __PropType<string | undefined>;
-        required: false;
-        default: string;
-    };
-    prevText: {
-        type: __PropType<string | undefined>;
-        required: false;
-        default: string;
-    };
-    nextText: {
-        type: __PropType<string | undefined>;
-        required: false;
-        default: string;
-    };
-    lastText: {
-        type: __PropType<string | undefined>;
-        required: false;
-        default: string;
-    };
-    ellipsisText: {
-        type: __PropType<string | undefined>;
-        required: false;
-        default: string;
-    };
-    size: {
-        type: __PropType<SIZE | undefined>;
-        required: false;
-        default: SIZE;
-    };
-}>> & {
-    "onUpdate:modelValue"?: ((...args: any[]) => any) | undefined;
-}, {
-    size: SIZE | undefined;
+import { default as SIZE } from '../../enums/SIZE';
+interface Props {
     modelValue: number;
     perPage: number;
-    maxVisibleButtons: number | undefined;
+    maxVisibleButtons?: number;
     totalItems: number;
-    hideEllipsis: boolean | undefined;
-    hideGotoEndButtons: boolean | undefined;
-    firstText: string | undefined;
-    prevText: string | undefined;
-    nextText: string | undefined;
-    lastText: string | undefined;
-    ellipsisText: string | undefined;
-}, {}>;
-export default _sfc_main;
+    hideEllipsis?: boolean;
+    hideGotoEndButtons?: boolean;
+    firstText?: string;
+    prevText?: string;
+    nextText?: string;
+    lastText?: string;
+    ellipsisText?: string;
+    size?: SIZE;
+}
+declare const _default: import('vue').DefineComponent<Props, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
+    "update:modelValue": (...args: any[]) => void;
+}, string, import('vue').PublicProps, Readonly<Props> & Readonly<{
+    "onUpdate:modelValue"?: ((...args: any[]) => any) | undefined;
+}>, {
+    size: SIZE;
+    modelValue: number;
+    perPage: number;
+    maxVisibleButtons: number;
+    totalItems: number;
+    hideEllipsis: boolean;
+    hideGotoEndButtons: boolean;
+    firstText: string;
+    prevText: string;
+    nextText: string;
+    lastText: string;
+    ellipsisText: string;
+}, {}, {}, {}, string, import('vue').ComponentProvideOptions, false, {}, any>;
+export default _default;

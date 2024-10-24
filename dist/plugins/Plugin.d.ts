@@ -1,10 +1,7 @@
-/**
- * this plugin exposes components, features, and directive
- * to the app
- */
 import { Plugin } from 'vue';
 import { default as Toaster } from '../components/Toast/Toaster.vue';
 import { default as ModalManager } from '../components/Modal/ModalManager.vue';
+import { default as DialogManager } from '../components/Dialog/DialogManager.vue';
 /**
  * Returns the toaster instance. Equivalent to using `$toaster` inside
  * templates.
@@ -15,5 +12,10 @@ declare function useToaster(): typeof Toaster;
  * templates.
  */
 declare function useModal(): typeof ModalManager;
+/**
+ * Returns the toaster instance. Equivalent to using `$toaster` inside
+ * templates.
+ */
+declare function useDialog(): typeof DialogManager;
 declare const MyPlugin: Plugin;
-export { MyPlugin as default, useToaster, useModal };
+export { MyPlugin as default, useToaster, useModal, useDialog };

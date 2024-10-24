@@ -1,6 +1,7 @@
 import MainLayout from '../layouts/MainLayout.vue'
 import HomePage from '../pages/HomePage.vue'
 import ModalPage from '../pages/ModalPage.vue'
+import DialogPage from '../pages/DialogPage.vue'
 import DrawerPage from '../pages/DrawerPage.vue'
 import ToastPage from '../pages/ToastPage.vue'
 import TablePage from '../pages/TablePage.vue'
@@ -13,6 +14,7 @@ const routes = [
         { path: '', component: HomePage },
         { path: 'drawer', name:'drawer', component: DrawerPage },
         { path: 'modal', name:'modal', component: ModalPage },
+        { path: 'dialog', name:'dialog', component: DialogPage },
         { path: 'toast', name:'toast', component: ToastPage },
         { path: 'table', name:'table', component: TablePage },
         { path: 'tooltips', name:'tooltips', component: TooltipsPage },

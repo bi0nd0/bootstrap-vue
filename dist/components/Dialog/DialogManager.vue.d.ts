@@ -1,4 +1,4 @@
-import { Props } from './Modal.vue';
+import { Props } from './DialogBox.vue';
 declare function confirm(args?: Props): any;
 declare function alert(args?: Props): any;
 declare const _default: import('vue').DefineComponent<{}, {

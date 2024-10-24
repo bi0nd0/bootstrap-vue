@@ -3,6 +3,7 @@
     <ul>
       <li><router-link :to="{ name: 'drawer' }">drawer</router-link></li>
       <li><router-link :to="{ name: 'modal' }">modal</router-link></li>
+      <li><router-link :to="{ name: 'dialog' }">dialog</router-link></li>
       <li><router-link :to="{ name: 'toast' }">toast</router-link></li>
       <li><router-link :to="{ name: 'table' }">table</router-link></li>
       <li><router-link :to="{ name: 'tooltips' }">tooltips</router-link></li>
@@ -13,10 +14,10 @@
     <div class="p-2">
       <router-view></router-view>
     </div>
+
 </template>
 
 <script setup lang="ts">
-
 </script>
 
 <style scoped>

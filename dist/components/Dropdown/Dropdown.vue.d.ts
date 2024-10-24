@@ -1,114 +1,86 @@
-import type { PropType as __PropType } from 'vue';
-import SIZE from '../../enums/SIZE';
-import Variant from '../../enums/Variant';
-declare const _sfc_main: import("vue").DefineComponent<{
-    text: {
-        type: __PropType<string | undefined>;
-        required: false;
-        default: string;
+import { default as SIZE } from '../../enums/SIZE';
+import { default as Variant } from '../../enums/Variant';
+declare function open(): void;
+declare function close(): void;
+declare function onButtonClicked(event: Event): void;
+declare function onMenuClicked(event: Event): void;
+declare function onClickOutside(): void;
+declare function __VLS_template(): {
+    slots: {
+        header?(_: {
+            show: import('vue').Ref<boolean, boolean>;
+            disabled: boolean;
+            buttonClasses: import('vue').ComputedRef<(string | object)[]>;
+            onButtonClicked: typeof onButtonClicked;
+            onMenuClicked: typeof onMenuClicked;
+            onClickOutside: typeof onClickOutside;
+            open: typeof open;
+            close: typeof close;
+        }): any;
+        button?(_: {
+            show: import('vue').Ref<boolean, boolean>;
+            disabled: boolean;
+            buttonClasses: import('vue').ComputedRef<(string | object)[]>;
+            onButtonClicked: typeof onButtonClicked;
+            onMenuClicked: typeof onMenuClicked;
+            onClickOutside: typeof onClickOutside;
+            open: typeof open;
+            close: typeof close;
+        }): any;
+        default?(_: {
+            show: import('vue').Ref<boolean, boolean>;
+            disabled: boolean;
+            buttonClasses: import('vue').ComputedRef<(string | object)[]>;
+            onButtonClicked: typeof onButtonClicked;
+            onMenuClicked: typeof onMenuClicked;
+            onClickOutside: typeof onClickOutside;
+            open: typeof open;
+            close: typeof close;
+        }): any;
     };
-    variant: {
-        type: __PropType<Variant | undefined>;
-        required: false;
-        default: Variant;
+    refs: {
+        dropDownRef: HTMLDivElement;
+        dropDownMenuRef: HTMLUListElement;
     };
-    right: {
-        type: __PropType<boolean | undefined>;
-        required: false;
-        default: boolean;
+    attrs: Partial<{}>;
+};
+type __VLS_TemplateResult = ReturnType<typeof __VLS_template>;
+declare const __VLS_component: import('vue').DefineComponent<{
+    text?: string;
+    variant?: Variant;
+    right?: boolean;
+    top?: boolean;
+    centered?: boolean;
+    dropup?: boolean;
+    dropend?: boolean;
+    dropstart?: boolean;
+    menuEnd?: boolean;
+    size?: SIZE;
+    disabled?: boolean;
+}, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<{
+    text?: string;
+    variant?: Variant;
+    right?: boolean;
+    top?: boolean;
+    centered?: boolean;
+    dropup?: boolean;
+    dropend?: boolean;
+    dropstart?: boolean;
+    menuEnd?: boolean;
+    size?: SIZE;
+    disabled?: boolean;
+}> & Readonly<{}>, {
+    variant: Variant;
+    text: string;
+    size: SIZE;
+    right: boolean;
+    top: boolean;
+    menuEnd: boolean;
+}, {}, {}, {}, string, import('vue').ComponentProvideOptions, false, {}, any>;
+declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, __VLS_TemplateResult["slots"]>;
+export default _default;
+type __VLS_WithTemplateSlots<T, S> = T & {
+    new (): {
+        $slots: S;
     };
-    top: {
-        type: __PropType<boolean | undefined>;
-        required: false;
-        default: boolean;
-    };
-    centered: {
-        type: __PropType<boolean | undefined>;
-        required: false;
-    };
-    dropup: {
-        type: __PropType<boolean | undefined>;
-        required: false;
-    };
-    dropend: {
-        type: __PropType<boolean | undefined>;
-        required: false;
-    };
-    dropstart: {
-        type: __PropType<boolean | undefined>;
-        required: false;
-    };
-    menuEnd: {
-        type: __PropType<boolean | undefined>;
-        required: false;
-        default: boolean;
-    };
-    size: {
-        type: __PropType<SIZE | undefined>;
-        required: false;
-        default: SIZE;
-    };
-    disabled: {
-        type: __PropType<boolean | undefined>;
-        required: false;
-    };
-}, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<import("vue").ExtractPropTypes<{
-    text: {
-        type: __PropType<string | undefined>;
-        required: false;
-        default: string;
-    };
-    variant: {
-        type: __PropType<Variant | undefined>;
-        required: false;
-        default: Variant;
-    };
-    right: {
-        type: __PropType<boolean | undefined>;
-        required: false;
-        default: boolean;
-    };
-    top: {
-        type: __PropType<boolean | undefined>;
-        required: false;
-        default: boolean;
-    };
-    centered: {
-        type: __PropType<boolean | undefined>;
-        required: false;
-    };
-    dropup: {
-        type: __PropType<boolean | undefined>;
-        required: false;
-    };
-    dropend: {
-        type: __PropType<boolean | undefined>;
-        required: false;
-    };
-    dropstart: {
-        type: __PropType<boolean | undefined>;
-        required: false;
-    };
-    menuEnd: {
-        type: __PropType<boolean | undefined>;
-        required: false;
-        default: boolean;
-    };
-    size: {
-        type: __PropType<SIZE | undefined>;
-        required: false;
-        default: SIZE;
-    };
-    disabled: {
-        type: __PropType<boolean | undefined>;
-        required: false;
-    };
-}>>, {
-    top: boolean | undefined;
-    right: boolean | undefined;
-    size: SIZE | undefined;
-    text: string | undefined;
-    variant: Variant | undefined;
-    menuEnd: boolean | undefined;
-}, {}>;
-export default _sfc_main;
+};

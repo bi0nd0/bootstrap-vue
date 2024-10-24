@@ -19,5 +19,7 @@ declare enum TOAST_POSITION {
 }
 declare let toast: Function;
 export { TOAST_POSITION, toast };
-declare const _sfc_main: import("vue").DefineComponent<{}, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}, {}>;
-export default _sfc_main;
+declare const _default: import('vue').DefineComponent<{}, {
+    toast: Function;
+}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
+export default _default;

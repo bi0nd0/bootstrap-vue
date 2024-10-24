@@ -1,5 +1,4 @@
-import type { PropType as __PropType } from 'vue';
-import SIZE from '../../enums/SIZE';
+import { default as SIZE } from '../../enums/SIZE';
 type BackdropType = boolean | "static";
 export interface Props {
     title?: string;
@@ -15,143 +14,68 @@ export interface Props {
     btnSize?: SIZE;
     visible?: boolean;
 }
-declare const _sfc_main: import("vue").DefineComponent<{
-    title: {
-        type: __PropType<string | undefined>;
-        required: false;
-        default: string;
-    };
-    body: {
-        type: __PropType<string | undefined>;
-        required: false;
-        default: string;
-    };
-    textCancel: {
-        type: __PropType<string | undefined>;
-        required: false;
-        default: string;
-    };
-    textOk: {
-        type: __PropType<string | boolean | undefined>;
-        required: false;
-        default: string;
-    };
-    backdrop: {
-        type: __PropType<BackdropType | undefined>;
-        required: false;
-        default: boolean;
-    };
-    keyboard: {
-        type: __PropType<boolean | undefined>;
-        required: false;
-        default: boolean;
-    };
-    focus: {
-        type: __PropType<boolean | undefined>;
-        required: false;
-        default: boolean;
-    };
-    disableOutsideClick: {
-        type: __PropType<boolean | undefined>;
-        required: false;
-        default: boolean;
-    };
-    okOnly: {
-        type: __PropType<boolean | undefined>;
-        required: false;
-        default: boolean;
-    };
-    size: {
-        type: __PropType<SIZE | undefined>;
-        required: false;
-        default: SIZE;
-    };
-    btnSize: {
-        type: __PropType<SIZE | undefined>;
-        required: false;
-        default: SIZE;
-    };
-    visible: {
-        type: __PropType<boolean | undefined>;
-        required: false;
-        default: boolean;
-    };
-}, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("onShown" | "onHidden")[], "onShown" | "onHidden", import("vue").PublicProps, Readonly<import("vue").ExtractPropTypes<{
-    title: {
-        type: __PropType<string | undefined>;
-        required: false;
-        default: string;
-    };
-    body: {
-        type: __PropType<string | undefined>;
-        required: false;
-        default: string;
-    };
-    textCancel: {
-        type: __PropType<string | undefined>;
-        required: false;
-        default: string;
-    };
-    textOk: {
-        type: __PropType<string | boolean | undefined>;
-        required: false;
-        default: string;
-    };
-    backdrop: {
-        type: __PropType<BackdropType | undefined>;
-        required: false;
-        default: boolean;
-    };
-    keyboard: {
-        type: __PropType<boolean | undefined>;
-        required: false;
-        default: boolean;
-    };
-    focus: {
-        type: __PropType<boolean | undefined>;
-        required: false;
-        default: boolean;
-    };
-    disableOutsideClick: {
-        type: __PropType<boolean | undefined>;
-        required: false;
-        default: boolean;
-    };
-    okOnly: {
-        type: __PropType<boolean | undefined>;
-        required: false;
-        default: boolean;
-    };
-    size: {
-        type: __PropType<SIZE | undefined>;
-        required: false;
-        default: SIZE;
-    };
-    btnSize: {
-        type: __PropType<SIZE | undefined>;
-        required: false;
-        default: SIZE;
-    };
-    visible: {
-        type: __PropType<boolean | undefined>;
-        required: false;
-        default: boolean;
-    };
-}>> & {
-    onOnShown?: ((...args: any[]) => any) | undefined;
+declare const _default: __VLS_WithTemplateSlots<import('vue').DefineComponent<Props, {
+    modal: undefined;
+    show: () => Promise<unknown>;
+    hide: (status?: boolean) => void;
+    toggle: () => void;
+    onHeaderCloseClicked: () => void;
+    onCancelClicked: () => void;
+    onOkCLicked: () => void;
+}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
+    onHidden: (...args: any[]) => void;
+    onShown: (...args: any[]) => void;
+}, string, import('vue').PublicProps, Readonly<Props> & Readonly<{
     onOnHidden?: ((...args: any[]) => any) | undefined;
-}, {
-    focus: boolean | undefined;
-    title: string | undefined;
-    body: string | undefined;
-    size: SIZE | undefined;
-    textCancel: string | undefined;
-    textOk: string | boolean | undefined;
-    backdrop: BackdropType | undefined;
-    keyboard: boolean | undefined;
-    disableOutsideClick: boolean | undefined;
-    okOnly: boolean | undefined;
-    btnSize: SIZE | undefined;
-    visible: boolean | undefined;
-}, {}>;
-export default _sfc_main;
+    onOnShown?: ((...args: any[]) => any) | undefined;
+}>, {
+    focus: boolean;
+    visible: boolean;
+    title: string;
+    body: string;
+    size: SIZE;
+    textCancel: string;
+    textOk: string | boolean;
+    backdrop: BackdropType;
+    keyboard: boolean;
+    disableOutsideClick: boolean;
+    okOnly: boolean;
+    btnSize: SIZE;
+}, {}, {}, {}, string, import('vue').ComponentProvideOptions, false, {}, any>, {
+    header?(_: {
+        show: () => Promise<unknown>;
+        hide: (status?: boolean) => void;
+        toggle: () => void;
+        modal: undefined;
+    }): any;
+    default?(_: {
+        show: () => Promise<unknown>;
+        hide: (status?: boolean) => void;
+        toggle: () => void;
+        modal: undefined;
+    }): any;
+    footer?(_: {
+        show: () => Promise<unknown>;
+        hide: (status?: boolean) => void;
+        toggle: () => void;
+        modal: undefined;
+    }): any;
+    "button-cancel"?(_: {
+        show: () => Promise<unknown>;
+        hide: (status?: boolean) => void;
+        toggle: () => void;
+        modal: undefined;
+    }): any;
+    "button-ok"?(_: {
+        show: () => Promise<unknown>;
+        hide: (status?: boolean) => void;
+        toggle: () => void;
+        modal: undefined;
+    }): any;
+}>;
+export default _default;
+type __VLS_WithTemplateSlots<T, S> = T & {
+    new (): {
+        $slots: S;
+    };
+};

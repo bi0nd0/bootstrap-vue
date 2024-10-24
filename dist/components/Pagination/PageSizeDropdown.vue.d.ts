@@ -1,34 +1,29 @@
-import type { PropType as __PropType } from 'vue';
 export interface Props {
     options: number[];
     modelValue: number;
 }
-declare const _sfc_main: import("vue").DefineComponent<{
-    options: {
-        type: __PropType<number[]>;
-        required: true;
-        default: () => number[];
+declare function __VLS_template(): {
+    slots: {
+        default?(_: {
+            selected: number;
+        }): any;
     };
-    modelValue: {
-        type: __PropType<number>;
-        required: true;
-        default: number;
-    };
-}, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, "update:modelValue"[], "update:modelValue", import("vue").PublicProps, Readonly<import("vue").ExtractPropTypes<{
-    options: {
-        type: __PropType<number[]>;
-        required: true;
-        default: () => number[];
-    };
-    modelValue: {
-        type: __PropType<number>;
-        required: true;
-        default: number;
-    };
-}>> & {
+    refs: {};
+    attrs: Partial<{}>;
+};
+type __VLS_TemplateResult = ReturnType<typeof __VLS_template>;
+declare const __VLS_component: import('vue').DefineComponent<Props, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
+    "update:modelValue": (...args: any[]) => void;
+}, string, import('vue').PublicProps, Readonly<Props> & Readonly<{
     "onUpdate:modelValue"?: ((...args: any[]) => any) | undefined;
-}, {
-    modelValue: number;
+}>, {
     options: number[];
-}, {}>;
-export default _sfc_main;
+    modelValue: number;
+}, {}, {}, {}, string, import('vue').ComponentProvideOptions, false, {}, any>;
+declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, __VLS_TemplateResult["slots"]>;
+export default _default;
+type __VLS_WithTemplateSlots<T, S> = T & {
+    new (): {
+        $slots: S;
+    };
+};
