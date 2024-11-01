@@ -48,6 +48,18 @@ declare const _default: __VLS_WithTemplateSlots<import('vue').DefineComponent<Pr
         toggle: () => void;
         modal: undefined;
     }): any;
+    title?(_: {
+        show: () => Promise<unknown>;
+        hide: (status?: boolean) => void;
+        toggle: () => void;
+        modal: undefined;
+    }): any;
+    "header-close-button"?(_: {
+        show: () => Promise<unknown>;
+        hide: (status?: boolean) => void;
+        toggle: () => void;
+        modal: undefined;
+    }): any;
     default?(_: {
         show: () => Promise<unknown>;
         hide: (status?: boolean) => void;

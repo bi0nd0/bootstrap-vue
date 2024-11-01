@@ -46,6 +46,7 @@ declare const _default: __VLS_WithTemplateSlots<import('vue').DefineComponent<Pr
         toggle: () => Promise<void>;
         dialog: import('vue').Ref<any, any>;
     }): any;
+    "header-close-button"?(_: {}): any;
     default?(_: {
         show: () => Promise<boolean>;
         hide: (result?: boolean) => Promise<void>;

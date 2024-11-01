@@ -8,7 +8,9 @@
                     <slot name="title" v-bind="{ ...slotData }">
                         <h5 class="modal-title" v-html="title"></h5>
                     </slot>
-                    <button type="button" class="btn-close" aria-label="Close" @click="onHeaderCloseClicked"></button>
+                    <slot name="header-close-button" v-bind="{ ...slotData }">
+                        <button type="button" class="btn-close" aria-label="Close" @click="onHeaderCloseClicked"></button>
+                    </slot>
                 </div>
                 </slot>
                 <div class="modal-body">

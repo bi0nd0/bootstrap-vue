@@ -7,13 +7,15 @@
           <div data-header class="border-bottom">
             <div class="d-flex gap-2 p-2">
               <slot name="title" v-bind="{ ...slotData }">{{ title }}</slot>
-              <button
-                class="ms-auto"
-                type="button"
-                data-btn-close
-                aria-label="Close"
-                @click="hide(false)"
-              ></button>
+              <slot name="header-close-button">
+                <button
+                  class="ms-auto"
+                  type="button"
+                  data-btn-close
+                  aria-label="Close"
+                  @click="hide(false)"
+                ></button>
+              </slot>
             </div>
           </div>
         </slot>
