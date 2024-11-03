@@ -13,4 +13,4 @@ export { Dropdown, DropdownItem, DropdownHeader, DropdownDivider} from './compon
 export { default as tooltip } from './directives/tooltip'
 export { default as clickOutside } from './directives/clickOutside'
 
-export { default as BootstrapVue,  useToaster, useModal } from './plugins/Plugin'
+export { default as BootstrapVue,  useToaster, useModal, useDialog } from './plugins/Plugin'
