@@ -105,6 +105,10 @@ const slotData = {
     close,
 }
 
+defineExpose({
+    ...slotData,
+})
+
 </script>
 
 <style scoped>
