@@ -66,7 +66,11 @@ declare const __VLS_component: import('vue').DefineComponent<{
     onClickOutside: typeof onClickOutside;
     open: typeof open;
     close: typeof close;
-}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<{
+}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
+    close: (...args: any[]) => void;
+    toggle: (...args: any[]) => void;
+    open: (...args: any[]) => void;
+}, string, import('vue').PublicProps, Readonly<{
     text?: string;
     variant?: Variant;
     right?: boolean;
@@ -78,7 +82,11 @@ declare const __VLS_component: import('vue').DefineComponent<{
     menuEnd?: boolean;
     size?: SIZE;
     disabled?: boolean;
-}> & Readonly<{}>, {
+}> & Readonly<{
+    onClose?: ((...args: any[]) => any) | undefined;
+    onToggle?: ((...args: any[]) => any) | undefined;
+    onOpen?: ((...args: any[]) => any) | undefined;
+}>, {
     variant: Variant;
     text: string;
     size: SIZE;

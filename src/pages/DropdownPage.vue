@@ -1,6 +1,6 @@
 <template>
   <div class="d-flex flex-column gap-2">
-    <b-dropdown>
+    <b-dropdown @open="onOpened" @close="onClosed" @toggle="onToggle">
       <template #button>select...</template>
       <b-dropdown-header>this is an header</b-dropdown-header>
       <b-dropdown-item>test</b-dropdown-item>
@@ -57,6 +57,15 @@
 </template>
 
 <script setup lang="ts">
+function onOpened(event: Event) {
+  console.log('onOpened', event)
+}
+function onClosed(event: Event) {
+  console.log('onClosed', event)
+}
+function onToggle(event: Event) {
+  console.log('onToggle', event)
+}
 </script>
 
 <style scoped>

@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, toRefs, onMounted } from 'vue';
+import { ref, computed, toRefs, onMounted, watch } from 'vue';
 import SIZE from '../../enums/SIZE'
 import Variant from '../../enums/Variant'
 
@@ -44,6 +44,8 @@ const props = withDefaults(defineProps<{
 const dropDownRef = ref()
 const { variant, centered, dropup, dropend, dropstart, menuEnd } = toRefs(props)
 const show = ref(false)
+
+const emit = defineEmits(['open','close', 'toggle'])
 
 const buttonClasses = computed( () => {
     const _classes:Array<string|object> = []
@@ -93,6 +95,14 @@ function onClickOutside() {
     if(!show.value) return
     close()
 }
+
+watch(show, (value, oldValue) => {
+    if(typeof oldValue === 'undefined') return
+    if(value===oldValue) return
+    emit('toggle', {show: value})
+    if(value===true) emit('open', {show: value})
+    else emit('close', {show: value})
+}, {immediate: true})
 
 const slotData = {
     show,
