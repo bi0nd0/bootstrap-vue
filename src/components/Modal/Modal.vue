@@ -59,6 +59,7 @@ export interface Props {
 <script setup lang="ts">
 import { ref, toRefs, computed, onMounted, getCurrentInstance, ComponentInternalInstance, watchEffect } from 'vue'
 import { Modal } from 'bootstrap'
+import { useStickyElementManager } from '../../utils'
 
 import SIZE, {useSize} from '../../enums/SIZE'
 
@@ -113,8 +114,12 @@ const adjustZIndex = () => {
 
 let showResolve: Function | undefined = undefined
 let showReject: Function | undefined = undefined
+
+const stickyManager = useStickyElementManager()
+
 function show() {
     const promise = new Promise((resolve, reject) => {
+        stickyManager.removeStickyElements()
         adjustZIndex()
         modal?.show()
         showResolve = resolve
@@ -128,6 +133,7 @@ function hide(status=true) {
     modal?.hide()
     if(typeof showResolve === 'function') showResolve(status)
     emit('onHidden', modal)
+    stickyManager.restoreStickyElements()
 }
 
 function toggle() {

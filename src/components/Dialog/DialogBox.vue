@@ -57,6 +57,7 @@ import { computed } from "vue";
 import { onMounted } from "vue";
 import { onUnmounted } from "vue";
 import { toRefs } from "vue";
+import { useStickyElementManager } from "../../utils";
 
 type BackdropType = boolean | "static";
 
@@ -132,8 +133,12 @@ const adjustZIndex = () => {
   zIndex.value = BASE_Z_INDEX + totalOpenDialogs
 }
 
+const stickyManager = useStickyElementManager();
 const show = async () => {
   adjustZIndex()
+  // Remove sticky elements
+  stickyManager.removeStickyElements();
+
   opening.value = true;
   dialog.value.addEventListener(
     "animationend",
@@ -169,6 +174,8 @@ const hide = async (result = false) => {
       }
       resolve = null;
       reject = null;
+      // Restore sticky elements after modal animation ends
+      stickyManager.restoreStickyElements();
     },
     { once: true }
   );

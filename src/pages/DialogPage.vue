@@ -38,7 +38,18 @@
       <button class="btn btn-sm btn-primary" @click="openMultiple" >Open multiple</button>
     </div>
 
-    </div>
+    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat rerum illum aspernatur omnis esse? Reiciendis tempora sapiente aut corrupti placeat corporis magni dicta, facere, quibusdam velit incidunt temporibus voluptates quas.</span>
+      <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat rerum illum aspernatur omnis esse? Reiciendis tempora sapiente aut corrupti placeat corporis magni dicta, facere, quibusdam velit incidunt temporibus voluptates quas.</span>
+      <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat rerum illum aspernatur omnis esse? Reiciendis tempora sapiente aut corrupti placeat corporis magni dicta, facere, quibusdam velit incidunt temporibus voluptates quas.</span>
+      <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat rerum illum aspernatur omnis esse? Reiciendis tempora sapiente aut corrupti placeat corporis magni dicta, facere, quibusdam velit incidunt temporibus voluptates quas.</span>
+      <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat rerum illum aspernatur omnis esse? Reiciendis tempora sapiente aut corrupti placeat corporis magni dicta, facere, quibusdam velit incidunt temporibus voluptates quas.</span>
+      <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat rerum illum aspernatur omnis esse? Reiciendis tempora sapiente aut corrupti placeat corporis magni dicta, facere, quibusdam velit incidunt temporibus voluptates quas.</span>
+      <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat rerum illum aspernatur omnis esse? Reiciendis tempora sapiente aut corrupti placeat corporis magni dicta, facere, quibusdam velit incidunt temporibus voluptates quas.</span>
+      <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat rerum illum aspernatur omnis esse? Reiciendis tempora sapiente aut corrupti placeat corporis magni dicta, facere, quibusdam velit incidunt temporibus voluptates quas.</span>
+      <div style="position: sticky; bottom: 0;">
+        <span>sss</span>
+      </div>
+  </div>
 </template>
 
 <script setup lang="ts">
