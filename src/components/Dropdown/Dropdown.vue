@@ -1,5 +1,5 @@
 <template>
-    <div ref="dropDownRef" :class="dropdownClasses">
+    <div ref="dropDownRef" :class="dropdownClasses" class="dropdown-wrapper">
         <div class="d-inline-block position-relative" v-click-outside="onClickOutside">
             <slot name="header" v-bind="{ ...slotData }">
                 <button class="btn dropdown-toggle" :class="buttonClasses" type="button" aria-expanded="false" @click="onButtonClicked" :disabled="disabled">
@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, toRefs, onMounted, watch } from 'vue';
+import { ref, computed, toRefs, nextTick, watch } from 'vue';
 import SIZE from '../../enums/SIZE'
 import Variant from '../../enums/Variant'
 
@@ -42,38 +42,71 @@ const props = withDefaults(defineProps<{
 })
 
 const dropDownRef = ref()
-const { variant, centered, dropup, dropend, dropstart, menuEnd } = toRefs(props)
 const show = ref(false)
+
+// Create independent refs initialized with prop values
+const adjustedVariant = ref(props.variant);
+const adjustedCentered = ref(props.centered);
+const adjustedDropup = ref(props.dropup);
+const adjustedDropend = ref(props.dropend);
+const adjustedDropstart = ref(props.dropstart);
+const adjustedMenuEnd = ref(props.menuEnd);
+
 
 const emit = defineEmits(['open','close', 'toggle'])
 
 const buttonClasses = computed( () => {
     const _classes:Array<string|object> = []
-    if(variant?.value) _classes.push(`btn-${variant.value}`)
+    if(adjustedVariant?.value) _classes.push(`btn-${adjustedVariant.value}`)
     if(props.size) _classes.push(`btn-${props.size}`)
     return _classes
 } )
 
 const dropdownClasses = computed( () => {
     const _classes:Array<string|object> = []
-    if(centered?.value) _classes.push('dropdown-center')
-    if(dropup?.value) _classes.push('dropup')
-    if(dropstart?.value) _classes.push('dropstart')
-    if(!dropstart?.value && dropend?.value) _classes.push('dropend')
+    if(adjustedCentered?.value) _classes.push('dropdown-center')
+    if(adjustedDropup?.value) _classes.push('dropup')
+    if(adjustedDropstart?.value) _classes.push('dropstart')
+    if(!adjustedDropstart?.value && adjustedDropend?.value) _classes.push('dropend')
     if(_classes.length===0) _classes.push('dropdown')
-    else _classes.unshift('btn-group')
+    _classes.unshift('btn-group')
     return _classes
 } )
 
 const dropdownMenuClasses = computed( () => {
     const _classes:Array<string|object> = []
     if(show.value) _classes.push('show')
-    if(menuEnd.value) _classes.push('dropdown-menu-end')
+    if(adjustedMenuEnd.value) _classes.push('dropdown-menu-end')
     return _classes
 } )
 
-function open() {
+/* ----- */
+
+const adjustPosition = () => {
+    if (!show.value) return
+    // Check if there's enough space below the button
+    const buttonRect = dropDownRef.value.getBoundingClientRect();
+    const dropdownRect = dropDownMenuRef.value.getBoundingClientRect();
+
+    const spaceBelow = window.innerHeight - buttonRect.bottom;
+    const spaceAbove = buttonRect.top;
+    const spaceRight = window.innerWidth - buttonRect.right;
+    const spaceLeft = buttonRect.left;
+
+    // Adjust vertical position
+    adjustedDropup.value = spaceBelow < dropdownRect.height && spaceAbove >= dropdownRect.height;
+
+    // Adjust horizontal alignment
+    adjustedMenuEnd.value = spaceRight < dropdownRect.width && spaceLeft >= dropdownRect.width;
+}
+/* ----- */
+
+
+
+async function open() {
     show.value = true
+    await nextTick();
+    adjustPosition()
 }
 function close() {
     show.value = false
@@ -122,21 +155,34 @@ defineExpose({
 </script>
 
 <style scoped>
+.dropdown-wrapper {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  left: 0;
+  top: 100%;
+}
+
 .dropstart .dropdown-menu {
-    position: absolute;
-    right:100%;
-    top: 0;
+  right: 100%;
+  left: auto;
+  top: 0;
 }
+
 .dropdown-menu.dropdown-menu-end {
-    right: 0;
+  right: 0;
+  left: auto;
 }
+
 .dropend .dropdown-menu {
-    position: absolute;
-    left:100%;
-    top: 0;
+  left: 100%;
+  top: 0;
 }
+
 .dropup .dropdown-menu {
-    position: absolute;
-    bottom: 100%;
+  bottom: 100%;
+  top: auto; /* Override top for dropup */
 }
 </style>

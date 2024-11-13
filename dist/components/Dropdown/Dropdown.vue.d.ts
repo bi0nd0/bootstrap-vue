@@ -1,6 +1,6 @@
 import { default as SIZE } from '../../enums/SIZE';
 import { default as Variant } from '../../enums/Variant';
-declare function open(): void;
+declare function open(): Promise<void>;
 declare function close(): void;
 declare function onButtonClicked(event: Event): void;
 declare function onMenuClicked(event: Event): void;
