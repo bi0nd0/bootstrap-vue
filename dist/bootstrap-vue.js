@@ -957,7 +957,7 @@ const Gt = { class: "d-inline-block position-relative" }, jt = ["disabled"], fe 
       ], 2);
     };
   }
-}), Ut = /* @__PURE__ */ q(Kt, [["__scopeId", "data-v-2264cc51"]]), qt = ["data-prevent-close"], Xt = /* @__PURE__ */ I({
+}), Ut = /* @__PURE__ */ q(Kt, [["__scopeId", "data-v-4910c394"]]), qt = ["data-prevent-close"], Xt = /* @__PURE__ */ I({
   __name: "DropdownItem",
   props: {
     active: { type: Boolean },

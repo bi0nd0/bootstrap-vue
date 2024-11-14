@@ -163,6 +163,7 @@ defineExpose({
   position: absolute;
   left: 0;
   top: 100%;
+  z-index: 1024;
 }
 
 .dropstart .dropdown-menu {
