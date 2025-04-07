@@ -1,3 +1,4 @@
+import { ComponentInternalInstance } from 'vue';
 import { default as SIZE } from '../../enums/SIZE';
 type BackdropType = boolean | "static";
 export interface Props {
@@ -13,6 +14,16 @@ export interface Props {
     size?: SIZE;
     btnSize?: SIZE;
     visible?: boolean;
+}
+interface ManagedModal {
+    element: HTMLElement;
+    priority: number;
+    instance: ComponentInternalInstance | null;
+}
+declare global {
+    interface Window {
+        _managedModals: ManagedModal[];
+    }
 }
 declare const _default: __VLS_WithTemplateSlots<import('vue').DefineComponent<Props, {
     modal: undefined;

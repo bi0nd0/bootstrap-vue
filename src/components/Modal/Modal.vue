@@ -54,9 +54,28 @@ export interface Props {
     btnSize?: SIZE,
     visible?: boolean, 
 }
+
+// Define modal manager interface for TypeScript
+interface ManagedModal {
+    element: HTMLElement;
+    priority: number;
+    instance: ComponentInternalInstance | null;
+}
+
+// Create a properly typed global state
+declare global {
+    interface Window {
+        _managedModals: ManagedModal[];
+    }
+}
+// Static array to keep track of all managed modals across component instances
+if (typeof window !== 'undefined' && !window._managedModals) {
+    window._managedModals = [];
+}
 </script>
 
 <script setup lang="ts">
+
 import { ref, toRefs, computed, onMounted, getCurrentInstance, ComponentInternalInstance, watchEffect } from 'vue'
 import { Modal } from 'bootstrap'
 import { useStickyElementManager } from '../../utils'
@@ -103,6 +122,12 @@ const countOpenModals = () => {
   const openModals = document.querySelectorAll('.modal.show')
   return openModals.length
 }
+
+// Safe access to global modal registry
+const getManagedModals = (): ManagedModal[] => {
+    return (typeof window !== 'undefined' && window._managedModals) ? window._managedModals : [];
+}
+
 // always 
 const BASE_Z_INDEX = 1055
 const zIndex = ref(BASE_Z_INDEX)
@@ -119,8 +144,30 @@ const stickyManager = useStickyElementManager()
 
 function show() {
     const promise = new Promise((resolve, reject) => {
+        if (!modalElement.value) return
+
         stickyManager.removeStickyElements()
         adjustZIndex()
+
+        // Mark the modal as managed
+        modalElement.value.classList.add('managed-modal')
+
+        // Add the modal to our tracked list before showing it
+        const managedModals = getManagedModals()
+        const priority = managedModals.length + 1
+        const modalInfo: ManagedModal = {
+            element: modalElement.value,
+            priority: priority,
+            instance: instance
+        }
+        
+        managedModals.push(modalInfo)
+        
+        // Add a shown event listener to update visibility after Bootstrap's show
+        modalElement.value.addEventListener('shown.bs.modal', () => {
+            updateModalVisibility()
+        }, { once: true })
+
         modal?.show()
         showResolve = resolve
         showReject = reject
@@ -130,7 +177,28 @@ function show() {
 }
 
 function hide(status=true) {
+    if (!modalElement.value) return
+    
+    // First remove this modal from our tracking array
+    const managedModals = getManagedModals()
+    const index = managedModals.findIndex(item => item.element === modalElement.value)
+    if (index > -1) {
+        managedModals.splice(index, 1)
+    }
+    
+    // After modal is fully hidden, update visibility of remaining modals
+    modalElement.value.addEventListener('hidden.bs.modal', () => {
+        // Reset any inline styles we added
+        if (modalElement.value) {
+            modalElement.value.style.display = ''
+        }
+        
+        // Update visibility for remaining modals
+        updateModalVisibility()
+    }, { once: true })
+
     modal?.hide()
+
     if(typeof showResolve === 'function') showResolve(status)
     emit('onHidden', modal)
     stickyManager.restoreStickyElements()
@@ -140,6 +208,32 @@ function toggle() {
     modal?.toggle()
 }
 
+// Function to hide all modals except the one with the highest priority
+const updateModalVisibility = () => {
+    const managedModals = getManagedModals()
+    if (managedModals.length === 0) return
+    
+    // Sort by priority (higher value = more recently shown)
+    managedModals.sort((a, b) => {
+        return a.priority - b.priority
+    })
+    
+    // Get the most recently shown modal (last in the array)
+    const topModal = managedModals[managedModals.length - 1]
+    
+    // Hide all modals except the top one
+    managedModals.forEach(item => {
+        if (item.element !== topModal.element) {
+            // Hide the modal visually but keep Bootstrap's show class
+            // item.element.style.display = 'none'
+            item.element.style.opacity = '0'
+        } else {
+            // Show the top modal
+            // item.element.style.display = 'block'
+            item.element.style.opacity = '1'
+        }
+    })
+}
 
 onMounted( () => {
     modal = new Modal(modalElement.value, {
@@ -147,6 +241,9 @@ onMounted( () => {
         keyboard: keyboard.value,
         focus: focus.value,
     })
+    // Add the managed class to identify our modals
+    modalElement.value.classList.add('managed-modal')
+
     watchEffect(() => {
         if (props?.visible === true) modal?.show()
         else modal?.hide()
@@ -175,5 +272,7 @@ const slotData = {show,hide,toggle, modal}
 </script>
 
 <style scoped>
-
+:global(body > div.modal-backdrop.show:has(~ .modal-backdrop.show)) {
+    opacity: 0;
+}
 </style>
