@@ -1,8 +1,9 @@
 {
-  "name": "bootstrap-vue",
-  "private": true,
-  "version": "1.2.4",
+  "name": "my-bootstrap-vue",
+  "version": "1.7.0",
   "type": "module",
+  "type": "module",
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
