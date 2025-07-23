@@ -155,7 +155,7 @@ function registerDirectives(app: App) {
 
 // Define the plugin object
 const MyPlugin = {
-  install(app: App): any {
+  install(app: App<Element>, ..._options: []) {
     registerComponents(app)
     registerDirectives(app)
 
