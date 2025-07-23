@@ -31,13 +31,22 @@
         <p>2</p>
       </b-modal>
 
-    <div class="mt-2 d-flex gap-2">
-      <button class="btn btn-sm btn-primary" @click="openAlert" >Open alert</button>
-      <button class="btn btn-sm btn-primary" @click="openConfirm" >Open confirm</button>
-      <button class="btn btn-sm btn-primary" @click="openMultiple" >Open multiple</button>
-    </div>
+      <b-modal v-model="visible" title="V-Model">
+        <p>2</p>
+      </b-modal>
+      <div>
+        <span>Visible: {{ visible }}</span>
+        <button type="button" @click="visible = !visible">Show using v-model</button>
+
+      </div>
+
+      <div class="mt-2 d-flex gap-2">
+        <button class="btn btn-sm btn-primary" @click="openAlert" >Open alert</button>
+        <button class="btn btn-sm btn-primary" @click="openConfirm" >Open confirm</button>
+        <button class="btn btn-sm btn-primary" @click="openMultiple" >Open multiple</button>
+      </div>
     
-    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat rerum illum aspernatur omnis esse? Reiciendis tempora sapiente aut corrupti placeat corporis magni dicta, facere, quibusdam velit incidunt temporibus voluptates quas.</span>
+      <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat rerum illum aspernatur omnis esse? Reiciendis tempora sapiente aut corrupti placeat corporis magni dicta, facere, quibusdam velit incidunt temporibus voluptates quas.</span>
       <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat rerum illum aspernatur omnis esse? Reiciendis tempora sapiente aut corrupti placeat corporis magni dicta, facere, quibusdam velit incidunt temporibus voluptates quas.</span>
       <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat rerum illum aspernatur omnis esse? Reiciendis tempora sapiente aut corrupti placeat corporis magni dicta, facere, quibusdam velit incidunt temporibus voluptates quas.</span>
       <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat rerum illum aspernatur omnis esse? Reiciendis tempora sapiente aut corrupti placeat corporis magni dicta, facere, quibusdam velit incidunt temporibus voluptates quas.</span>
@@ -59,6 +68,8 @@ import { useModal } from '../plugins/Plugin';
 const modal = useModal()
 
 const modalRef = ref<typeof Modal | null>(null)
+
+const visible = ref(false)
 
 async function openModal() {
   const response = await modalRef.value?.show()
