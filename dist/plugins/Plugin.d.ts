@@ -18,6 +18,6 @@ declare function useModal(): typeof ModalManager;
  */
 declare function useDialog(): typeof DialogManager;
 declare const MyPlugin: {
-    install(app: App): void;
+    install(app: App<any>): any;
 };
 export { MyPlugin as default, useToaster, useModal, useDialog };
