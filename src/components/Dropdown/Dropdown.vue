@@ -1,12 +1,17 @@
 <template>
     <div ref="dropDownRef" :class="dropdownClasses" class="dropdown-wrapper">
-        <div class="d-inline-block position-relative" v-click-outside="onClickOutside">
+        <div ref="triggerRef" class="d-inline-block position-relative" v-click-outside="onClickOutside">
             <slot name="header" v-bind="{ ...slotData }">
                 <button class="btn dropdown-toggle" :class="buttonClasses" type="button" aria-expanded="false" @click="onButtonClicked" :disabled="disabled">
                     <slot name="button" v-bind="{ ...slotData }">{{ text }}</slot>
                 </button>
             </slot>
-            <ul ref="dropDownMenuRef" class="dropdown-menu" :class="dropdownMenuClasses" @click="onMenuClicked">
+            <Teleport v-if="isTeleporting" :to="resolvedMenuContainer">
+                <ul ref="dropDownMenuRef" class="dropdown-menu" :class="dropdownMenuClasses" :style="menuInlineStyles" @click="onMenuClicked">
+                    <slot v-bind="{ ...slotData }"></slot>
+                </ul>
+            </Teleport>
+            <ul v-else ref="dropDownMenuRef" class="dropdown-menu" :class="dropdownMenuClasses" @click="onMenuClicked">
                 <slot v-bind="{ ...slotData }"></slot>
             </ul>
         </div>
@@ -14,11 +19,25 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, toRefs, nextTick, watch } from 'vue';
+import { ref, computed, nextTick, watch, reactive, onBeforeUnmount } from 'vue';
 import SIZE from '../../enums/SIZE'
 import Variant from '../../enums/Variant'
 
-const dropDownMenuRef = ref()
+type MenuContainer = string | HTMLElement
+type MenuStyles = {
+    top: string
+    left: string
+    minWidth: string
+    position: 'fixed'
+    zIndex: string
+    right: string
+}
+
+const PORTAL_Z_INDEX = 1050
+const WINDOW_SCROLL_EVENT = 'scroll'
+const WINDOW_RESIZE_EVENT = 'resize'
+
+const dropDownMenuRef = ref<HTMLUListElement | null>(null)
 
 const props = withDefaults(defineProps<{
     text?:string,
@@ -32,16 +51,20 @@ const props = withDefaults(defineProps<{
     menuEnd?:boolean,
     size?: SIZE,
     disabled?:boolean,
+    appendToBody?:boolean,
+    menuContainer?:MenuContainer,
 }>(), {
     text: '',
     variant: Variant.PRIMARY,
     right: false,
     top: false,
     menuEnd: false,
-    size: SIZE.STANDARD
+    size: SIZE.STANDARD,
+    appendToBody: false
 })
 
-const dropDownRef = ref()
+const dropDownRef = ref<HTMLElement | null>(null)
+const triggerRef = ref<HTMLElement | null>(null)
 const show = ref(false)
 
 // Create independent refs initialized with prop values
@@ -52,6 +75,25 @@ const adjustedDropend = ref(props.dropend);
 const adjustedDropstart = ref(props.dropstart);
 const adjustedMenuEnd = ref(props.menuEnd);
 
+const resolvedMenuContainer = computed<MenuContainer | null>(() => {
+    if (!props.appendToBody) return null
+    if (props.menuContainer) return props.menuContainer
+    if (typeof document === 'undefined') return null
+    return document.body
+})
+
+const isTeleporting = computed(() => props.appendToBody && resolvedMenuContainer.value !== null)
+
+const menuStyles = reactive<MenuStyles>({
+    top: '0px',
+    left: '0px',
+    minWidth: '0px',
+    position: 'fixed',
+    zIndex: String(PORTAL_Z_INDEX),
+    right: 'auto',
+})
+
+const menuInlineStyles = computed(() => (isTeleporting.value ? menuStyles : undefined))
 
 const emit = defineEmits(['open','close', 'toggle'])
 
@@ -82,11 +124,24 @@ const dropdownMenuClasses = computed( () => {
 
 /* ----- */
 
+const getTriggerRect = () => {
+    const triggerEl = triggerRef.value
+    if (!triggerEl) return null
+    return triggerEl.getBoundingClientRect()
+}
+
+const getMenuRect = () => {
+    const menuEl = dropDownMenuRef.value
+    if (!menuEl) return null
+    return menuEl.getBoundingClientRect()
+}
+
 const adjustPosition = () => {
     if (!show.value) return
     // Check if there's enough space below the button
-    const buttonRect = dropDownRef.value.getBoundingClientRect();
-    const dropdownRect = dropDownMenuRef.value.getBoundingClientRect();
+    const buttonRect = getTriggerRect()
+    const dropdownRect = getMenuRect()
+    if (!buttonRect || !dropdownRect) return
 
     const spaceBelow = window.innerHeight - buttonRect.bottom;
     const spaceAbove = buttonRect.top;
@@ -101,18 +156,77 @@ const adjustPosition = () => {
 }
 /* ----- */
 
+const updateMenuPosition = () => {
+    if (!isTeleporting.value || !show.value) return
+    const buttonRect = getTriggerRect()
+    const menuRect = getMenuRect()
+    if (!buttonRect || !menuRect) return
+
+    // Keep teleported menus aligned to the trigger using viewport coordinates.
+    let top = buttonRect.bottom
+    let left = buttonRect.left
+
+    if (adjustedDropstart.value) {
+        top = buttonRect.top
+        left = buttonRect.left - menuRect.width
+    } else if (adjustedDropend.value) {
+        top = buttonRect.top
+        left = buttonRect.right
+    } else {
+        if (adjustedDropup.value) {
+            top = buttonRect.top - menuRect.height
+        }
+        if (adjustedMenuEnd.value) {
+            left = buttonRect.right - menuRect.width
+        }
+    }
+
+    menuStyles.top = `${Math.round(top)}px`
+    menuStyles.left = `${Math.round(left)}px`
+    menuStyles.minWidth = `${Math.round(buttonRect.width)}px`
+    menuStyles.position = 'fixed'
+    menuStyles.zIndex = String(PORTAL_Z_INDEX)
+    menuStyles.right = 'auto'
+}
+
+let hasWindowListeners = false
+const onWindowUpdated = () => {
+    adjustPosition()
+    updateMenuPosition()
+}
+
+const addWindowListeners = () => {
+    if (hasWindowListeners || typeof window === 'undefined') return
+    // Capture scroll events so nested containers keep the menu aligned.
+    window.addEventListener(WINDOW_SCROLL_EVENT, onWindowUpdated, true)
+    window.addEventListener(WINDOW_RESIZE_EVENT, onWindowUpdated)
+    hasWindowListeners = true
+}
+
+const removeWindowListeners = () => {
+    if (!hasWindowListeners || typeof window === 'undefined') return
+    window.removeEventListener(WINDOW_SCROLL_EVENT, onWindowUpdated, true)
+    window.removeEventListener(WINDOW_RESIZE_EVENT, onWindowUpdated)
+    hasWindowListeners = false
+}
+
 
 
 async function open() {
     show.value = true
     await nextTick();
     adjustPosition()
+    if (isTeleporting.value) {
+        updateMenuPosition()
+        addWindowListeners()
+    }
 }
 function close() {
     show.value = false
+    removeWindowListeners()
 }
 
-const preventCloseAttribute = 'data-prevent-close'
+const PREVENT_CLOSE_ATTRIBUTE = 'data-prevent-close'
 
 function onButtonClicked(event:Event) {
     show.value ? close() : open()
@@ -120,7 +234,7 @@ function onButtonClicked(event:Event) {
 
 function onMenuClicked(event:Event) {
     const { target } = event
-    const preventClose = (target as Element)?.closest(`[${preventCloseAttribute}],[${preventCloseAttribute}=true]`)
+    const preventClose = (target as Element)?.closest(`[${PREVENT_CLOSE_ATTRIBUTE}],[${PREVENT_CLOSE_ATTRIBUTE}=true]`)
     if (!preventClose) close()
 }
 
@@ -135,7 +249,12 @@ watch(show, (value, oldValue) => {
     emit('toggle', {show: value})
     if(value===true) emit('open', {show: value})
     else emit('close', {show: value})
+    if (!value) removeWindowListeners()
 }, {immediate: true})
+
+onBeforeUnmount(() => {
+    removeWindowListeners()
+})
 
 const slotData = {
     show,

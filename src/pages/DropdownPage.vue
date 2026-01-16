@@ -53,10 +53,26 @@
       </b-dropdown-item>
     </b-dropdown>
   </div>
-    
+  <!-- Smoke-test containers: compare teleported vs inline dropdown clipping. -->
+  <div class="overflow-test">
+    <div class="fw-semibold mb-1">append-to-body</div>
+    <b-dropdown append-to-body>
+      <template #button>overflow test</template>
+      <b-dropdown-item v-for="item in overflowItems" :key="item">{{ item }}</b-dropdown-item>
+    </b-dropdown>
+  </div>
+  <div class="overflow-test">
+    <div class="fw-semibold mb-1">inline</div>
+    <b-dropdown>
+      <template #button>overflow test</template>
+      <b-dropdown-item v-for="item in overflowItems" :key="item">{{ item }}</b-dropdown-item>
+    </b-dropdown>
+  </div>
 </template>
 
 <script setup lang="ts">
+const overflowItems = Array.from({ length: 12 }, (_, index) => `Overflow item ${index + 1}`)
+
 function onOpened(event: Event) {
   console.log('onOpened', event)
 }
@@ -69,5 +85,11 @@ function onToggle(event: Event) {
 </script>
 
 <style scoped>
-
+.overflow-test {
+  width: 240px;
+  height: 120px;
+  overflow: hidden;
+  border: 1px dashed #6c757d;
+  padding: 0.5rem;
+}
 </style>
